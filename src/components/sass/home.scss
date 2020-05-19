@@ -1,0 +1,28 @@
+@import './mixins.scss';
+
+main {
+
+    ul {
+        left: 0;
+        padding: toRem(35) toRem(50);
+        position: absolute;
+        top: 0;
+        text-transform: uppercase;
+        z-index: 100;
+    }
+
+    li {
+        font-size: toRem(48);
+        font-weight: fw(black);
+        line-height: toRem(16);
+        margin: 0;
+
+        @include respond-to(iphonesL) {
+            font-size: toRem(32);
+        }
+
+        @include respond-to(medium) {
+            font-size: toRem(48);
+        }
+    }
+}

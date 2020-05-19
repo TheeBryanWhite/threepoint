@@ -1,0 +1,40 @@
+@import "../sass/mixins.scss";
+
+footer {
+    color: color(black);
+    padding: toRem(35) toRem(50);
+    width: 100%;
+    z-index: 100;
+
+    p {
+        margin: 0;
+    }
+
+    span {
+        font-weight: fw(black);
+        text-transform: uppercase;
+    }
+
+    .copyright {
+        float: left;
+        text-transform: uppercase;
+
+        p {
+            font-size: toRem(12);
+        }
+    }
+
+    .stinger {
+        float: right;
+    }
+
+    &.home {
+        background: none;
+        bottom: 0;
+        color: color(white);
+        height: auto;
+
+        position: absolute;
+        width: 100%;
+    }
+}

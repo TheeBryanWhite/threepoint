@@ -1,0 +1,20 @@
+service: static-site-mailer
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - "ses:SendEmail"
+    Resource: ["*"]
+
+functions:
+  hello:
+    handler: handler.staticSiteMailer
+    events:
+      - http:
+          method: post
+          path: static-site-mailer
+          cors: true
+  

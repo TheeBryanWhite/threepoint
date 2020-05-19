@@ -1,0 +1,100 @@
+@import '../sass/mixins.scss';
+
+.contact-form {
+    color: color(black);
+    font-size: toRem(18);
+    margin: 30px auto 0 auto;
+    max-width: 768px;
+    text-align: center;
+
+    h2 {
+        color: color(black);
+    }
+
+    input,
+    textarea {
+        background-color: color(black);
+        border: 0;
+        color: color(white);
+        padding: 10px;
+        width: 100%;
+    }
+
+    input {
+        margin-bottom: toRem(16);
+    }
+
+    label {
+        @include screen-reader-text;
+    }
+
+    .submit-container {
+        position: relative;
+        width: 100px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        overflow: hidden;
+        border: 1px solid color(black);
+        transition: 0.5s;
+
+        .mask {
+            position: absolute;
+            color: color(black);
+            text-align: center;
+            width: 101%;
+            position: absolute;
+            font-size: 20px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        button {
+            width: 101%;
+            height: 100%;
+            font-size: 20px;
+
+            @include button(#000,
+            "../../images/urban-sprite.png",
+            3000%,
+            100%,
+            none,
+            #fff);
+            cursor: pointer;
+            animation: ani2 0.7s steps(29) forwards;
+
+            &:hover {
+                animation: ani 0.7s steps(29) forwards;
+            }
+        }
+    }
+}
+
+@keyframes ani {
+    from {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
+    }
+
+    to {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+    }
+}
+
+@keyframes ani2 {
+    from {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+    }
+
+    to {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
+    }
+}
+
+.postnobills {
+    display: none;
+}

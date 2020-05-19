@@ -1,0 +1,122 @@
+@import '../sass/mixins.scss';
+
+nav {
+    ul {
+        list-style-type: none;
+        position: relative;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            font-weight: fw(black);
+            position: relative;
+            width: 100%;
+            z-index: 1;
+
+            &:before,
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              height: 5px;
+              border-bottom: 1px solid color(white);
+              top: 4px;
+              width: 100%;
+            }
+
+            &:after {
+                right: -75%;
+
+                @include respond-to(iphonesPlus) {
+                    right: -71%
+                }
+
+                @include respond-to(iphonesPlusL) {
+                    right: -62%
+                }
+
+                @include respond-to(large) {
+                    right: -59%
+                }
+
+                @include respond-to(xlarge) {
+                    right: -56%
+                }
+            }
+
+            &:before {
+                left: -75%;
+
+                @include respond-to(iphonesPlus) {
+                    left: -71%
+                }
+
+                @include respond-to(iphonesPlusL) {
+                    left: -62%
+                }
+
+                @include respond-to(large) {
+                    left: -59%
+                }
+
+                @include respond-to(xlarge) {
+                    left: -56%
+                }
+            }
+        }
+    }
+
+    a {
+        padding: 10px 20px;
+
+        &:after,
+        &:before {
+            content: "//";
+            font-weight: fw(normal);
+        }
+
+        &:after {
+            padding-left: 10px;
+        }
+
+        &:before {
+            padding-right: 10px;
+        }
+
+        &:hover {
+            span {
+                &:after,
+                &:before {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(-50%) scale(1);
+                }
+            }
+        }
+
+        span {
+            position: relative;
+
+            &:after,
+            &:before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 70px;
+                height: 70px;
+                border: 2px solid rgba(255,255,255,.4);
+                border-radius: 50%;
+                content: '';
+                opacity: 0;
+                transform: translateX(-50%) translateY(-50%) scale(0.2);
+                transition: transform 0.3s, opacity 0.3s;
+            }
+
+            &:after {
+                width: 60px;
+                height: 60px;
+                border-width: 6px;
+                transform: translateX(-50%) translateY(-50%) scale(0.8);
+            }
+        }
+    }
+}
