@@ -28,7 +28,7 @@ export default class ContactForm extends React.Component {
         },
         "postnobills": {
             "value":'',
-            "valid": false
+            "valid": true
         }
     }
 
@@ -54,21 +54,33 @@ export default class ContactForm extends React.Component {
         const formSubmission = { ...this.state};
 
         // Shoot through the form values
+        // Set the valid status to false if any fields are blank
+        // Add the invalid class to the relevant input
         for (const data in formSubmission) {
-
             // If any of the values are blank, set the valid status false
-            if (formSubmission[data].value === '') {
+            if (formSubmission[data].value === '' && data !== 'postnobills') {
                 formSubmission[data].valid = false
                 this.setState({formSubmission});
                 document.getElementById(data).classList.add('invalid');
+                return false;
+            }
+        }
+
+        // Loop again, if any fields are invalid, don't submit the form
+        for (const data in formSubmission) {
+            // if any of the valid statuses are set to false, bail out
+            if (formSubmission[data].valid !== false) {
+                return true;
             }
         }
     }
 
+    validationMessage = () => { 
+        return 'Sorry, dude. This field is required.';
+    }
+
     handleSubmit = event => {
         event.preventDefault()
-
-        this.validateForm();
 
         // First check to see if stupid bots are filling out the form
         if (!this.state.postnobills.length > 0) {
@@ -79,6 +91,12 @@ export default class ContactForm extends React.Component {
                 "phone": this.state.phone.value,
                 "company": this.state.company.value,
                 "message": this.state.message.value
+            }
+
+            let isThisValid = this.validateForm();
+
+            if (!isThisValid) {
+                return false;
             }
 
             axios.post(
@@ -112,7 +130,7 @@ export default class ContactForm extends React.Component {
                         type="text"
                         value={this.state.name.value}
                     />
-                    <p className="validation-message">Sorry, dude. This field is required.</p>
+                    <p className="validation-message">{this.validationMessage()}</p>
                 </div>
                 <div className="row">
                     <label htmlFor="email">Email</label>
@@ -124,7 +142,7 @@ export default class ContactForm extends React.Component {
                         type="email"
                         value={this.state.email.value}
                     />
-                    <p className="validation-message">Sorry, dude. This field is required.</p>
+                    <p className="validation-message">{this.validationMessage()}</p>
                 </div>
                 <div className="row">
                     <label htmlFor="phone">Phone</label>
@@ -136,7 +154,7 @@ export default class ContactForm extends React.Component {
                         type="text"
                         value={this.state.phone.value}
                     />
-                    <p className="validation-message">Sorry, dude. This field is required.</p>
+                    <p className="validation-message">{this.validationMessage()}</p>
                 </div>
                 <div className="row">
                     <label htmlFor="company">Company</label>
@@ -148,7 +166,7 @@ export default class ContactForm extends React.Component {
                         type="text"
                         value={this.state.company.value}
                     />
-                    <p className="validation-message">Sorry, dude. This field is required.</p>
+                    <p className="validation-message">{this.validationMessage()}</p>
                 </div>
                 <div className="row">
                     <label htmlFor="message">Message</label>
@@ -160,7 +178,7 @@ export default class ContactForm extends React.Component {
                         rows="5"
                         value={this.state.message.value}
                     />
-                    <p className="validation-message">Sorry, dude. This field is required.</p>
+                    <p className="validation-message">{this.validationMessage()}</p>
                 </div>
                 <div className="row">
                     <label htmlFor="postnobills">postnobills</label>

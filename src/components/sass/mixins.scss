@@ -699,3 +699,7 @@ a {
 .screen-reader-text {
     @include screen-reader-text;
 }
+
+main {
+    padding: 0 2rem;
+}

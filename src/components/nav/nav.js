@@ -22,7 +22,7 @@ const Nav = ({ menu }) => {
 }
 
 Nav.propTypes = {
-    menu: PropTypes.string,
+    menu: PropTypes.array,
 }
   
 Nav.defaultProps = {

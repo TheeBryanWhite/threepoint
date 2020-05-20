@@ -16,7 +16,7 @@ const HomeHeader = ({ menuData }) => (
 )
 
 HomeHeader.propTypes = {
-  menuData: PropTypes.object,
+  menuData: PropTypes.array,
 }
 
 HomeHeader.defaultProps = {
