@@ -18,6 +18,14 @@
         color: color(white);
         padding: 10px;
         width: 100%;
+
+        &.invalid {
+            border: 2px solid color(validation-color);
+
+            &+ .validation-message {
+                display: block;
+            }
+        }
     }
 
     input {
@@ -36,7 +44,6 @@
         margin-right: auto;
         margin-top: 10px;
         overflow: hidden;
-        border: 1px solid color(black);
         transition: 0.5s;
 
         .mask {
@@ -68,6 +75,12 @@
                 animation: ani 0.7s steps(29) forwards;
             }
         }
+    }
+
+    .validation-message {
+        color: color(validation-color);
+        display: none;
+        text-align: left;
     }
 }
 
