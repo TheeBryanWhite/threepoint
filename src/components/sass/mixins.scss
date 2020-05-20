@@ -510,12 +510,14 @@ $asset-base-path: './' !default;
 
 $white: #fff;
 $black: #000;
+$gray: #767676;
 $blue: #00aaec;
 
 //scss-lint:disable ColorVariable
 $colors: (
     white: $white,
     black: $black,
+    gray: $gray,
     validation-color: #d9534f,
     fileupload-border: #ddd,
     fileupload-color: #aaa,

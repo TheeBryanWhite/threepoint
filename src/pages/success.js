@@ -1,21 +1,18 @@
 import React from 'react';
 import SEO from '../components/seo'
 
-import Layout from '../components/layout/layout'
+import SuccessLayout from '../components/layout/success-layout'
 
 const Success = () => (
-  <Layout>
+  <SuccessLayout>
      <SEO title="Contact Success!" />
 
-    <div id="main" className="alt">
-      <section id="one">
-        <div className="inner">
-            <h2>You did it!</h2>
-            <p>We'll get you back ASAP!</p>
-        </div>
-      </section>
+    <div id="main" className="main success">
+      <h2>You did it!</h2>
+      <hr />
+      <p>We'll get you back ASAP!</p>
     </div>
-  </Layout>
+  </SuccessLayout>
 );
 
 export default Success

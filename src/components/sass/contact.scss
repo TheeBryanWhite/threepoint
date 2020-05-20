@@ -1,6 +1,7 @@
 @import '../sass/mixins.scss';
 
-.contact-form {
+.contact-form,
+.success {
     color: color(black);
     font-size: toRem(18);
     margin: 30px auto 0 auto;
@@ -110,4 +111,21 @@
 
 .postnobills {
     display: none;
+}
+
+.main.success {
+    @include center;
+    margin: 0;
+
+    hr {
+        border: 1px solid color(gray);
+        width: 320px;
+    }
+}
+
+footer.success {
+    bottom: 0;
+    position: absolute;
+    max-width: none;
+    width: 100%;
 }
