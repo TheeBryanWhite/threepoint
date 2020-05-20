@@ -5,7 +5,7 @@ import Layout from '../components/layout/layout'
 
 const Success = () => (
   <Layout>
-     <SEO title="ThreePoint Collective | Contact Us" />
+     <SEO title="Contact Success!" />
 
     <div id="main" className="alt">
       <section id="one">

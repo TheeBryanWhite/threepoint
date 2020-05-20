@@ -7,7 +7,7 @@ import '../components/sass/home.scss'
 
 const IndexPage = () => (
   <HomeLayout>
-    <SEO title="ThreePoint Collective | Home" />
+    <SEO title="Home" />
     <ul style={{
       listStyle: `none`
     }}>

@@ -10,7 +10,7 @@ import '../components/sass/contact.scss'
 
 const ContactPage = ({data}) => (
   <Layout>
-    <SEO title="ThreePoint Collective | Contact Us" />
+    <SEO title="Contact Us" />
 
     <div className="contact-form">
         <h2>Let's join forces!</h2>
