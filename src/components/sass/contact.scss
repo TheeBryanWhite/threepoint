@@ -23,7 +23,15 @@
         &.invalid {
             border: 2px solid color(validation-color);
 
-            &+ .validation-message {
+            &~ .validation-message {
+                display: block;
+            }
+        }
+
+        &.email-invalid {
+            border: 2px solid color(validation-color);
+
+            &~ .validation-email {
                 display: block;
             }
         }

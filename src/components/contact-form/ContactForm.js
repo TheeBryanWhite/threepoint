@@ -47,6 +47,7 @@ export default class ContactForm extends React.Component {
 
         // Remove the invalid classes on the input fields
         document.getElementById(name).classList.remove('invalid');
+        document.getElementById(name).classList.remove('email-invalid');
 
     }
 
@@ -58,18 +59,6 @@ export default class ContactForm extends React.Component {
     validateForm = () => {
         const formSubmission = { ...this.state};
 
-        // Check the format of the email field
-        // for (const data in formSubmission) {
-        //     if (data === 'email') {
-        //         if (!this.isEmailValid(formSubmission[data].value)) {
-        //             formSubmission[data].valid = false;
-        //             this.setState({formSubmission});
-        //             document.getElementById(data).classList.add('email-invalid');
-        //             return false;
-        //         }
-        //     }
-        // }
-
         // Shoot through the form values
         // Set the valid status to false if any fields are blank
         // Add the invalid class to the relevant input
@@ -80,6 +69,13 @@ export default class ContactForm extends React.Component {
                 this.setState({formSubmission});
                 document.getElementById(data).classList.add('invalid');
                 return false;
+            } else if (data === 'email') {
+                if (!this.isEmailValid(formSubmission[data].value)) {
+                    formSubmission[data].valid = false;
+                    this.setState({formSubmission});
+                    document.getElementById(data).classList.add('email-invalid');
+                    return false;
+                }
             }
         }
 
@@ -156,7 +152,7 @@ export default class ContactForm extends React.Component {
                         name="email"
                         onChange={this.handleInputChange}
                         placeholder="Email"
-                        type="email"
+                        type="text"
                         value={this.state.email.value}
                     />
                     <p className="validation-message">{this.validationMessage()}</p>
