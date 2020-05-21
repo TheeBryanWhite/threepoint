@@ -50,8 +50,25 @@ export default class ContactForm extends React.Component {
 
     }
 
+    isEmailValid = email => {
+        const pattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z0-9_\-\.]+)$/;  // eslint-disable-line no-useless-escape
+        return pattern.test(email.toLowerCase());
+    }
+
     validateForm = () => {
         const formSubmission = { ...this.state};
+
+        // Check the format of the email field
+        // for (const data in formSubmission) {
+        //     if (data === 'email') {
+        //         if (!this.isEmailValid(formSubmission[data].value)) {
+        //             formSubmission[data].valid = false;
+        //             this.setState({formSubmission});
+        //             document.getElementById(data).classList.add('email-invalid');
+        //             return false;
+        //         }
+        //     }
+        // }
 
         // Shoot through the form values
         // Set the valid status to false if any fields are blank
@@ -143,6 +160,7 @@ export default class ContactForm extends React.Component {
                         value={this.state.email.value}
                     />
                     <p className="validation-message">{this.validationMessage()}</p>
+                    <p className="validation-email">This doesn't seem to be a valid email address.</p>
                 </div>
                 <div className="row">
                     <label htmlFor="phone">Phone</label>

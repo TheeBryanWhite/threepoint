@@ -78,7 +78,8 @@
         }
     }
 
-    .validation-message {
+    .validation-message,
+    .validation-email {
         color: color(validation-color);
         display: none;
         text-align: left;
