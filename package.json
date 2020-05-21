@@ -21,6 +21,7 @@
     "gatsby-transformer-sharp": "^2.5.1",
     "graphql-hooks": "^4.4.4",
     "gsap": "^3.2.6",
+    "modernizr": "^3.11.2",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
