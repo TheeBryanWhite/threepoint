@@ -6,13 +6,20 @@ module.exports = {
       {
         class: 'start-here',
         name: 'Start here',
-        link: 'contact'
+        link: 'contact-us'
       }
     ],
     phone: `(978) 238-9797`,
     title: `ThreePoint Collective`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-prismic-graphql',
+        options: {
+          accessToken: 'MC5Yc2g3WkJFQUFDUUFDV3pS.PBnvv70rBUpM77-977-9Tu-_ve-_vVjvv73vv70jSmpw77-9U--_ve-_vTbvv703CO-_vTTvv70C77-9',
+          repositoryName: 'threepoint', // (REQUIRED, replace with your own)
+      }
+    },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
@@ -51,9 +58,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-transformer-sharp`
   ],
 }
