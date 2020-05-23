@@ -8,6 +8,7 @@ import SuccessLayout from '../components/layout/success-layout'
 const Success = ({data}) => {
 
     const doc = data.prismic.allPages.edges.slice(0,3).pop();
+
     if (!doc) return null;
 
     return (
