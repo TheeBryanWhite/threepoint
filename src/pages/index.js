@@ -10,7 +10,7 @@ import '../components/sass/home.scss'
 
 const IndexPage = ({data}) => {
 
-  const doc = data.prismic._allDocuments.edges.slice(0,1).pop();
+  const doc = data.prismic.allPages.edges.slice(0,1).pop();
   if (!doc) return null;
 
   return (
@@ -22,7 +22,7 @@ const IndexPage = ({data}) => {
 }
 
 export const query = graphql`
-query PageQuery($uid: String) {
+query HomeQuery($uid: String) {
   prismic {
     allPages(uid: $uid) {
       edges {

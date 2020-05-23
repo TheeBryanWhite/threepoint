@@ -119,7 +119,7 @@ export default class ContactForm extends React.Component {
                 'Content-Type': 'application/json; charset=UTF-8'
             },
             }).then(response => {
-                window.location.replace('/success');
+                window.location.replace('/contact-us-success');
                 console.log(response);
             }).catch(error => {
                 console.log(error);
