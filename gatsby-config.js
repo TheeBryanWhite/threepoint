@@ -6,7 +6,7 @@ module.exports = {
       {
         class: 'start-here',
         name: 'Start here',
-        link: 'contact'
+        link: 'contact-us'
       }
     ],
     phone: `(978) 238-9797`,
@@ -50,6 +50,13 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: 'gatsby-source-prismic-graphql',
+        options: {
+          accessToken: 'MC5Yc2g3WkJFQUFDUUFDV3pS.PBnvv70rBUpM77-977-9Tu-_ve-_vVjvv73vv70jSmpw77-9U--_ve-_vTbvv703CO-_vTTvv70C77-9',
+          repositoryName: 'threepoint', // (REQUIRED, replace with your own)
+      }
     },
     `gatsby-transformer-sharp`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
