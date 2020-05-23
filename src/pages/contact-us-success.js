@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import SEO from '../components/seo'
 import { RichText } from 'prismic-reactjs'
+import { graphql } from 'gatsby'
 
 import SuccessLayout from '../components/layout/success-layout'
 
