@@ -46,7 +46,7 @@ query ContactQuery($uid: String) {
 
 ContactPage.propTypes = {
   page_content: PropTypes.object,
-  page_title: PropTypes.string,
+  page_title: PropTypes.object,
 }
 
 ContactPage.defaultProps = {

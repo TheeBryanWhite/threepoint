@@ -30,7 +30,6 @@ query SuccessQuery($uid: String) {
       edges {
         node {
           ... on PRISMIC_Page {
-            page_title
             page_content
           }
         }
