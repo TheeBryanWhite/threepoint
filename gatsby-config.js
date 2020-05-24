@@ -46,6 +46,15 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: [
+          '/contact-us-success',
+          '/preview',
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://3pt.design',
@@ -53,6 +62,7 @@ module.exports = {
           userAgent: '*',
           allow: '/'
         }],
+        output: '/robots.txt',
         sitemap: 'https://3pt.design/sitemap.xml'
       },
     },    
