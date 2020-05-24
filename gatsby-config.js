@@ -13,6 +13,7 @@ module.exports = {
     title: `ThreePoint Collective`,
   },
   plugins: [
+    'gatsby-background-image',
     {
       resolve: 'gatsby-source-prismic-graphql',
         options: {
@@ -55,7 +56,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src`,
       },
     },
     `gatsby-transformer-sharp`

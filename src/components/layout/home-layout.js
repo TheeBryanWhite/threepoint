@@ -1,18 +1,12 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react";
+import React from 'react'
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
-import HomeHeader from "../header/home-header";
-import Footer from "../footer/footer";
-import "./layout.scss";
-import "../../utils/normalize.css";
+import HomeHeader from "../header/home-header"
+import Footer from "../footer/footer"
+import "./layout.scss"
+import "../../utils/normalize.css"
 
 const HomeLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,18 +18,32 @@ const HomeLayout = ({ children }) => {
             class
             name
             link
+          }
         }
+      },
+      desktop: file(relativePath: { eq: "components/layout/img/background.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }
-  `);
+  `)
+
+  const imageData = data.desktop.childImageSharp.fluid
 
   return (
     <>
       <HomeHeader menuData={data.site.siteMetadata.menuLinks} />
-      <main className="home">
-        {children}
-      </main>
+      <BackgroundImage
+          Tag="main"
+          className="home"
+          fluid={imageData}
+          backgroundColor={`#000`}
+        >
+          {children}
+        </BackgroundImage>
       <Footer footerClass="home" siteTitle={data.site.siteMetadata.title} />
     </>
   )
@@ -45,4 +53,4 @@ HomeLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default HomeLayout;
+export default HomeLayout
