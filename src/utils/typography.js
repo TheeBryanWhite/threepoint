@@ -1,27 +1,13 @@
 import Typography from "typography"
 
+let bodyFontFamily = ["Raleway", "Helvetica", "Arial", "sans-serif"];
+let headerFontFamily = bodyFontFamily;
+
 const typography = new Typography({
   baseFontSize: "16px",
   baseLineHeight: 1,
-  googleFonts: [
-      {
-          name: 'Raleway',
-          styles: [
-            300,
-            400,
-            500,
-            600,
-            700,
-            800,
-            900
-          ],
-      },
-  ],
-  headerFontFamily: [
-    "Raleway",
-  ],
-  bodyFontFamily: [
-    "Raleway",
-  ],
+  omitGoogleFont: true,
+  headerFontFamily: headerFontFamily,
+  bodyFontFamily: bodyFontFamily,
 })
 export default typography
