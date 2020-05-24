@@ -1,3 +1,0 @@
-Sitemap: https://3pt.design/sitemap.xml
-User-agent: *
-Disallow: /site-mailer/
