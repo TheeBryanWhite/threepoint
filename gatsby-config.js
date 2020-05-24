@@ -61,7 +61,8 @@ module.exports = {
         host: 'https://3pt.design',
         policy: [{
           userAgent: '*',
-          allow: '/'
+          allow: '/',
+          disallow: '/site-mailer'
         }],
         output: '/robots.txt',
         sitemap: 'https://3pt.design/sitemap.xml'
