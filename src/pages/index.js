@@ -7,7 +7,6 @@ import SEO from '../components/seo'
 import { RichText } from 'prismic-reactjs'
 
 import '../components/sass/home.scss'
-import { WorkDocs } from 'aws-sdk'
 
 const IndexPage = ({data}) => {
 
