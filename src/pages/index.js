@@ -7,29 +7,30 @@ import SEO from '../components/seo'
 import { RichText } from 'prismic-reactjs'
 
 import '../components/sass/home.scss'
+import { WorkDocs } from 'aws-sdk'
 
 const IndexPage = ({data}) => {
 
-  const doc = data.prismic.allPages.edges.slice(0,1).pop()
+  const doc = data.prismic.allPages.edges.slice(0,3).pop()
   if (!doc) return null
 
   return (
     <HomeLayout>
-      <SEO title="Home" />
+      <SEO title={doc.node.seo_title} description={doc.node.seo_description} />
       <RichText render={doc.node.page_content} />
     </HomeLayout>
   )
 }
 
 export const query = graphql`
-query PageQuery($uid: String) {
+query homeQuery {
   prismic {
-    allPages(uid: $uid) {
+    allPages(uid: "home") {
       edges {
         node {
-          ... on PRISMIC_Page {
-            page_content
-          }
+          page_content
+          seo_title
+          seo_description
         }
       }
     }
@@ -39,10 +40,14 @@ query PageQuery($uid: String) {
 
 IndexPage.propTypes = {
   page_content: PropTypes.object,
+  seo_description: PropTypes.string,
+  seo_title: PropTypes.string
 }
 
 IndexPage.defaultProps = {
   page_content: {},
+  seo_description: ``,
+  seo_title: ``
 }
 
 export default IndexPage
