@@ -1,89 +1,34 @@
 module.exports = {
   siteMetadata: {
-    author: 'Bryan White',
-    description: 'An agency for brand strategy, product design, and marketing',
-    menuLinks: [
-      {
-        class: 'start-here',
-        name: 'Start here',
-        link: 'contact-us'
-      }
-    ],
-    phone: '(978) 238-9797',
-    siteUrl: 'https://3pt.design',
-    title: 'ThreePoint Collective',
+    title: `Gatsby Default Starter`,
+    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    author: `@gatsbyjs`,
   },
   plugins: [
-    'gatsby-background-image',
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-prismic-graphql',
-        options: {
-          accessToken: 'MC5Yc2g3WkJFQUFDUUFDV3pS.PBnvv70rBUpM77-977-9Tu-_ve-_vVjvv73vv70jSmpw77-9U--_ve-_vTbvv703CO-_vTTvv70C77-9',
-          omitPrismicScript: true,
-          repositoryName: 'threepoint', // (REQUIRED, replace with your own)
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        id: 'GTM-PPLHFNL',
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-        routeChangeEventName: "gatsby-route-change",
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'ThreePoint Collective Site',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#000',
-        theme_color: '#fff',
-        display: 'minimal-ui',
-        icon: 'src/images/triangle.png', // This path is relative to the root of the site.
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        exclude: [
-          '/contact-us-success',
-          '/preview',
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: 'https://3pt.design',
-        policy: [{
-          userAgent: '*',
-          allow: '/',
-          disallow: '/site-mailer'
-        }],
-        output: '/robots.txt',
-        sitemap: 'https://3pt.design/sitemap.xml'
-      },
-    },    
-    'gatsby-plugin-sass',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-transition-link',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'source',
-        path: `${__dirname}/src`,
-      },
-    },
-    'gatsby-transformer-sharp'
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }

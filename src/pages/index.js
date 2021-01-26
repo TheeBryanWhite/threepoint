@@ -1,52 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 
-import HomeLayout from '../components/layout/home-layout'
-import SEO from '../components/seo'
-import { RichText } from 'prismic-reactjs'
+import Layout from "../components/layout"
+import Image from "../components/image"
+import SEO from "../components/seo"
 
-import '../components/sass/home.scss'
-
-const IndexPage = ({data}) => {
-
-  const doc = data.prismic.allPages.edges.slice(0,3).pop()
-  if (!doc) return null
-
-  return (
-    <HomeLayout>
-      <SEO title={doc.node.seo_title} description={doc.node.seo_description} />
-      <RichText render={doc.node.page_content} />
-    </HomeLayout>
-  )
-}
-
-export const query = graphql`
-query homeQuery {
-  prismic {
-    allPages(uid: "home") {
-      edges {
-        node {
-          page_content
-          seo_title
-          seo_description
-        }
-      }
-    }
-  }
-}
-`
-
-IndexPage.propTypes = {
-  page_content: PropTypes.object,
-  seo_description: PropTypes.string,
-  seo_title: PropTypes.string
-}
-
-IndexPage.defaultProps = {
-  page_content: {},
-  seo_description: ``,
-  seo_title: ``
-}
+const IndexPage = () => (
+  <Layout>
+    <SEO title="Home" />
+    <h1>Hi people</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <Image />
+    </div>
+    <Link to="/page-2/">Go to page 2</Link> <br />
+    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+  </Layout>
+)
 
 export default IndexPage
