@@ -2,8 +2,8 @@ import React from "preact/compat"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./Header.js"
-import Footer from "./Footer.js"
+import Header from "./header"
+import Footer from "./Footer"
 import "./layout.css"
 
 const Layout = (props) => {
