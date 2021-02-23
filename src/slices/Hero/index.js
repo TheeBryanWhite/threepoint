@@ -1,4 +1,4 @@
-import React, {useEffect} from "preact/compat"
+import React, {useEffect} from "react"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 import BackgroundImage from 'gatsby-background-image'

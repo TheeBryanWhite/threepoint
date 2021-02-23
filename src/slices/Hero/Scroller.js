@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'preact/compat'
+import React, { useEffect, useState} from 'react'
 import { css } from "@emotion/react"
 import Helpers from '../../utils/Helpers'
 
