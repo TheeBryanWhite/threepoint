@@ -12,6 +12,7 @@ const TweenerEl = styled.section`
 	color: rgb(${yellow.defaultColors()});
 	font-family: 'Axis', Helvetica, Arial, sans-seriff;
 	font-size: 40px;
+	height: 100vh;
 	line-height: 40px;
 	position: relative; 
 	z-index: 1;
@@ -31,64 +32,43 @@ const TweenerEl = styled.section`
 	}
 `
 
-const containerStyles = css`
-	height: 100vh; 
-	margin: 0 auto;
-	padding: 0 2rem;
-	position: fixed !important;
-	top: 0;
-	width: 100vw;
-`
-
 const Tweener = props => {
 	const compoData = props.input
 
 	useEffect(() => {
-		const sideScroll = () => {
-			const docWidth = document.body.clientWidth
-			const target = document.getElementById(compoData.id)
-			const targetOuter = target.querySelector('.container-outer')
-			const targetChild = target.querySelector('.container')
-			const targetCopy = target.querySelector('p')
-			
-			target.style.height = `${docWidth + 200}px`
-			targetOuter.style.height = `${docWidth}px`
-			targetChild.style.left = `${docWidth}px`
-			targetCopy.style.left = `100%`
-			
-			const scrollThis = () => {
-			  const targetRect = target.getBoundingClientRect()
-			
-			  let output = false
-			  if (targetRect.top < window.innerHeight) {
-				output = true
-			  }
-		  
-			  return output
-			}
-		  
-			const setHorizontalPosition = () => {
-			  const targetRect = targetOuter.getBoundingClientRect()
-			  const howMuchScrolled = targetRect.height - targetRect.bottom
-			  const percentageScrolled = (howMuchScrolled / (targetRect.height - window.innerHeight)) * 100
-		  
-			  if (scrollThis() === true && percentageScrolled <= 100) { 
-				targetChild.style.left = `${100 - percentageScrolled}%`
-			  } else if (scrollThis() === true && percentageScrolled >= 100) {
-				targetChild.style.left = 0
-			  }
+		const main = document.getElementsByTagName('main')
+		const tweener = document.getElementById(compoData.id)
+		const targetChild = tweener.querySelector('.container')
+		const docHeight = document.body.clientHeight
 
-			  if (percentageScrolled <= 100 && targetCopy.style.left >= `0%`) {
-				targetCopy.style.left = `${100 - (percentageScrolled * 1.3 )}%`
-			  }
+		const scrollIn = () => {
+			const tweener = document.getElementById(compoData.id)
+			const tweenerRect = tweener.getBoundingClientRect()
+			const tweenerTop = tweenerRect.top
+
+			if (tweenerTop < docHeight) {
+				setHorizontalPosition()
 			}
-			
-			window.addEventListener('scroll', scrollThis, false)
-			window.addEventListener('scroll', setHorizontalPosition, false)
 		}
 
-		sideScroll()
-	}, [compoData.id])
+		const setHorizontalPosition = () => {
+			const targetRect =  tweener.getBoundingClientRect()
+			const howMuchScrolled = targetRect.height - targetRect.top
+			const percentageScrolled = Math.abs((howMuchScrolled / targetRect.height) * 100)
+
+			if (percentageScrolled <= 100) { 
+				targetChild.style.left = `${100 - percentageScrolled}%`
+			  } else if (percentageScrolled >= 100) {
+				targetChild.style.left = 0
+			  }
+		}
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('load', scrollIn, false)
+			window.addEventListener('resize', scrollIn, false)
+			main[0].addEventListener('scroll', scrollIn, false)
+		}
+	}, [])
 
 	return(
 		<TweenerEl 
@@ -98,7 +78,18 @@ const Tweener = props => {
 			<div class="container-outer">
 				<BackgroundImage
 					className="container"
-					css={containerStyles}
+					css={
+						css`
+							height: 100vh;
+							left: 100%;
+							margin: 0 auto;
+							padding: 0 2rem;
+							pointer-events: none;
+							position: fixed !important;
+							top: 0;
+							width: 100vw;
+						`
+					}
 					fluid={compoData.primary.tweener_background_image.localFile.childImageSharp.fluid}
 					Tag="div"
 				>
@@ -106,17 +97,17 @@ const Tweener = props => {
 						className="container-inner" 
 						css={
 							css`
-							height: 100vh; 
-							position: relative;
+								height: 100vh; 
+								position: relative;
 							`
 						}
 					>
 						<div 
 							css={
 								css`
-								position: absolute; 
-								top: 50%; 
-								transform: translateY(-50%);
+									position: absolute; 
+									top: 50%; 
+									transform: translateY(-50%);
 								`
 							} 
 							dangerouslySetInnerHTML={{ __html: compoData.primary.tweener_body.html }} 

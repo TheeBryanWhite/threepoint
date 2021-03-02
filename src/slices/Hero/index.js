@@ -15,6 +15,126 @@ let bpLarge = new Helpers('large')
 let inOutQuart = new Helpers('in-out-quart')
 let outQuart = new Helpers('out-quart')
 
+const heroReveal = css`
+	animation: fadeIn 1s linear forwards;
+	background-color: rgb(${black.defaultColors()});
+	height: 100vh;
+	opacity: 0;
+
+	&.reveal {
+		&:after {
+			animation: fadeOut 0.5s linear forwards;
+			animation-delay: 8s;
+		}
+
+		video {
+			animation: fadeOut 0.5s linear forwards;
+			animation-delay: 8s;
+		}
+		
+		#slide-1 {
+			h1 {
+				animation: foldOut 0.5s forwards;
+				animation-delay: 1.5s;
+
+				&:after {
+					animation: glowFade 0.7s forwards;
+				}
+			}
+		}
+
+		#slide-2 {
+			animation: fadeOut 0.5s linear forwards;
+			animation-delay: 8s;
+		}
+
+		.bubbles path {
+			animation: fillIn 4s cubic-bezier(${inOutQuart.ease()}) forwards;
+			animation-delay: 2s;
+		}
+
+		#slide-3 .logo-container {
+			animation-name: fadeIn, zoom;
+			animation-duration: 2s, 10s;
+			animation-delay: 8s, 8s;
+			animation-timing-function: linear, cubic-bezier(${outQuart.ease()});
+			animation-fill-mode: forwards, forwards;
+		}
+	}
+
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fillIn {
+		0% { 
+			transform: scale(0) rotate(33deg); 
+		}
+
+		35%, 
+		65% { 
+			transform: scale(10) rotate(0deg); 
+		}
+
+		100% {
+			transform: scale(10);
+		}
+	}
+
+	@keyframes foldOut {
+		0% {
+			clip-path: inset(0px 0 0 0);
+		}
+		100% {
+			clip-path: inset(100% 0 0 0);
+		}
+	}
+
+	@keyframes glowFade {
+		0% {
+			opacity: 0;
+			text-shadow: 0 0 5px rgb(${white.defaultColors()}),
+						 0 0 10px rgb(${white.defaultColors()}),
+						 0 0 15px rgb(${white.defaultColors()}),
+						 0 0 20px rgb(${yellow.defaultColors()}),
+						 0 0 30px rgb(${yellow.defaultColors()}), 
+						 0 0 40px rgb(${yellow.defaultColors()}), 
+						 0 0 55px rgb(${yellow.defaultColors()}), 
+						 0 0 75px rgb(${yellow.defaultColors()});
+		}
+		100% {
+			opacity: 1;
+			text-shadow: none;
+		}
+	}
+
+	@keyframes zoom {
+		0% {
+			transform: scale(0.8);
+		}
+
+		100% {
+			transform: scale(1);
+		}
+	}
+`
+
 const containerMargin = new Helpers(32)
 const Container = styled.div`
 	align-items: center;
@@ -25,7 +145,6 @@ const Container = styled.div`
 	margin: 0 auto;
 	max-width: 1440px;
 	padding: 0 ${containerMargin.toRem};
-	position: relative;
 	text-transform: uppercase;
 
 	p {
@@ -154,127 +273,6 @@ const Video = styled.video`
 	}
 `
 
-const heroReveal = css`
-	animation: fadeIn 1s linear forwards;
-	background-color: rgb(${black.defaultColors()});
-	height: 100vh;
-	opacity: 0;
-	position: relative;
-
-	&.reveal {
-		&:after {
-			animation: fadeOut 0.5s linear forwards;
-			animation-delay: 8s;
-		}
-
-		video {
-			animation: fadeOut 0.5s linear forwards;
-			animation-delay: 8s;
-		}
-		
-		#slide-1 {
-			h1 {
-				animation: foldOut 0.5s forwards;
-				animation-delay: 1.5s;
-
-				&:after {
-					animation: glowFade 0.7s forwards;
-				}
-			}
-		}
-
-		#slide-2 {
-			animation: fadeOut 0.5s linear forwards;
-			animation-delay: 8s;
-		}
-
-		.bubbles path {
-			animation: fillIn 4s cubic-bezier(${inOutQuart.ease()}) forwards;
-			animation-delay: 2s;
-		}
-
-		#slide-3 .logo-container {
-			animation-name: fadeIn, zoom;
-			animation-duration: 2s, 10s;
-			animation-delay: 8s, 8s;
-			animation-timing-function: linear, cubic-bezier(${outQuart.ease()});
-			animation-fill-mode: forwards, forwards;
-		}
-	}
-
-	@keyframes fadeOut {
-		0% {
-			opacity: 1;
-		}
-
-		100% {
-			opacity: 0;
-		}
-	}
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-
-		100% {
-			opacity: 1;
-		}
-	}
-
-	@keyframes fillIn {
-		0% { 
-			transform: scale(0) rotate(33deg); 
-		}
-
-		35%, 
-		65% { 
-			transform: scale(10) rotate(0deg); 
-		}
-
-		100% {
-			transform: scale(10);
-		}
-	}
-
-	@keyframes foldOut {
-		0% {
-			clip-path: inset(0px 0 0 0);
-		}
-		100% {
-			clip-path: inset(100% 0 0 0);
-		}
-	}
-
-	@keyframes glowFade {
-		0% {
-			opacity: 0;
-			text-shadow: 0 0 5px rgb(${white.defaultColors()}),
-						 0 0 10px rgb(${white.defaultColors()}),
-						 0 0 15px rgb(${white.defaultColors()}),
-						 0 0 20px rgb(${yellow.defaultColors()}),
-						 0 0 30px rgb(${yellow.defaultColors()}), 
-						 0 0 40px rgb(${yellow.defaultColors()}), 
-						 0 0 55px rgb(${yellow.defaultColors()}), 
-						 0 0 75px rgb(${yellow.defaultColors()});
-		}
-		100% {
-			opacity: 1;
-			text-shadow: none;
-		}
-	}
-
-	@keyframes zoom {
-		0% {
-			transform: scale(0.8);
-		}
-
-		100% {
-			transform: scale(1);
-		}
-	}
-`
-
 const Hero = props => {
 	const compoData = props.input
 
@@ -284,31 +282,34 @@ const Hero = props => {
 	}, [])
 	
 	return (
-		<BackgroundImage
+		<section
 			className="hero"
 			css={heroReveal}
-			fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}
 			id="hero"
-			Tag="section"
 		>
-			<div css={css`position: fixed; width: 100%;`}>
-				<Video 
-					autoPlay
-					loop
-					muted
-					preload="auto"
-					id="hero-video"
-				>
-					<source src={compoData.primary.hero_video_mp4.url} type="video/mp4" />
-					<source src={compoData.primary.hero_video_ogv.url} type="video/ogv" />
-				</Video>
-				<Overlay />
-				<Container>
-					<Slides />
-					<Scroller />
-				</Container>
-			</div>
-		</BackgroundImage>
+			<BackgroundImage
+				fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}
+				Tag="div"
+			>
+				<div css={css`position: absolute; width: 100%;`}>
+					<Video 
+						autoPlay
+						loop
+						muted
+						preload="auto"
+						id="hero-video"
+					>
+						<source src={compoData.primary.hero_video_mp4.url} type="video/mp4" />
+						<source src={compoData.primary.hero_video_ogv.url} type="video/ogv" />
+					</Video>
+					<Overlay />
+					<Container>
+						<Slides />
+						<Scroller />
+					</Container>
+				</div>
+			</BackgroundImage>
+		</section>
 	)
 }
 

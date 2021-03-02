@@ -4,16 +4,39 @@ import styled from "@emotion/styled"
 import Helpers from '../../utils/Helpers'
 
 const containerMargin = new Helpers(32)
-  const Container = styled.div`
-    align-items: center;
+
+const OneColEl = styled.section`
+	align-items: center;
+	animation: fadeIn 1s linear forwards;
+	animation-delay: 1s;
 	display: flex;
+	justify-content: center;
+	opacity: 0;
+	height: 100vh;
+	position: relative;
+	z-index: 1;
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+`
+
+const Container = styled.div`
 	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 	font-weight: 600;
-    justify-content: space-between;
     margin: 0 auto;
     max-width: 1440px;
 	padding: 0 ${containerMargin.toRem};
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
 	width: 100%;
+	z-index: 1;
 	
 	h1 {
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
@@ -37,73 +60,42 @@ const containerMargin = new Helpers(32)
 	}
   `
 
-const OneColEl = styled.section`
-	animation: fadeIn 1s linear forwards;
-	animation-delay: 1s;
-	opacity: 0;
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-`
-
 const OneCol = props => {
 	const compoData = props.input
 
 	useEffect(() => {
+		const main = document.getElementsByTagName('main')
 		const clipMask = () => {
 			const target = document.querySelector('.mask-this')
-			const layerOffset = target.parentNode.offsetTop
-			const containerOffset = layerOffset - window.scrollY
-			const mask = (containerOffset - target.offsetTop / 2) + 1;
+			const targetRect = target.getBoundingClientRect()
+			const targetParent = target.parentNode
+			const parentRect = targetParent.getBoundingClientRect()
+			const mask = parentRect.top - targetRect.top;
 			target.style.clip = `rect(${mask}px, auto, auto, auto)`
 		}
 
 		if (typeof window !== 'undefined') {
 			window.addEventListener('load', clipMask, false)
 			window.addEventListener('resize', clipMask, false)
-			window.addEventListener('scroll', clipMask, false)
+			main[0].addEventListener('scroll', clipMask, false)
 		}
 	}, [])
 
 	return(
-		<OneColEl 
-			css={
-				css`
-				height: 100vh; 
-				position: relative;
-				z-index: 1;
-				`
-			} 
-			className="one-col"
-		>
+		<OneColEl className="one-col">
 			<figure 
 				css={
 					css`
 					background-color: ${compoData.primary.one_col_background_color}; 
 					height: 100%;
 					margin: 0; 
-					position: absolute; 
+					position: absolute;
+					top: 0;
 					width: 100%;
 					`
 				}
 			/>
-			<Container
-				className="mask-this"
-				css={
-					css`
-					position: fixed;
-					top: 50%; 
-					transform: translateY(-50%); 
-					width: 100%;
-					`
-				} 
-			>
+			<Container css={css`pointer-events: none;`} className="mask-this">
 				<div dangerouslySetInnerHTML={{ __html: compoData.primary.one_column_body.html }} />
 			</Container>
 		</OneColEl>
