@@ -57,6 +57,20 @@ const Container = styled.div`
 
 	h2 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+		font-size: 4vw;
+		@media (min-width: 1024px) {
+			font-size: 2.5vw;
+			line-height: 7.5vh;
+		}
+	}
+
+	p {
+		font-size: 3vw;
+		line-height: 3vh;
+		@media (min-width: 1024px) {
+			font-size: 1.5vw;
+			line-height: 3.2vh;
+		}
 	}
   `
 

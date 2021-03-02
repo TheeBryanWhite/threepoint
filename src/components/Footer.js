@@ -15,7 +15,7 @@ const Footer = props => {
 		animation: riseIn 1s cubic-bezier(${outQuart.ease()}) forwards;
 		animation-delay: 4s;
 		color: rgb(${white.defaultColors()});
-		padding: 25px 0;
+		padding-bottom: 25px;
 		position: fixed;
 		bottom: -100%;
 		width: 100%;
