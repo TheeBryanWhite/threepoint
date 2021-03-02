@@ -23,7 +23,7 @@ const TimedSliderEl = styled.section`
 const containerMargin = new Helpers(81.5)
 const Container = styled.div`
 	color: rgb(${white.defaultColors()});
-	height: 120vh;
+	height: 100vh;
     margin: 0 auto;
 	padding: 180px ${containerMargin.toRem};
 

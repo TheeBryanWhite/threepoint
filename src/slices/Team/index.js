@@ -10,7 +10,7 @@ let yellow = new Helpers('yellow')
 
 const TeamEl = styled.section`
 	background-color: rgb(${black.defaultColors()});
-	height: 120vh;
+	height: 100vh;
 	overflow-x: hidden;
 	position: relative;
 	z-index: 1;
