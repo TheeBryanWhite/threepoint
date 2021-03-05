@@ -77,6 +77,8 @@ const Container = styled.div`
 const OneCol = props => {
 	const compoData = props.input
 
+	// Needs some kind of function to hide the copy until the mask is loaded
+
 	useEffect(() => {
 		const main = document.getElementsByTagName('main')
 		const clipMask = () => {
@@ -96,7 +98,10 @@ const OneCol = props => {
 	}, [])
 
 	return(
-		<OneColEl className="one-col">
+		<OneColEl
+			className="one-col"
+			id={compoData.primary.section_id}
+		>
 			<figure 
 				css={
 					css`

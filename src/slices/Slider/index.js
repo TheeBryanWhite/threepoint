@@ -1,4 +1,4 @@
-import React from 'preact'
+import React, {useEffect} from 'preact/compat'
 import { connect } from 'react-redux'
 import { 
 	setActiveWork,
@@ -11,6 +11,7 @@ import SlidesContainer from './SlidesContainer'
 
 import { ReactComponent as SVGLeft } from '../../svg/left-chevron.svg'
 import { ReactComponent as SVGRight } from '../../svg/right-chevron.svg'
+import { css } from '@emotion/react'
 
 let white = new Helpers('white')
 let gray = new Helpers('gray')
@@ -20,60 +21,41 @@ let green = new Helpers('green')
 
 const SliderEl = styled.section`
 	color: rgb(${white.defaultColors()});
-	height: 120vh;
+	height: 100vh;
 	overflow: hidden;
 	position: relative;
 	transition: all 0.5s linear;
 	z-index: 1;
 
 	&.slide0 {
-		background-color: rgb(${gray.defaultColors()})
+		background-color: rgb(${gray.defaultColors()});
 	}
 
 	&.slide1 {
-		background-color: rgb(${blue.defaultColors()})
+		background-color: rgb(${blue.defaultColors()});
 	}
 
 	&.slide2 {
-		background-color: rgb(${white.defaultColors()})
+		background-color: #CBCBCF;
 	}
 
 	&.slide3 {
-		background-color: rgb(${green.defaultColors()})
+		background-color: rgb(${green.defaultColors()});
 	}
 
 	&.slide4 {
-		background-color: rgb(${white.defaultColors()})
+		background-color: #CBCBCF;
 	}
 
 	.gradient {
-		height: 120vh;
-		padding: 180px 0;
-	}
-`
-
-const containerMargin = new Helpers(32)
-const Container = styled.div`
-	font-family: 'Axis', Helvetica, Arial, sans-seriff;
-	font-size: 2.5vw;
-	font-weight: 600;
-	line-height: 5vh;
-    margin: 0 auto;
-    max-width: 1440px;
-	padding: 0 ${containerMargin.toRem};
-	text-transform: uppercase;
-	width: 100%;
-
-	em {
-		color: rgb(${yellow.defaultColors()});
-		font-style: normal;
+		height: 100vh;
 	}
 `
 
 const SlidesHeader = styled.div`
 	h2 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 1.5vw;
+		font-size: 3.5vw;
 		font-weight: 400;
 		line-height: 3vh;
 		text-transform: capitalize;
@@ -130,7 +112,6 @@ const Slider = props => {
 		}
 
 		if (direction === 'prev') {
-			console.log(props.activeWork)
 			if (props.activeWork <= 0) {
 				props.setActiveWork(4)
 				props.setInactiveWork(0)
@@ -143,24 +124,42 @@ const Slider = props => {
 
 	const gradientData = props.input.primary.our_work_gradient.localFile.childImageSharp.fluid
 
+	useEffect(() => {
+		const header = document.getElementById('slide-header').getBoundingClientRect()
+		const body = document.getElementById('slide-0').getBoundingClientRect()
+		const container = document.getElementById('factor-this')
+
+		container.style.height = `${header.height + body.height + 23.2}px`
+	}, [])
+
 	return (
-		<SliderEl className={workSlides()}>
+		<SliderEl
+			className={workSlides()}
+			id={props.input.primary.section_id}
+		>
 			<BackgroundImage
 				className="gradient"
+				css={
+					css`
+						align-items: center;
+						display: flex;
+					`
+				}
 				fluid={gradientData}
 				Tag="div"
 			>
-					<SlidesHeader>
-						<Container>
-							<h2><em>&#x2F;&#x2F;</em>What we do</h2>
-						</Container>
+				<div css={css`flex: 1;`} id="factor-this">
+					<SlidesHeader css={css`padding: 0 1rem;`} id="slide-header">
+						<h2><em>&#x2F;&#x2F;</em>What we do</h2>
 					</SlidesHeader>
 
 					<SlidesContainer 
 						activeWork={props.activeWork} 
+						css={css`flex: 0 0 100%;`}
 						inactiveWork={props.inactiveWork} 
 						slidesData={props.input}
 					/>
+				</div>
 			</BackgroundImage>
 			<SlidesNav>
 				<button 

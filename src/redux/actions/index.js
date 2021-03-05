@@ -58,7 +58,7 @@ export const setInactiveWork = (data) => (dispatch) => {
 
 export const setMenu = (data) => (dispatch) => {
   dispatch({
-    type: types.MENU_OPEN,
+    type: types.SET_MENU,
     payload: data,
   })
 }

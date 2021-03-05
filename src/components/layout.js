@@ -5,6 +5,7 @@ import { css } from "@emotion/react"
 
 import Header from "./header"
 import Footer from "./Footer"
+import Nav from './Navigation'
 import "./layout.css"
 
 const scrollSnapContainer = css`
@@ -26,12 +27,24 @@ const Layout = (props) => {
           title
         }
       }
+      allPrismicMenu {
+        nodes {
+          data {
+            menu_items {
+              classes
+              label
+              link
+            }
+          }
+        }
+      }
     }
   `)
 
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Nav navData={data.allPrismicMenu.nodes[0].data} />
       <main css={scrollSnapContainer}>{props.children}</main>
       <Footer siteTitle={data.site.siteMetadata?.title || `Title`} />
     </>

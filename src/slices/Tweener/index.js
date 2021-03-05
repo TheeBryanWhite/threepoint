@@ -11,11 +11,14 @@ const TweenerEl = styled.section`
 	background-color: rgb(${yellow.defaultColors()});
 	color: rgb(${yellow.defaultColors()});
 	font-family: 'Axis', Helvetica, Arial, sans-seriff;
-	font-size: 40px;
+	font-size: 9vw;
 	height: 100vh;
-	line-height: 40px;
+	line-height: 6vh;
 	position: relative; 
 	z-index: 1;
+	@media (min-width: 768px) {
+		font-size: 5.3vw;
+	}
 
 	.Break {
 		display: block;
@@ -23,8 +26,17 @@ const TweenerEl = styled.section`
 
 	.Large {
 		color: rgb(${white.defaultColors()});
-		font-size: 13.3vw;
-		line-height: 19vh;
+		display: block;
+		font-size: 12vw;
+		line-height: 10vh;
+		@media (min-width: 768px) {
+			display: inline;
+			font-size: 13.3vw;
+			line-height: 7vh;
+		}
+		@media (min-width: 1024px) {
+			line-height: 18vh;
+		}
 	}
 
 	p {
@@ -41,26 +53,31 @@ const Tweener = props => {
 		const targetChild = tweener.querySelector('.container')
 		const docHeight = document.body.clientHeight
 
+		let tweenerRect = null
+
 		const scrollIn = () => {
-			const tweener = document.getElementById(compoData.id)
-			const tweenerRect = tweener.getBoundingClientRect()
+			tweenerRect = tweener.getBoundingClientRect()
+
 			const tweenerTop = tweenerRect.top
 
 			if (tweenerTop < docHeight) {
 				setHorizontalPosition()
 			}
+
+			if (tweenerTop > docHeight) {
+				targetChild.style.left = `100%`
+			}
 		}
 
 		const setHorizontalPosition = () => {
-			const targetRect =  tweener.getBoundingClientRect()
-			const howMuchScrolled = targetRect.height - targetRect.top
-			const percentageScrolled = Math.abs((howMuchScrolled / targetRect.height) * 100)
+			const howMuchScrolled = tweenerRect.height - tweenerRect.top
+			const percentageScrolled = Math.abs((howMuchScrolled / tweenerRect.height) * 100)
 
 			if (percentageScrolled <= 100) { 
 				targetChild.style.left = `${100 - percentageScrolled}%`
-			  } else if (percentageScrolled >= 100) {
+			} else if (percentageScrolled >= 100) {
 				targetChild.style.left = 0
-			  }
+			}
 		}
 
 		if (typeof window !== 'undefined') {
@@ -68,7 +85,7 @@ const Tweener = props => {
 			window.addEventListener('resize', scrollIn, false)
 			main[0].addEventListener('scroll', scrollIn, false)
 		}
-	}, [])
+	}, [compoData.id])
 
 	return(
 		<TweenerEl 
@@ -97,19 +114,14 @@ const Tweener = props => {
 						className="container-inner" 
 						css={
 							css`
+								align-items: center;
+								display: flex;
 								height: 100vh; 
 								position: relative;
 							`
 						}
 					>
 						<div 
-							css={
-								css`
-									position: absolute; 
-									top: 50%; 
-									transform: translateY(-50%);
-								`
-							} 
 							dangerouslySetInnerHTML={{ __html: compoData.primary.tweener_body.html }} 
 						/>
 					</div>

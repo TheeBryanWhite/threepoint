@@ -15,11 +15,13 @@ const Footer = props => {
 		animation: riseIn 1s cubic-bezier(${outQuart.ease()}) forwards;
 		animation-delay: 4s;
 		color: rgb(${white.defaultColors()});
-		padding-bottom: 25px;
 		position: fixed;
 		bottom: -100%;
 		width: 100%;
 		z-index: 100;
+		@media (min-width: 1024px) {
+			padding-bottom: 25px;
+		}
 
 		svg {
 			height: 43px;

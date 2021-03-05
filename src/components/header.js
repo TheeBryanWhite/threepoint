@@ -1,9 +1,10 @@
-import { Link } from "gatsby"
+import scrollTo from 'gatsby-plugin-smoothscroll'
 import PropTypes from "prop-types"
 import React  from "preact"
 import { connect } from 'react-redux'
 import { setHeaderStatus } from '../redux/actions'
 import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 import Helpers from '../utils/Helpers'
 import GlobalStyles from '../utils/GlobalStyles'
 import Hamburger from './Hamburger'
@@ -13,7 +14,6 @@ let outQuart = new Helpers('out-quart')
 const hideThis = new GlobalStyles()
 
 const Header = props => {
-
   const HeaderEl = styled.header`
     animation: dropIn 1s cubic-bezier(${outQuart.ease()}) forwards;
     animation-delay: 4s;
@@ -53,10 +53,17 @@ const Header = props => {
     <HeaderEl>
       <Container>
         <h1 style={{ margin: 0 }}>
-          <Link to="/">
+          <button 
+            css={css`
+              background-color: transparent;
+              border: 0;
+              outline: none;
+            `}
+            onClick={() => {scrollTo('#hero')}}
+          >
             <SVGThreePt />
             <ScreenReaderText>{props.siteTitle}</ScreenReaderText>
-          </Link>
+          </button>
         </h1>
         <Hamburger />
       </Container>

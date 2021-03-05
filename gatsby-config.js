@@ -52,6 +52,7 @@ module.exports = {
       `gatsby-background-image`,
       `gatsby-plugin-preact`,
       `gatsby-plugin-react-helmet`,
+      `gatsby-plugin-smoothscroll`,
       `gatsby-plugin-svgr`,
     {
       resolve: `gatsby-source-filesystem`,

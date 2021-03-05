@@ -1,4 +1,4 @@
-import React from 'preact/compat'
+import React from 'preact'
 import { connect } from 'react-redux'
 import { 
 	setActiveWork,
@@ -6,53 +6,51 @@ import {
  } from '../../redux/actions'
 import Img from 'gatsby-image'
 import styled from "@emotion/styled"
+import { css } from '@emotion/react'
 import Helpers from '../../utils/Helpers'
 
 let white = new Helpers('white')
 let blue = new Helpers('blue')
-let yellow = new Helpers('yellow')
 let green = new Helpers('green')
 let inOutQuart = new Helpers('in-out-quart')
 
-const containerMargin = new Helpers(32)
-const Container = styled.div`
-	font-family: 'Axis', Helvetica, Arial, sans-seriff;
-    margin: 0 auto;
-    max-width: 1440px;
-	padding: 0 ${containerMargin.toRem};	
-	width: 100%;
-
-	em {
-		color: rgb(${yellow.defaultColors()});
-		font-style: normal;
-	}
-`
-
 const SlidesBody = styled.div`
 	position: relative;
-
+	
 	#slide-0 {
-		display: block;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		@media (min-width: 1024px) {
+			display: block;
+		}
+
+		&> div {
+			flex: 0 0 100%;
+		}
 
 		p {
 			font-family: 'Axis', Helvetica, Arial, sans-seriff;
-			font-size: 2.5vw;
+			font-size: 4.5vw;
 			font-weight: 600;
-			line-height: 5vh;
+			line-height: 4vh;
 			text-transform: uppercase;
+			@media (min-width: 1024px) {
+				font-size: 4.5vw;
+				line-height: 4vh;
+			}
 		}
 	}
 `
 
 const SlideBody = styled.div`
-	align-items: center;
-	display: flex;
-	left: 0;
-	opacity: 0;
+	flex: 0 0 100%;
 	position: absolute;
-	top: 0;
 	transform: translateX(120%);
-	width: 100%;
+	@media (min-width: 1024px) {
+		align-items: flex-start;
+		display: flex;
+	}	
 
 	.container {
 		display: flex;
@@ -65,15 +63,52 @@ const SlideBody = styled.div`
 		}
 	}
 
-	.slide-content,
-	.slide-image {
+	.slide-content {
 		flex: 0 0 50%;
+		position: relative;
+		z-index: 1;
+	}
+
+	.slide-image {
+		opacity: 0.2;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	.slide-content {
+		padding: 0 2rem;
+
+		p,
+		ul {
+			font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+		}
+
+		ul {
+			margin: 0;
+		}
+
+		li {
+			left: 0;
+			list-style-type: none;
+			margin: 0;
+			padding-left: 20px;
+			position: relative;
+			text-transform: uppercase;
+
+			&:before {
+				content: '//';
+				left: 0;
+				position: absolute;
+			}
+		}
 	}
 
 	h3 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 25px;
+		font-size: 5vw;
 		font-weight: 800;
+		line-height: 4.5vh;
 		text-transform: uppercase;
 	}
 
@@ -86,13 +121,17 @@ const SlideBody = styled.div`
 	&.inactive {
 		animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
 		opacity: 0;
-		transform: translateX(0);
+		transform: translateX(120%);
 	}
 
 	@keyframes cyclein {
 		0% {
 			opacity: 0;
 			transform: translate(120%);
+		}
+
+		50% {
+			opacity: 0;
 		}
 	
 		100% {
@@ -122,9 +161,18 @@ const SlideBody = styled.div`
 const SlideThumbs = styled.div`
 	align-items: stretch;
 	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
-	grid-template-rows: 50% 50%;
-	height: 50vh;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". ."
+		". .";
+	max-height: 75%;
+	max-width: 75%;
+	@media (min-width: 1024px) {
+		grid-template-columns: 20% 20% 20% 20% 20%;
+		grid-template-rows: 50% 50%;
+	}
 `
 
 const SlideCoverer = styled.div`
@@ -141,9 +189,11 @@ const SlideCoverer = styled.div`
 const SlideThumb = styled.div`
 	background-color: rgb(${white.defaultColors()});
 	cursor: pointer;
-	grid-column: span 2;
-	grid-row: span 2;
 	position: relative;
+	@media (min-width: 1024px) {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
 
 	&:nth-of-type(1) {
 		background-color: rgb(${blue.defaultColors()});
@@ -153,10 +203,12 @@ const SlideThumb = styled.div`
 		background-color: rgb(${green.defaultColors()});
 	}
 	
-	&:nth-of-type(3),
-	&:nth-of-type(4) {
-		grid-column: span 1;
-		grid-row: span 1;
+	@media (min-width: 1024px) {
+		&:nth-of-type(3),
+		&:nth-of-type(4) {
+			grid-column: span 1;
+			grid-row: span 1;
+		}
 	}
 
 	&:hover {
@@ -209,55 +261,56 @@ const SlidesContainer = props => {
 
 	return(
 		<div className="slides-container">
-			<Container>
-				<SlidesBody>
-					<SlideBody 
-						className={classBuilder(0)}
-						id="slide-0"
-					>
-							<div dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }} />
+			<SlidesBody>
+				<SlideBody 
+					className={classBuilder(0)}
+					id="slide-0"
+				>
+						<div css={css`padding: 0 2rem;`} dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }} />
 
-							<SlideThumbs>
-								{
-									props.slidesData.items.map((slide, index) => {
-										return(
-											<SlideThumb
-												key={index}
-												onClick={() => {clickHandler(index + 1)}}
-											>
-												<SlideCoverer />
-												<Img fluid={slide.our_work_teaser.localFile.childImageSharp.fluid} alt="" />
-											</SlideThumb>
-										)
-									})
-								}
-							</SlideThumbs>
-					</SlideBody>
-					{
-						props.slidesData.items.map((slide, index) => {
-							return(
-								<SlideBody
-									className={classBuilder(index + 1)} 
-									id={`slide-${index + 1}`}
-									key={index}
-								>
-										<div 
-											className="slide-content" 
-											dangerouslySetInnerHTML={
-												{ 
-													__html: slide.our_work_body.html
-												}
+						<SlideThumbs>
+							{
+								props.slidesData.items.map((slide, index) => {
+									return(
+										<SlideThumb
+											key={index}
+											onClick={() => {clickHandler(index + 1)}}
+										>
+											<SlideCoverer />
+											<Img
+												alt=""
+												fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
+											/>
+										</SlideThumb>
+									)
+								})
+							}
+						</SlideThumbs>
+				</SlideBody>
+				{
+					props.slidesData.items.map((slide, index) => {
+						return(
+							<SlideBody
+								className={classBuilder(index + 1)} 
+								id={`slide-${index + 1}`}
+								key={index}
+							>
+									<div 
+										className="slide-content" 
+										dangerouslySetInnerHTML={
+											{ 
+												__html: slide.our_work_body.html
 											}
-										/>
-										<div className="slide-image">
-											<Img fixed={slide.our_work_image.localFile.childImageSharp.fluid} alt="" />
-										</div>
-								</SlideBody>
-							)
-						})
-					}
-				</SlidesBody>
-			</Container>
+										}
+									/>
+									<div className="slide-image">
+										<Img fluid={slide.our_work_image.localFile.childImageSharp.fluid} alt="" />
+									</div>
+							</SlideBody>
+						)
+					})
+				}
+			</SlidesBody>
 		</div>
 	)
 }

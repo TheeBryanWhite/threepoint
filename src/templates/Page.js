@@ -32,7 +32,7 @@ export const pageQuery = graphql`
           ... on PrismicPageBodyHero {
             id
             primary {
-              hero_section_id
+              section_id
               hero_background_image {
                 localFile {
                   childImageSharp {
@@ -54,6 +54,7 @@ export const pageQuery = graphql`
           ... on PrismicPageBodyOneColumn {
             id
             primary {
+              section_id
               one_col_background_color
               one_column_body {
                 html
@@ -84,46 +85,8 @@ export const pageQuery = graphql`
           ... on PrismicPageBodyOurWork {
             id
             slice_type
-            items {
-              our_work_bg_color
-              our_work_body {
-                html
-              }
-              our_work_image {
-                alt
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              our_work_logo {
-                alt
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              our_work_teaser {
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on PrismicPageBodyOurWork {
-            id
-            slice_type
             primary {
+              section_id
               our_work_body {
                 html
               }
@@ -154,8 +117,8 @@ export const pageQuery = graphql`
               our_work_image {
                 localFile {
                   childImageSharp {
-                    fixed {
-                      ...GatsbyImageSharpFixed
+                    fluid(maxWidth: 1920) {
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
@@ -163,7 +126,7 @@ export const pageQuery = graphql`
               our_work_teaser {
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(maxHeight: 200, maxWidth: 200) {
                       ...GatsbyImageSharpFluid
                     }
                   }
@@ -175,6 +138,7 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
+              section_id
               page_footer_body {
                 html
               }
@@ -184,6 +148,7 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
+              section_id
               timed_slider_title {
                 html
               }
@@ -240,6 +205,7 @@ export const pageQuery = graphql`
               }
             }
             primary {
+              section_id
               team_body {
                 html
               }

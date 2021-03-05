@@ -89,7 +89,7 @@ const Hamburger = props => {
 	}
 
 	return (
-		<BurgerTime>
+		<BurgerTime className={(props.menuOpen ? 'active-button' : '')}>
         	<button onClick={() => { clickHandler() }}>
             	<i><ScreenReaderText>Menu</ScreenReaderText></i>
         	</button>

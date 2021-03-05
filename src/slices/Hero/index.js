@@ -238,7 +238,10 @@ const Container = styled.div`
 		}
 
 		h1 {
-			font-size: 5vw;
+			font-size: 9vw;
+			@media (min-width: 768px) {
+				font-size: 5vw;
+			}
 
 			&:after,
 			&:before {
@@ -280,12 +283,12 @@ const Hero = props => {
 		const theVideo = document.getElementById('hero-video')
 		theVideo.playbackRate = 0.5
 	}, [])
-	
+	console.log(compoData.primary.section_id)
 	return (
 		<section
 			className="hero"
 			css={heroReveal}
-			id="hero"
+			id= {compoData.primary.section_id}
 		>
 			<BackgroundImage
 				fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}

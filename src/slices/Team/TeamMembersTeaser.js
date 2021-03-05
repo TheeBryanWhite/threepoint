@@ -60,11 +60,11 @@ const TeamMember = styled.div`
 
 const TeamMemberTeaser = styled.div`
 	flex: 1 1 33.333%;
-	padding: 0 25px;
 
 	.gatsby-image-wrapper {
 		cursor: pointer;
-		height: 356px;
+		height: 0;
+		padding-bottom: 90%;
 	}
 
 	button {
@@ -74,19 +74,21 @@ const TeamMemberTeaser = styled.div`
 
 	.team-image {
 		button {
+			padding: 0;
 			width: 100%;
 		}
 	}
 
 	.team-bio-block {
-		margin-top: 25px;
+		padding: 5px 10px;
 
 		button {
 			color: rgb(${white.defaultColors()});
 			cursor: pointer;
 			font-size: 13px;
-			margin-left: -17px;
+			margin-left: 0;
 			padding: 10px 0;
+			text-align: left;
 		}
 	}
 

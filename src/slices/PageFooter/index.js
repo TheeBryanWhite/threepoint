@@ -7,7 +7,6 @@ let yellow = new Helpers('yellow')
 
 const containerMargin = new Helpers(32)
 const Container = styled.div`
-	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
     margin: 0 auto;
     max-width: 1440px;
 	padding: 0 ${containerMargin.toRem};
@@ -16,10 +15,10 @@ const Container = styled.div`
 
 const PageFooterEl = styled.section`
 	background-color: rgb(${yellow.defaultColors()});
-	font-size: 36px;
+	font-size: 5vw;
 	font-weight: 400;
 	height: 100vh;
-	line-height: 62px;
+	line-height: 5vh;
 	position: relative;
 	z-index: 1;
 
@@ -28,7 +27,8 @@ const PageFooterEl = styled.section`
 	}
 
 	h2 {
-		font-size: 20px;
+		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+		font-size: 4vw;
 		font-weight: 300;
 
 		&:before {
@@ -37,14 +37,14 @@ const PageFooterEl = styled.section`
 	}
 
 	p {
-		margin-top: 60px;
+		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 	}
 
 	strong {
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
-		font-size: 45px;
+		font-size: 6vw;
 		display: inline-block;
-		margin-top: 20px;
+		margin-top: 1vh;
 		text-transform: uppercase;
 	}
 
@@ -61,14 +61,16 @@ const PageFooterEl = styled.section`
 const FooterStripe = styled.div`
 	background-color: rgb(${black.defaultColors()});
 	bottom: 0;
-	height: 82px;
+	height: 110px;
 	position: absolute;
 	width: 100%;
 `
 
 const PageFooter = props => {
 	return(
-		<PageFooterEl>
+		<PageFooterEl
+			id={props.input.primary.section_id}
+		>
 			<div className="page-footer-body">
 				<Container dangerouslySetInnerHTML={{ __html: props.input.primary.page_footer_body.html }} />
 			</div>

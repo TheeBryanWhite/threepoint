@@ -25,7 +25,6 @@ const Container = styled.div`
 	color: rgb(${white.defaultColors()});
 	height: 100vh;
     margin: 0 auto;
-	padding: 180px ${containerMargin.toRem};
 
 	h2 {
 		font-size: 20px;
@@ -196,7 +195,9 @@ const TimedSlider = props => {
 	const stopAutoSlide = intervalHandler(autoSlide, 8000)
 
 	return(
-		<TimedSliderEl>
+		<TimedSliderEl
+			id={props.input.primary.section_id}
+		>
 			<Container>
 				<div className="timed-slider-header">
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
