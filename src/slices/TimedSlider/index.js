@@ -1,5 +1,6 @@
 import React from 'preact/compat'
 import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 import { connect } from 'react-redux'
 import { 
 	setInactiveSlide,
@@ -16,20 +17,21 @@ const yellow = new Helpers('yellow')
 
 const TimedSliderEl = styled.section`
 	background-color: rgb(${black.defaultColors()});
+	height: 100vh;
+	padding-top: 85px;
 	position: relative;
 	z-index: 1;
 `
 
-const containerMargin = new Helpers(81.5)
 const Container = styled.div`
 	color: rgb(${white.defaultColors()});
-	height: 100vh;
     margin: 0 auto;
 
 	h2 {
-		font-size: 20px;
+		font-size: 4vw;
 		font-style: italic;
 		font-weight: 300;
+		line-height: 4vh;
 
 		&:before {
 			color: rgb(${yellow.defaultColors()});
@@ -39,12 +41,15 @@ const Container = styled.div`
 `
 
 const TimedSlideImage = styled.div`
-	bottom: 0;
+	opacity: 0.3;
+	padding: 2rem;
 	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 
 	svg {
-		height: 390px;
-		width: 377px;
+		height: 100%;
+		width: 100%;
 	}
 
 	#threepoint-frame_svg__top_full,
@@ -73,30 +78,17 @@ const TimedSlideImage = styled.div`
 	}
 `
 
-const TimedSlides = styled.div`
-	font-family: 'Axis', Helvetica, Arial, sans-seriff;
-	height: 100%;
-	position: relative;
-`
-
-const TimedSlidesContainer = styled.div`
-	position: absolute;
-	width: 100%;
-`
-
 const TimedSlide = styled.div`
-	left: 0;
 	opacity: 0;
-	padding: 180px 0 0 35%;
 	position: absolute;
-	top: 0;
+	top: 130px;
 
 	h3 {
 		color: rgb(${yellow.defaultColors()});
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 25px;
+		font-size: 4vw;
 		font-weight: 800;
-		line-height: 30px;
+		line-height: 4vh;
 		text-transform: uppercase;
 	}
 
@@ -111,25 +103,23 @@ const TimedSlide = styled.div`
 
 const TimedSliderPageHeader = styled.div`
 	opacity: 0;
-	position: absolute;
-	top: 0;
 
 	&.active {
 		opacity: 1;
 	}
 
 	p {
-		font-size: 36px;
-		line-height: 47px;
+		font-size: 4vw;
+		line-height: 4vh;
 	}
 `
 
 const TimedSlideBody = styled.div`
 	p {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 35px;
+		font-size: 4vw;
 		font-weight: 800;
-		line-height: 45px;
+		line-height: 6vw;
 	}
 
 	ul {
@@ -139,7 +129,9 @@ const TimedSlideBody = styled.div`
 
 	li {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+		font-size: 3vw;
 		font-weight: 500;
+		line-height: 3vh;
 		list-style-type: none;
 		margin: 0;
 	}
@@ -199,15 +191,33 @@ const TimedSlider = props => {
 			id={props.input.primary.section_id}
 		>
 			<Container>
-				<div className="timed-slider-header">
+				<div 
+					css={css`
+						padding: 0 2rem;
+					`}
+					className="timed-slider-header"
+				>
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
 				</div>
-				<TimedSlides>
+				<div
+					className="timed-slides"
+					css={css`
+					font-family: 'Axis', Helvetica, Arial, sans-seriff;
+					height: 60vh;
+					position: relative;
+					`}
+				>
 					{
 						props.input.items.map((slide, index) => {
 							return(
 								<TimedSliderPageHeader 
 									className={classBuilder(index)}
+									css={css`
+										padding: 0 2rem;
+										position: absolute;
+										top: 0;
+										width: 100%;
+									`}
 									dangerouslySetInnerHTML={{ __html: slide.timed_slider_page_header.html }} 
 									key={index}
 								/>
@@ -219,7 +229,7 @@ const TimedSlider = props => {
 						<SVGThreePtFrame />
 					</TimedSlideImage>
 
-					<TimedSlidesContainer>
+					<div className="timed-slider-container">
 					{
 						props.input.items.map((slide, index) => {
 							return(
@@ -227,7 +237,12 @@ const TimedSlider = props => {
 									className={classBuilder(index)}
 									key={index}
 								>
-									<div className="timed-slider-body">
+									<div
+										css={css`
+											padding: 0 2rem;
+										`}
+										className="timed-slider-body"
+									>
 										<div className="timed-slide-title" dangerouslySetInnerHTML={{ __html: slide.timed_slide_title.html }} />
 										<TimedSlideBody dangerouslySetInnerHTML={{ __html: slide.timed_slide_body.html }} />
 									</div>
@@ -235,8 +250,8 @@ const TimedSlider = props => {
 							)
 						})
 					}
-					</TimedSlidesContainer>
-				</TimedSlides>
+					</div>
+				</div>
 			</Container>
 		</TimedSliderEl>
 	)

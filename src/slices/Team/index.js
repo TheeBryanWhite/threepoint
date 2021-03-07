@@ -6,25 +6,16 @@ import AllTeam from './AllTeam'
 import { css } from "@emotion/react"
 
 let black = new Helpers('black')
-let white = new Helpers('white')
 let yellow = new Helpers('yellow')
 
 const TeamEl = styled.section`
 	background-color: rgb(${black.defaultColors()});
+	color: #fff;
 	height: 100vh;
 	overflow-x: hidden;
+	padding-top: 85px;
 	position: relative;
 	z-index: 1;
-`
-
-const Container = styled.div`
-	color: rgb(${white.defaultColors()});
-	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-    margin: 0 auto;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 100%;
 
 	h2 {
 		font-size: 4vw;
@@ -60,7 +51,7 @@ const Team = props => {
 		<TeamEl
 			id={props.input.primary.section_id}
 		>
-			<Container>
+			<div>
 				<div 
 					className="team-header"
 					css={css`
@@ -73,7 +64,7 @@ const Team = props => {
 					<TeamMembersTeaser teamData={props.input.items} />
 					<AllTeam teamData={props.input.items} />
 				</TeamSlideContainer>
-			</Container>
+			</div>
 		</TeamEl>
 	)
 }

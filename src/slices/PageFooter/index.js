@@ -30,6 +30,9 @@ const PageFooterEl = styled.section`
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 		font-size: 4vw;
 		font-weight: 300;
+		@media (min-width: 768px) {
+			font-size: 1.25rem;
+		}
 
 		&:before {
 			content: '//';
@@ -38,6 +41,10 @@ const PageFooterEl = styled.section`
 
 	p {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+		@media (min-width: 768px) {
+			font-size: 2rem;
+			line-height: 3.875rem;
+		}
 	}
 
 	strong {
@@ -46,6 +53,10 @@ const PageFooterEl = styled.section`
 		display: inline-block;
 		margin-top: 1vh;
 		text-transform: uppercase;
+		@media (min-width: 768px) {
+			font-size: 2.813rem;
+			line-height: 2.938rem;
+		}
 	}
 
 	a {

@@ -13,12 +13,15 @@ let inOutQuart = new Helpers('in-out-quart')
 
 const TeamMember = styled.div`
 	align-items: center;
+	background-color: #000000;
 	display: flex;
+	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 	left: 0;
 	top: 0;
 	transform: translateX(120%);
-	position: absolute;
+	position: fixed;
 	width: 100%;
+	z-index: 89;
 
 	button {
 		background-color: transparent;
@@ -73,36 +76,6 @@ const TeamMember = styled.div`
 	}
 `
 
-const TeamColumn = styled.div`
-
-	&.team-member-photo {
-		flex: 0 0 40%;
-		height: 500px;
-	}
-
-	.team-member-photo-inner {
-		padding-right: 100px;
-	}
-
-	&.team-member-meta {
-		font-size: 20px;
-	}
-
-	&.team-member-bio {
-		flex: 0 0 60%;
-		font-size: 18px;
-
-		a {
-			color: rgb(${white.defaultColors()});
-			text-decoration: none;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
-`
-
 const TeamMemberMeta = styled.div`
 	margin-bottom: 25px;
 
@@ -150,19 +123,19 @@ const AllTeam = props => {
 					id={`team-${index + 1}`}
 					key={index}
 				>
-					<TeamColumn className="team-member-photo">
+					<div className="team-member-photo">
 						<div className="team-member-photo-inner">
 							<Img fluid={dude.team_member_photo.localFile.childImageSharp.fluid} alt="" />
 						</div>
-					</TeamColumn>
-					<TeamColumn className="team-member-bio">
+					</div>
+					<div className="team-member-bio">
 						<TeamMemberMeta>
 							<p className="team-member-name">{name}</p>
 							<p className="team-member-position" dangerouslySetInnerHTML={{ __html: dude.team_member_position.text }} />
 						</TeamMemberMeta>
 						<div className="team-member-position" dangerouslySetInnerHTML={{ __html: dude.team_member_bio.html }} />
 						<button className="back-button" onClick={() => {clickHandler(index + 1)}}>&#8249; Back</button>
-					</TeamColumn>
+					</div>
 				</TeamMember>
 			)
 		})

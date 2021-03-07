@@ -196,28 +196,32 @@ const Container = styled.div`
 		}
 	}
 
-	#bubbleswhite path {
+	#sm-bubbleswhite path,
+	#lg-bubbleswhite path {
 		animation-delay: 2s;
 		transform: scale(0);
 		transform-origin: 50% 50%;
 		transform-box: fill-box;
 	}
 	  
-	#bubblesbrandstrategy path {
+	#sm-bubblesbrandstrategy path,
+	#lg-bubblesbrandstrategy path {
 		animation-delay: 3s;
 		transform: scale(0);
 		transform-origin: 50% 50%;
 		transform-box: fill-box;
 	}
-	  
-	#bubblesdesign path {
+	 
+	#sm-bubblesdesign path,
+	#lg-bubblesdesign path {
 		animation-delay: 4s;
 		transform: scale(0);
 		transform-origin: 50% 50%;
 		transform-box: fill-box;
 	}
-	  
-	#bubblesproduct path {
+	
+	#sm-bubblesproduct path,
+	#lg-bubblesproduct path {
 		animation-delay: 5s;
 		transform: scale(0);
 		transform-origin: 50% 50%;

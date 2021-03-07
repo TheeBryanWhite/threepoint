@@ -1,13 +1,12 @@
 import React from 'preact'
 import { connect } from 'react-redux'
 import { setMenu } from '../redux/actions'
-import scrollTo from 'gatsby-plugin-smoothscroll'
 import { css } from "@emotion/react"
 
 const Nav = props => {
 	const clickHandler = link => {
 		props.setMenu(!props.menuOpen)
-		scrollTo(`#${link}`)
+		
 		return false
 	}
 	return(
@@ -45,24 +44,23 @@ const Nav = props => {
 								className={item.classes}
 								key={index}
 							>
-								<button 
+								<a 
 									css={css`
-										background-color: transparent;
-										border: 0;
 										color: #ffffff;
 										display: inline-block;
 										font-family: 'Axis', Helvetica, Arial, sans-seriff;
 										font-size: 5vw;
-										outline: none;
 										padding: 10px 0;
+										text-decoration: none;
 										width: 100%;
 									`}
+									href={`#${item.link}`}
 									onClick={
 										() => clickHandler(item.link)
 									}
 								>
 									{item.label}
-								</button>
+								</a>
 							</li>
 						)
 					})
