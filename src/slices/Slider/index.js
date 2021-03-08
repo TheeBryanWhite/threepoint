@@ -1,4 +1,4 @@
-import React, {useEffect} from 'preact/compat'
+import React, {useEffect} from 'React'
 import { connect } from 'react-redux'
 import { 
 	setActiveWork,

@@ -174,6 +174,11 @@ const SlideThumbs = styled.div`
 		grid-template-columns: 20% 20% 20% 20% 20%;
 		grid-template-rows: 50% 50%;
 	}
+	@media (min-width: 1440px) {
+		max-height: none;
+		max-width: none;
+		padding: 0 2rem;
+	}
 `
 
 const SlideCoverer = styled.div`
