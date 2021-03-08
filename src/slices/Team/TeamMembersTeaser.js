@@ -60,11 +60,13 @@ const TeamMember = styled.div`
 
 const TeamMemberTeaser = styled.div`
 	flex: 1 1 33.333%;
+	@media (min-width: 768px) {
+		padding: 0 1rem;
+	}
 
 	.gatsby-image-wrapper {
 		cursor: pointer;
-		height: 0;
-		padding-bottom: 90%;
+		width: 100% !important;
 	}
 
 	button {
@@ -85,6 +87,7 @@ const TeamMemberTeaser = styled.div`
 		button {
 			color: rgb(${white.defaultColors()});
 			cursor: pointer;
+			font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 			font-size: 13px;
 			margin-left: 0;
 			padding: 10px 0;
@@ -109,6 +112,7 @@ const TeamMemberTeaser = styled.div`
 	}
 
 	.linkedin {
+		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 		margin: 0;
 
 		a {
@@ -168,6 +172,10 @@ const TeamMembersTeaser = props => {
 								<Img
 									alt="" 
 									fluid={member.team_member_photo.localFile.childImageSharp.fluid}
+									imgStyle={{
+										height: "auto",
+										width: "100%"
+									}}
 								/>
 							</button>
 						</div>

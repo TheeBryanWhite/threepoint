@@ -75,6 +75,12 @@ const FooterStripe = styled.div`
 	height: 110px;
 	position: absolute;
 	width: 100%;
+	@media (min-width: 768px) {
+		height: 35px;
+	}
+	@media (min-width: 1024px) {
+		height: 80px;
+	}
 `
 
 const PageFooter = props => {

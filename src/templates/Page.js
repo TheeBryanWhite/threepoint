@@ -183,9 +183,10 @@ export const pageQuery = graphql`
                 text
               }
               team_member_photo {
+                alt
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(maxHeight: 478, maxWidth: 478) {
                       ...GatsbyImageSharpFluid
                     }
                   }

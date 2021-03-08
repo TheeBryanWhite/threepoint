@@ -21,6 +21,9 @@ const TeamEl = styled.section`
 		font-size: 4vw;
 		font-style: italic;
 		font-weight: 300;
+		@media (min-width: 768px) {
+			font-size: 1.25rem;	
+		}
 
 		&:before {
 			color: rgb(${yellow.defaultColors()});
@@ -34,6 +37,14 @@ const TeamEl = styled.section`
 			font-size: 4vw;
 			line-height: 4vh;
 			text-transform: uppercase;
+			@media (min-width: 1024px) {
+				font-size: 2rem;	
+				line-height: 2.938rem;
+			}
+			@media (min-width: 1440px) {
+				font-size: 2.25rem;	
+				line-height: 2.938rem;
+			}
 		}
 
 		em {
@@ -51,16 +62,25 @@ const Team = props => {
 		<TeamEl
 			id={props.input.primary.section_id}
 		>
-			<div>
+			<div 
+				css={css`
+					margin: 0 auto;
+					max-width: 1440px;
+				`}
+			>
 				<div 
 					className="team-header"
-					css={css`
-						padding: 0 2rem;
-					`}
+					css={css`padding: 0 2rem;`}
 				>
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.team_body.html }} />
 				</div>
-				<TeamSlideContainer>
+				<TeamSlideContainer
+					css={css`
+						@media (min-width: 768px) {
+							padding: 0 2rem;
+						}
+					`}
+				>
 					<TeamMembersTeaser teamData={props.input.items} />
 					<AllTeam teamData={props.input.items} />
 				</TeamSlideContainer>

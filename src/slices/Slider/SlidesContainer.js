@@ -21,9 +21,6 @@ const SlidesBody = styled.div`
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		@media (min-width: 1024px) {
-			display: block;
-		}
 
 		&> div {
 			flex: 0 0 100%;
@@ -35,9 +32,13 @@ const SlidesBody = styled.div`
 			font-weight: 600;
 			line-height: 4vh;
 			text-transform: uppercase;
+			@media (min-width: 768px) {
+				font-size: 1.75rem;
+				line-height: 2.938rem;
+			}
 			@media (min-width: 1024px) {
-				font-size: 4.5vw;
-				line-height: 4vh;
+				font-size: 2.25rem;
+				line-height: 2.938rem;
 			}
 		}
 	}
@@ -266,7 +267,12 @@ const SlidesContainer = props => {
 					className={classBuilder(0)}
 					id="slide-0"
 				>
-						<div css={css`padding: 0 2rem;`} dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }} />
+						<div 
+							css={css`
+								padding: 0 2rem;
+							`} 
+							dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
+						/>
 
 						<SlideThumbs>
 							{

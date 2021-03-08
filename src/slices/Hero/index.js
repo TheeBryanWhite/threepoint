@@ -28,7 +28,7 @@ const heroReveal = css`
 		}
 
 		video {
-			animation: fadeOut 0.5s linear forwards;
+			animation: partialFade 0.5s linear forwards;
 			animation-delay: 8s;
 		}
 		
@@ -69,6 +69,16 @@ const heroReveal = css`
 
 		100% {
 			opacity: 0;
+		}
+	}
+
+	@keyframes partialFade {
+		0% {
+			opacity: 1;
+		}
+
+		100% {
+			opacity: 0.3;
 		}
 	}
 
@@ -287,7 +297,7 @@ const Hero = props => {
 		const theVideo = document.getElementById('hero-video')
 		theVideo.playbackRate = 0.5
 	}, [])
-	console.log(compoData.primary.section_id)
+
 	return (
 		<section
 			className="hero"

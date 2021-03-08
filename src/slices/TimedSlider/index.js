@@ -25,6 +25,7 @@ const TimedSliderEl = styled.section`
 
 const Container = styled.div`
 	color: rgb(${white.defaultColors()});
+	max-width: 1440px;
     margin: 0 auto;
 
 	h2 {
@@ -32,6 +33,13 @@ const Container = styled.div`
 		font-style: italic;
 		font-weight: 300;
 		line-height: 4vh;
+		@media (min-width: 768px) {
+			font-size: 1.25rem;
+			line-height: 2.25;
+		}
+		@media (min-width: 1440px) {
+			margin-bottom: 5px;
+		}
 
 		&:before {
 			color: rgb(${yellow.defaultColors()});
@@ -41,11 +49,25 @@ const Container = styled.div`
 `
 
 const TimedSlideImage = styled.div`
+	left: 50%;
 	opacity: 0.3;
-	padding: 2rem;
+	padding: 0 2rem;
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translate(-50%, -50%);
+	width: 100%;
+	@media (min-width: 1024px) {
+		left: 0;
+		opacity: 1;
+		position: absolute;
+		top: 130px;
+		transform: none;
+		width: 40%;
+	}
+	@media (min-width: 1024px) {
+		padding: 5%;
+		top: 95px;
+	}
 
 	svg {
 		height: 100%;
@@ -81,7 +103,13 @@ const TimedSlideImage = styled.div`
 const TimedSlide = styled.div`
 	opacity: 0;
 	position: absolute;
-	top: 130px;
+	top: 165px;
+	@media (min-width: 768px) {
+		top: 190px;
+	}
+	@media (min-width: 1024px) {
+		top: 175px;
+	}
 
 	h3 {
 		color: rgb(${yellow.defaultColors()});
@@ -90,6 +118,14 @@ const TimedSlide = styled.div`
 		font-weight: 800;
 		line-height: 4vh;
 		text-transform: uppercase;
+		@media (min-width: 1024px) {
+			font-size: 2vw;
+			line-height: 3vh;
+		}
+		@media (min-width: 1440px) {
+			font-size: 1.563rem;
+			line-height: 1.734rem;
+		}
 	}
 
 	&.active {
@@ -111,6 +147,14 @@ const TimedSliderPageHeader = styled.div`
 	p {
 		font-size: 4vw;
 		line-height: 4vh;
+		@media (min-width: 1024px) {
+			font-size: 3vw;
+			line-height: 6vh;
+		}
+		@media (min-width: 1440px) {
+			font-size: 2.25rem;
+			line-height: 2.938rem;
+		}
 	}
 `
 
@@ -120,6 +164,14 @@ const TimedSlideBody = styled.div`
 		font-size: 4vw;
 		font-weight: 800;
 		line-height: 6vw;
+		@media (min-width: 1024px) {
+			font-size: 2vw;
+			line-height: 3vh;
+		}
+		@media (min-width: 1440px) {
+			font-size: 2.208rem;
+			line-height: 2.816rem;
+		}
 	}
 
 	ul {
@@ -134,6 +186,10 @@ const TimedSlideBody = styled.div`
 		line-height: 3vh;
 		list-style-type: none;
 		margin: 0;
+		@media (min-width: 1024px) {
+			font-size: 1.25vw;
+			line-height: 2.5vh;
+		}
 	}
 `
 
@@ -229,7 +285,18 @@ const TimedSlider = props => {
 						<SVGThreePtFrame />
 					</TimedSlideImage>
 
-					<div className="timed-slider-container">
+					<div
+						className="timed-slider-container"
+						css={css`
+							position: absolute;
+							right: 0;
+							top: 10px;
+							width: 100%;
+							@media (min-width: 1024px) {
+								width: 60%;
+							}
+						`}
+					>
 					{
 						props.input.items.map((slide, index) => {
 							return(

@@ -30,7 +30,8 @@ const Container = styled.div`
 	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 	font-weight: 600;
     margin: 0 auto;
-    max-width: 1440px;
+	max-width: 1440px;
+	opacity: 0;
 	padding: 0 ${containerMargin.toRem};
 	position: fixed;
 	top: 50%;
@@ -72,6 +73,10 @@ const Container = styled.div`
 			line-height: 3.2vh;
 		}
 	}
+
+	&.scrolled {
+		opacity: 1;
+	}
   `
 
 const OneCol = props => {
@@ -81,8 +86,8 @@ const OneCol = props => {
 
 	useEffect(() => {
 		const main = document.getElementsByTagName('main')
+		const target = document.querySelector('.mask-this')
 		const clipMask = () => {
-			const target = document.querySelector('.mask-this')
 			const targetRect = target.getBoundingClientRect()
 			const targetParent = target.parentNode
 			const parentRect = targetParent.getBoundingClientRect()
@@ -90,8 +95,17 @@ const OneCol = props => {
 			target.style.clip = `rect(${mask}px, auto, auto, auto)`
 		}
 
+		const makeVisible = () => {
+			target.style.opacity = 1
+			return false
+		}
+
 		if (typeof window !== 'undefined') {
-			window.addEventListener('load', clipMask, false)
+			window.addEventListener('load', () => {
+				clipMask()
+				makeVisible()
+			}
+			, false)
 			window.addEventListener('resize', clipMask, false)
 			main[0].addEventListener('scroll', clipMask, false)
 		}

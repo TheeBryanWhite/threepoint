@@ -52,16 +52,6 @@ const SliderEl = styled.section`
 	}
 `
 
-const SlidesHeader = styled.div`
-	h2 {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 3.5vw;
-		font-weight: 400;
-		line-height: 3vh;
-		text-transform: capitalize;
-	}
-`
-
 const SlidesNav = styled.div`
 	position: absolute;
 	top: 50%;
@@ -141,17 +131,41 @@ const Slider = props => {
 				className="gradient"
 				css={
 					css`
-						align-items: center;
-						display: flex;
+						padding-top: 90px;
 					`
 				}
 				fluid={gradientData}
 				Tag="div"
 			>
-				<div css={css`flex: 1;`} id="factor-this">
-					<SlidesHeader css={css`padding: 0 1rem;`} id="slide-header">
-						<h2><em>&#x2F;&#x2F;</em>What we do</h2>
-					</SlidesHeader>
+				<div 
+					css={css`
+						flex: 1;
+						margin: 0 auto;
+						max-width: 1440px;
+					`}
+					id="factor-this"
+				>
+					<div 
+						className="slides-header"
+						css={css`padding: 0 1rem;`}
+						id="slide-header"
+					>
+						<h2
+							css={css`
+								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+								font-size: 3.5vw;
+								font-weight: 400;
+								line-height: 3vh;
+								text-transform: capitalize;
+								@media (min-width: 768px) {
+									font-size: 1.25rem;
+									line-height: 1.45rem;
+								}
+							`}
+						>
+							<em>&#x2F;&#x2F;</em>What we do
+						</h2>
+					</div>
 
 					<SlidesContainer 
 						activeWork={props.activeWork} 

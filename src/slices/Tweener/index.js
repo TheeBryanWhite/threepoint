@@ -31,11 +31,11 @@ const TweenerEl = styled.section`
 		line-height: 10vh;
 		@media (min-width: 768px) {
 			display: inline;
-			font-size: 13.3vw;
+			font-size: 10.3vw;
 			line-height: 7vh;
 		}
 		@media (min-width: 1024px) {
-			line-height: 18vh;
+			line-height: 25vh;
 		}
 	}
 
@@ -99,8 +99,6 @@ const Tweener = props => {
 						css`
 							height: 100vh;
 							left: 100%;
-							margin: 0 auto;
-							padding: 0 2rem;
 							pointer-events: none;
 							position: fixed !important;
 							top: 0;
@@ -116,7 +114,10 @@ const Tweener = props => {
 							css`
 								align-items: center;
 								display: flex;
-								height: 100vh; 
+								height: 100vh;
+								margin: 0 auto;
+								max-width: 1440px;
+								padding: 0 2rem; 
 								position: relative;
 							`
 						}
