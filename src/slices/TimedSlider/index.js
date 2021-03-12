@@ -1,4 +1,4 @@
-import React from 'preact/compat'
+import React, {useEffect} from 'preact/compat'
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 import { connect } from 'react-redux'
@@ -18,7 +18,7 @@ const yellow = new Helpers('yellow')
 const TimedSliderEl = styled.section`
 	background-color: rgb(${black.defaultColors()});
 	height: 100vh;
-	padding-top: 85px;
+	padding-top: 150px;
 	position: relative;
 	z-index: 1;
 `
@@ -38,7 +38,7 @@ const Container = styled.div`
 			line-height: 2.25;
 		}
 		@media (min-width: 1440px) {
-			margin-bottom: 5px;
+			margin-bottom: 5vh;
 		}
 
 		&:before {
@@ -68,18 +68,39 @@ const TimedSlideImage = styled.div`
 		padding: 5%;
 		top: 95px;
 	}
+	@media (min-width: 1440px) {
+		top: 17vh;
+	}
 
 	svg {
 		height: 100%;
 		width: 100%;
 	}
 
+	#threepoint-frame_svg__middle_full,
 	#threepoint-frame_svg__top_full,
 	#threepoint-frame_svg__right_full,
 	#threepoint-frame_svg__left_full {
 		opacity: 0;
 		transition: opacity 0.2s linear;
+
+		&.ghost {
+			opacity: 0.4;
+		}
 	}
+
+	#threepoint-frame_svg__middle_full.ghost {
+		fill: #F7931E;
+		opacity: 0.4;
+	}
+
+	&.go-0 {
+		#threepoint-frame_svg__middle_full {
+			fill: #F7931E;
+			opacity: 0.8;
+		}
+	}
+
 
 	&.go-1 {
 		#threepoint-frame_svg__top_full {
@@ -214,12 +235,7 @@ const TimedSlider = props => {
 	}
 
 	const imgBuilder = () => {
-		if (props.activeSlide === 0) {
-			imgArr = []
-			imgArr = ['go-0']
-		} else {
-			imgArr.push(`go-${props.activeSlide}`)
-		}
+		imgArr = [`go-${props.activeSlide}`]
 
 		const classes = imgArr.join(' ')
 
@@ -241,6 +257,26 @@ const TimedSlider = props => {
 	}
 
 	const stopAutoSlide = intervalHandler(autoSlide, 8000)
+
+	useEffect(() => {
+		const ghostThis = target => {
+			target.classList.add('ghost')
+		}
+		const dontGhostThis = target => {
+			target.classList.remove('ghost')
+		}
+
+		let clickThis = document.getElementsByClassName('threepoint-frame_svg__st1')
+		clickThis = Array.from(clickThis)
+		clickThis.forEach(element => {
+			element.addEventListener("mouseenter", event => {
+				ghostThis(event.currentTarget)
+			})
+			element.addEventListener("mouseleave", event => {
+				dontGhostThis(event.currentTarget)
+			})
+		});
+	}, [])
 
 	return(
 		<TimedSliderEl
@@ -307,6 +343,9 @@ const TimedSlider = props => {
 									<div
 										css={css`
 											padding: 0 2rem;
+											@media (min-width: 1440px) {
+												padding-top: 7vh;
+											}
 										`}
 										className="timed-slider-body"
 									>

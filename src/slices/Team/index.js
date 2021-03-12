@@ -13,7 +13,7 @@ const TeamEl = styled.section`
 	color: #fff;
 	height: 100vh;
 	overflow-x: hidden;
-	padding-top: 85px;
+	padding-top: 150px;
 	position: relative;
 	z-index: 1;
 
@@ -24,6 +24,9 @@ const TeamEl = styled.section`
 		@media (min-width: 768px) {
 			font-size: 1.25rem;	
 		}
+		@media (min-width: 1440px) {
+			margin-bottom: 4vh;
+		}
 
 		&:before {
 			color: rgb(${yellow.defaultColors()});
@@ -32,10 +35,14 @@ const TeamEl = styled.section`
 	}
 
 	.team-header {
+		@media (min-width: 1440px) {
+			margin-bottom: 9vh;
+		}
 		p {
 			font-family: 'Axis', Helvetica, Arial, sans-seriff;
 			font-size: 4vw;
 			line-height: 4vh;
+			margin: 0;
 			text-transform: uppercase;
 			@media (min-width: 1024px) {
 				font-size: 2rem;	

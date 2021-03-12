@@ -43,6 +43,10 @@ const Container = styled.div`
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 5.8vw;
 		margin-left: -25px;
+		@media (min-width: 1024px) {
+			font-size: 5rem;
+			line-height: 6.25rem;
+		}
 
 		&:before {
 			bottom: 3px;
@@ -60,8 +64,8 @@ const Container = styled.div`
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 		font-size: 4vw;
 		@media (min-width: 1024px) {
-			font-size: 2.5vw;
-			line-height: 7.5vh;
+			font-size: 2.25rem;
+			line-height: 3.875rem;
 		}
 	}
 
@@ -69,8 +73,8 @@ const Container = styled.div`
 		font-size: 3vw;
 		line-height: 3vh;
 		@media (min-width: 1024px) {
-			font-size: 1.5vw;
-			line-height: 3.2vh;
+			font-size: 1.375rem;
+			line-height: 1.65rem;
 		}
 	}
 

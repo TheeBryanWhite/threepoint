@@ -19,9 +19,17 @@ const TweenerEl = styled.section`
 	@media (min-width: 768px) {
 		font-size: 5.3vw;
 	}
+	@media (min-width: 1440px) {
+		font-size: 1.75rem;
+		line-height: 3.25rem;
+	}
 
 	.Break {
 		display: block;
+
+		&:last-child {
+			text-align: right;
+		}
 	}
 
 	.Large {
@@ -34,8 +42,9 @@ const TweenerEl = styled.section`
 			font-size: 10.3vw;
 			line-height: 7vh;
 		}
-		@media (min-width: 1024px) {
-			line-height: 25vh;
+		@media (min-width: 1440px) {
+			font-size: 11.25rem;
+			line-height: 6.25rem;
 		}
 	}
 

@@ -1,6 +1,7 @@
 import React from 'preact'
 import styled from "@emotion/styled"
 import Helpers from '../../utils/Helpers'
+import { css } from "@emotion/react"
 
 let black = new Helpers('black')
 let yellow = new Helpers('yellow')
@@ -22,16 +23,15 @@ const PageFooterEl = styled.section`
 	position: relative;
 	z-index: 1;
 
-	.page-footer-body {
-		padding-top: 15vh;
-	}
-
 	h2 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 		font-size: 4vw;
 		font-weight: 300;
 		@media (min-width: 768px) {
 			font-size: 1.25rem;
+		}
+		@media (min-width: 1440px) {
+			margin-bottom: 7vh;
 		}
 
 		&:before {
@@ -51,7 +51,7 @@ const PageFooterEl = styled.section`
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 6vw;
 		display: inline-block;
-		margin-top: 1vh;
+		margin-top: 10vh;
 		text-transform: uppercase;
 		@media (min-width: 768px) {
 			font-size: 2.813rem;
@@ -81,11 +81,15 @@ const FooterStripe = styled.div`
 	@media (min-width: 1024px) {
 		height: 80px;
 	}
+	@media (min-width: 1024px) {
+		height: 18vh;
+	}
 `
 
 const PageFooter = props => {
 	return(
 		<PageFooterEl
+			css={css`padding-top: 150px;`}
 			id={props.input.primary.section_id}
 		>
 			<div className="page-footer-body">
