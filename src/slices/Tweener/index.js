@@ -106,6 +106,8 @@ const Tweener = props => {
 					className="container"
 					css={
 						css`
+							background-color: #FFDC32;
+  							background-blend-mode: multiply;
 							height: 100vh;
 							left: 100%;
 							pointer-events: none;
