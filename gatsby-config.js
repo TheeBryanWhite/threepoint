@@ -34,6 +34,7 @@ module.exports = {
         // Remember, the schema names in the object have to match the API ID
         schemas: {
           page: require("./src/schemas/page.json"),
+          community: require("./src/schemas/community.json"),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true

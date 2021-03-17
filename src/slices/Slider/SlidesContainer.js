@@ -236,7 +236,7 @@ const SlideThumb = styled.div`
 `
 
 const SlidesContainer = props => {
-
+	console.log(props)
 	const classBuilder = index => {
 		let classArr = ['slide']
 

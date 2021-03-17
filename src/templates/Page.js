@@ -55,12 +55,44 @@ export const pageQuery = graphql`
             id
             primary {
               section_id
+            }
+            slice_type
+            items {
+              mask_this
               one_col_background_color
               one_column_body {
                 html
               }
+              list_items {
+                document {
+                  ... on PrismicCommunity {
+                    id
+                    data {
+                      title {
+                        html
+                      }
+                      organization {
+                        body {
+                          html
+                        }
+                        image {
+                          localFile {
+                            childImageSharp {
+                              fluid(maxHeight: 392, maxWidth: 392) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                        link {
+                          url
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
-            slice_type
           }
           ... on PrismicPageBodyTweener {
             id
@@ -157,11 +189,7 @@ export const pageQuery = graphql`
               timed_slide_body {
                 html
               }
-              timed_slide_image {
-                localFile {
-                  url
-                }
-              }
+
               timed_slide_title {
                 html
               }
@@ -171,7 +199,6 @@ export const pageQuery = graphql`
             }
           }
           ... on PrismicPageBodyTeam {
-            id
             id
             slice_type
             items {
@@ -207,6 +234,9 @@ export const pageQuery = graphql`
             }
             primary {
               section_id
+              title {
+                html
+              }
               team_body {
                 html
               }
