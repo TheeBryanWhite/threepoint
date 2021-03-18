@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Helpers from '../../utils/Helpers'
 import Gradient from './Gradient'
@@ -16,14 +16,6 @@ const Slider = props => {
 	const workSlides = () => {
 		return `slide${props.activeWork}`
 	}
-
-	useEffect(() => {
-		const header = document.getElementById('slide-header').getBoundingClientRect()
-		const body = document.getElementById('slide-0').getBoundingClientRect()
-		const container = document.getElementById('factor-this')
-
-		container.style.height = `${header.height + body.height + 23.2}px`
-	}, [])
 
 	return (
 		<section

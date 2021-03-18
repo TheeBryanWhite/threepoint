@@ -9,101 +9,20 @@ import styled from "@emotion/styled"
 import { css } from '@emotion/react'
 import Helpers from '../../utils/Helpers'
 
-let white = new Helpers('white')
-let blue = new Helpers('blue')
-let green = new Helpers('green')
 let inOutQuart = new Helpers('in-out-quart')
-
-const SlidesBody = styled.div`
-	position: relative;
-	
-	#slide-0 {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-
-		&> div {
-			flex: 0 0 100%;
-		}
-
-		p {
-			font-family: 'Axis', Helvetica, Arial, sans-seriff;
-			font-size: 4.5vw;
-			font-weight: 600;
-			line-height: 4vh;
-			text-transform: uppercase;
-			@media (min-width: 768px) {
-				font-size: 1.75rem;
-				line-height: 2.938rem;
-			}
-			@media (min-width: 1024px) {
-				font-size: 2.25rem;
-				line-height: 2.938rem;
-			}
-		}
-	}
-`
 
 const SlideBody = styled.div`
 	flex: 0 0 100%;
+	left: 0;
 	position: absolute;
+	top: 0;
 	transform: translateX(120%);
+	width: 100%;
+	z-index: 1;
 	@media (min-width: 1024px) {
 		align-items: flex-start;
 		display: flex;
 	}	
-
-	.container {
-		display: flex;
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 24px;
-		text-transform: none;
-
-		p {
-			font-weight: 500;
-		}
-	}
-
-	.slide-content {
-		flex: 0 0 50%;
-		position: relative;
-		z-index: 1;
-	}
-
-	.slide-image {
-		opacity: 0.2;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-
-	.slide-content {
-		padding: 0 2rem;
-
-		p,
-		ul {
-			font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		}
-
-		ul {
-			margin: 0;
-		}
-
-		li {
-			left: 0;
-			list-style-type: none;
-			margin: 0;
-			padding-left: 20px;
-			position: relative;
-			text-transform: uppercase;
-
-			&:before {
-				content: '//';
-				left: 0;
-				position: absolute;
-			}
-		}
-	}
 
 	h3 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
@@ -111,6 +30,10 @@ const SlideBody = styled.div`
 		font-weight: 800;
 		line-height: 4.5vh;
 		text-transform: uppercase;
+		@media (min-width: 1024px) {
+			font-size: 1.563rem;
+			line-height: 1.734rem;
+		}
 	}
 
 	&.active {
@@ -159,84 +82,7 @@ const SlideBody = styled.div`
 	}
 `
 
-const SlideThumbs = styled.div`
-	align-items: stretch;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		". ."
-		". .";
-	max-height: 75%;
-	max-width: 75%;
-	@media (min-width: 1024px) {
-		grid-template-columns: 20% 20% 20% 20% 20%;
-		grid-template-rows: 50% 50%;
-	}
-	@media (min-width: 1440px) {
-		max-height: none;
-		max-width: none;
-		padding: 0 2rem;
-	}
-`
-
-const SlideCoverer = styled.div`
-	background-color: rgba(${white.defaultColors()}, 0.5);
-	clip-path: polygon(0 0, 0% 100%, 100% 100%);
-	height: 100%;
-	opacity: 1;
-	position: absolute;
-	transition: opacity 0.3s linear;
-	width: 100%;
-	z-index: 1;
-`
-
-const SlideThumb = styled.div`
-	background-color: rgb(${white.defaultColors()});
-	cursor: pointer;
-	position: relative;
-	@media (min-width: 1024px) {
-		grid-column: span 2;
-		grid-row: span 2;
-	}
-
-	&:nth-of-type(1) {
-		background-color: rgb(${blue.defaultColors()});
-	}
-
-	&:nth-of-type(3) {
-		background-color: rgb(${green.defaultColors()});
-	}
-	
-	@media (min-width: 1024px) {
-		&:nth-of-type(3),
-		&:nth-of-type(4) {
-			grid-column: span 1;
-			grid-row: span 1;
-		}
-	}
-
-	&:hover {
-
-		${SlideCoverer} {
-			opacity: 0;
-		}
-	}
-
-	.gatsby-image-wrapper {
-		height: 100%;
-		object-fit: cover;
-	}
-
-	img {
-		display: block;
-		margin: 0;
-	}
-`
-
 const SlidesContainer = props => {
-	console.log(props)
 	const classBuilder = index => {
 		let classArr = ['slide']
 
@@ -267,7 +113,61 @@ const SlidesContainer = props => {
 
 	return(
 		<div className="slides-container">
-			<SlidesBody>
+			<div
+				css={css`
+					position: relative;
+		
+					#slide-0 {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+				
+						&> div {
+							flex: 0 0 100%;
+						}
+				
+						p {
+							font-family: 'Axis', Helvetica, Arial, sans-seriff;
+							font-size: 4.5vw;
+							font-weight: 600;
+							line-height: 4vh;
+							text-transform: uppercase;
+							@media (min-width: 768px) {
+								font-size: 1.75rem;
+								line-height: 2.938rem;
+							}
+							@media (min-width: 1024px) {
+								font-size: 2.25rem;
+								line-height: 2.938rem;
+							}
+						}
+					}
+
+					#slide-1 {
+						.slide-content {
+							width: 50%;
+						}
+					}
+
+					#slide-2 {
+						.slide-content {
+							width: 40%;
+						}
+					}
+
+					#slide-3 {
+						.slide-content {
+							width: 33%;
+						}
+					}
+
+					#slide-4 {
+						.slide-content {
+							width: 50%;
+						}
+					}
+				`}
+			>
 				<SlideBody 
 					className={classBuilder(0)}
 					id="slide-0"
@@ -279,49 +179,178 @@ const SlidesContainer = props => {
 							dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
 						/>
 
-						<SlideThumbs>
+						<div
+							css={css`
+								align-items: stretch;
+								display: grid;
+								grid-template-columns: 1fr 1fr;
+								grid-template-rows: 1fr 1fr;
+								gap: 0px 0px;
+								grid-template-areas:
+									". ."
+									". .";
+								max-height: 75%;
+								max-width: 75%;
+								@media (min-width: 1024px) {
+									grid-template-columns: 20% 20% 20% 20% 20%;
+									grid-template-rows: 50% 50%;
+								}
+								@media (min-width: 1440px) {
+									max-height: none;
+									max-width: none;
+									padding: 0 2rem;
+								}
+							`}
+						>
 							{
 								props.slidesData.items.map((slide, index) => {
 									return(
-										<SlideThumb
+										<div
+											css={css`
+												background-color: #ffffff;
+												cursor: pointer;
+												position: relative;
+												@media (min-width: 1024px) {
+													grid-column: span 2;
+													grid-row: span 2;
+												}
+											
+												&:nth-of-type(1) {
+													background-color: #0A7DF3;
+												}
+											
+												&:nth-of-type(3) {
+													background-color: #009D57;
+												}
+												
+												@media (min-width: 1024px) {
+													&:nth-of-type(3),
+													&:nth-of-type(4) {
+														grid-column: span 1;
+														grid-row: span 1;
+													}
+												}
+											
+												&:hover {
+													.slide-coverer {
+														opacity: 0;
+													}
+												}
+											`}
 											key={index}
 											onClick={() => {clickHandler(index + 1)}}
 										>
-											<SlideCoverer />
+											<div
+												className="slide-coverer"
+												css={css`
+													background-color: rgba(255, 255, 255, 0.5);
+													clip-path: polygon(0 0, 0% 100%, 100% 100%);
+													height: 100%;
+													opacity: 1;
+													position: absolute;
+													transition: opacity 0.3s linear;
+													width: 100%;
+													z-index: 1;
+												`}
+											/>
 											<Img
 												alt=""
+												css={css`
+													.gatsby-image-wrapper {
+														height: 100%;
+														object-fit: cover;
+													}
+												
+													img {
+														display: block;
+														margin: 0;
+													}
+												`}
 												fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
 											/>
-										</SlideThumb>
+										</div>
 									)
 								})
 							}
-						</SlideThumbs>
+						</div>
 				</SlideBody>
 				{
 					props.slidesData.items.map((slide, index) => {
 						return(
 							<SlideBody
 								className={classBuilder(index + 1)} 
+								css={css`
+									padding: 0 2rem;
+								`}
 								id={`slide-${index + 1}`}
 								key={index}
 							>
+								<div
+									css={css`
+										position: relative;
+									`}
+								>
+									<p
+										css={css`
+											font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+											font-size: 1.188rem;
+											line-height: 4.054rem;
+										`}
+									>
+										<b css={css`font-weight: 700;`}>{index + 1}</b>/4
+									</p>
 									<div 
-										className="slide-content" 
+										className="slide-content"
+										css={css`
+											flex: 0 0 50%;
+											position: relative;
+											p,
+											ul {
+												font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+											}
+
+											p {
+												@media (min-width: 1024px) {
+													font-size: 1.5rem;
+													line-height: 2rem;
+												}
+											}
+
+											ul {
+												margin: 0;
+											}
+
+											li {
+												left: 0;
+												list-style-type: none;
+												margin: 0;
+												padding-left: 20px;
+												position: relative;
+												text-transform: uppercase;
+												@media (min-width: 1024px) {
+													font-size: 1.125rem;
+													line-height: 1.75rem;
+												}
+
+												&:before {
+													content: '//';
+													left: 0;
+													position: absolute;
+												}
+											}
+										`}
 										dangerouslySetInnerHTML={
 											{ 
 												__html: slide.our_work_body.html
 											}
 										}
 									/>
-									<div className="slide-image">
-										<Img fluid={slide.our_work_image.localFile.childImageSharp.fluid} alt="" />
-									</div>
+								</div>
 							</SlideBody>
 						)
 					})
 				}
-			</SlidesBody>
+			</div>
 		</div>
 	)
 }
