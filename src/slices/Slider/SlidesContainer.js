@@ -157,7 +157,7 @@ const SlidesContainer = props => {
 
 					#slide-3 {
 						.slide-content {
-							width: 33%;
+							width: 50%;
 						}
 					}
 
@@ -295,6 +295,7 @@ const SlidesContainer = props => {
 											font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 											font-size: 1.188rem;
 											line-height: 4.054rem;
+											margin-top: 100px;
 										`}
 									>
 										<b css={css`font-weight: 700;`}>{index + 1}</b>/4

@@ -8,6 +8,7 @@ import { css } from '@emotion/react'
 import BackgroundImage from 'gatsby-background-image'
 import SlidesContainer from './SlidesContainer'
 import ProductImages from './ProductImages'
+import Logos from './Logos'
 
 const Gradient = props => {
 	return(
@@ -51,18 +52,24 @@ const Gradient = props => {
 							<em>&#x2F;&#x2F;</em>What we do
 						</h2>
 					</div>
-
-					<SlidesContainer 
-						activeWork={props.activeWork}
-						css={css`flex: 0 0 100%;`}
-						inactiveWork={props.inactiveWork} 
-						slidesData={props.compoData.input}
-					/>
-					<ProductImages
-						activeWork={props.activeWork}
-						imgData={props.compoData.input}
-						inactiveWork={props.inactiveWork}
-					/>
+					<div css={css`position: relative`}>
+						<SlidesContainer 
+							activeWork={props.activeWork}
+							css={css`flex: 0 0 100%;`}
+							inactiveWork={props.inactiveWork} 
+							slidesData={props.compoData.input}
+						/>
+						<ProductImages
+							activeWork={props.activeWork}
+							imgData={props.compoData.input}
+							inactiveWork={props.inactiveWork}
+						/>
+						<Logos
+							activeWork={props.activeWork}
+							logoData={props.compoData.input}
+							inactiveWork={props.inactiveWork}
+						/>
+					</div>
 				</div>
 			</BackgroundImage>
 	)
