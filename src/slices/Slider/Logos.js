@@ -7,93 +7,47 @@ import Helpers from '../../utils/Helpers'
 
 let inOutQuart = new Helpers('in-out-quart')
 
-const ProductImageEl = styled.div`
-	#productimg-1 {
-		.gatsby-image-wrapper {
-			left: 25%;
-			top: -180px;
-		}
-	}
-
-	#productimg-2 {
-		.gatsby-image-wrapper {
-			left: -5%;
-			top: -60px;
-			width: 100%;
-		}
-	}
-
-	#productimg-3 {
-		.gatsby-image-wrapper {
-			left: -15%;
-			top: -125px;
-		}
-	}
-
-	#productimg-4 {
-		left: 0;
-		position: fixed;
-		top: 0;
-		.gatsby-image-wrapper {
-			left: 0;
-			top: 0;
-		}
-
-		img {
-			object-fit: cover !important;
-			object-position: left top !important;
-		}
-	}
-`
-
 const animations = css`
 	&.active {
-		animation: cyclein 1s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 1;
-		transform: translateX(0);
+		animation: logoin 1s cubic-bezier(${inOutQuart.ease()}) forwards;
+		animation-delay: 1s;
 	}
 
 	&.inactive {
-		animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 0;
-		transform: translateX(200%);
+		animation: logoout 1.2s cubic-bezier(${inOutQuart.ease()}) forwards;
 	}
 
-	@keyframes cyclein {
+	@keyframes logoin {
 		0% {
-			opacity: 0;
-			transform: translate(200%);
-		}
-
-		50% {
 			opacity: 0;
 		}
 
 		100% {
 			opacity: 1;
-			transform: translate(0);
 		}
 	}
 
-	@keyframes cycleout {
+	@keyframes logoout {
 		0% {
 			opacity: 1;
 			transform: translate(0);
 		}
+
+		10% {
+			opacity: 0;
+		}
 	
 		50% {
-			opacity: 0;
 			transform: translate(-200%);
 		}
 	
 		100% {
-			opacity: 0;
 			transform: translate(200%);
 		}
 	}
 `
 
-const ProductImages = props => {
+const Logos = props => {
 	const classBuilder = index => {
 		console.log(props.activeWork, index)
 		let classArr = ['slide']
@@ -110,11 +64,36 @@ const ProductImages = props => {
 
 		return classes
 	}
+
+	const LogoEl = styled.div`
+		height: 100vh;
+		position: relative;
+
+		#logo-1 {
+			top: 47%;
+		}
+
+		#logo-2 {
+			top: 43%;
+
+			svg {
+				fill: #ffffff;
+			}
+		}
+
+		#logo-3 {
+			top:-11%;
+		}
+
+		#logo-4 {
+			top: 25%;
+		}
+	`
 	
 	return(
-		<ProductImageEl>
+		<LogoEl>
 			{
-				props.imgData.items.map((img, index) => {
+				props.logoData.items.map((img, index) => {
 					return(
 						<div
 							className={classBuilder(index + 1)} 
@@ -125,12 +104,12 @@ const ProductImages = props => {
 								width: 100%;
 								${animations}
 							`}
-							id={`productimg-${index + 1}`}
+							id={`logo-${index + 1}`}
 							key={index}
 						>
 							<Img
 								alt="" 
-								fluid={img.our_work_image.localFile.childImageSharp.fluid}
+								fluid={img.our_work_logo.localFile.childImageSharp.fluid}
 								imgStyle={{
 									objectPosition: 'right 150px',
 									objectFit: 'none',
@@ -141,7 +120,7 @@ const ProductImages = props => {
 					)
 				})
 			}
-		</ProductImageEl>
+		</LogoEl>
 	)
 }
 
@@ -150,4 +129,4 @@ const mapStateToProps = state => ({
 	inactiveWork: state.app.inactiveWork
 })
 
-export default connect(mapStateToProps, null)(ProductImages)
+export default connect(mapStateToProps, null)(Logos)
