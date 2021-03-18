@@ -95,7 +95,6 @@ const animations = css`
 
 const ProductImages = props => {
 	const classBuilder = index => {
-		console.log(props.activeWork, index)
 		let classArr = ['slide']
 
 		if (props.activeWork === index) {
