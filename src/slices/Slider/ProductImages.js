@@ -32,7 +32,6 @@ const ProductImageEl = styled.div`
 
 	#productimg-4 {
 		left: 0;
-		pointer-events: none;
 		position: fixed;
 		top: 0;
 		.gatsby-image-wrapper {
@@ -96,7 +95,6 @@ const animations = css`
 
 const ProductImages = props => {
 	const classBuilder = index => {
-		console.log(props.activeWork, index)
 		let classArr = ['slide']
 
 		if (props.activeWork === index) {
