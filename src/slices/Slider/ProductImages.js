@@ -32,6 +32,7 @@ const ProductImageEl = styled.div`
 
 	#productimg-4 {
 		left: 0;
+		pointer-events: none;
 		position: fixed;
 		top: 0;
 		.gatsby-image-wrapper {
