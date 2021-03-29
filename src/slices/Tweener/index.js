@@ -43,13 +43,19 @@ const TweenerEl = styled.section`
 			line-height: 7vh;
 		}
 		@media (min-width: 1440px) {
-			font-size: 11.25rem;
+			font-size: 10.25rem;
 			line-height: 6.25rem;
 		}
 	}
 
 	p {
 		position: relative;
+		@media (min-width: 1024px) {
+			line-height: 10vh;
+		}
+		@media (min-width: 1440px) {
+			line-height: 4.351rem;
+		}
 	}
 `
 

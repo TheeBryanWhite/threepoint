@@ -45,6 +45,14 @@ const PageFooterEl = styled.section`
 			font-size: 2rem;
 			line-height: 3.875rem;
 		}
+		@media (min-width: 1024px) {
+			font-size: 1.8rem;
+    		line-height: 3.075rem;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			font-size: 2rem;
+			line-height: 3.875rem;
+		}
 	}
 
 	strong {
@@ -54,6 +62,15 @@ const PageFooterEl = styled.section`
 		margin-top: 10vh;
 		text-transform: uppercase;
 		@media (min-width: 768px) {
+			font-size: 2.813rem;
+			line-height: 2.938rem;
+		}
+		@media (min-width: 1024px) {
+			font-size: 2.213rem;
+			line-height: 2.938rem;
+			margin-top: 7vh;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
 			font-size: 2.813rem;
 			line-height: 2.938rem;
 		}
