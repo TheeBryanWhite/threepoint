@@ -18,9 +18,14 @@ const yellow = new Helpers('yellow')
 const TimedSliderEl = styled.section`
 	background-color: rgb(${black.defaultColors()});
 	height: 100vh;
-	padding-top: 150px;
 	position: relative;
 	z-index: 1;
+	@media (min-width: 1024px) {
+		padding-top: 15vh;
+	}
+	@media (min-width: 1440px) and (min-height: 821px) {
+		padding-top: 150px;
+	}
 `
 
 const Container = styled.div`
@@ -35,7 +40,7 @@ const Container = styled.div`
 		line-height: 4vh;
 		@media (min-width: 768px) {
 			font-size: 1.25rem;
-			line-height: 2.25;
+			line-height: 1.25rem;
 		}
 		@media (min-width: 1440px) {
 			margin-bottom: 5vh;
@@ -66,9 +71,9 @@ const TimedSlideImage = styled.div`
 	}
 	@media (min-width: 1024px) {
 		padding: 5%;
-		top: 95px;
+		top: 5vh;
 	}
-	@media (min-width: 1440px) {
+	@media (min-width: 1440px) and (min-height: 821px) {
 		top: 17vh;
 	}
 
@@ -129,6 +134,9 @@ const TimedSlide = styled.div`
 		top: 190px;
 	}
 	@media (min-width: 1024px) {
+		top: 7vh;
+	}
+	@media (min-width: 1440px) and (min-height: 821px) {
 		top: 175px;
 	}
 
@@ -169,10 +177,10 @@ const TimedSliderPageHeader = styled.div`
 		font-size: 4vw;
 		line-height: 4vh;
 		@media (min-width: 1024px) {
-			font-size: 3vw;
-			line-height: 6vh;
+			font-size: 1.55rem;
+			line-height: 2.338rem;
 		}
-		@media (min-width: 1440px) {
+		@media (min-width: 1440px) and (min-height: 821px) {
 			font-size: 2.25rem;
 			line-height: 2.938rem;
 		}
@@ -186,12 +194,12 @@ const TimedSlideBody = styled.div`
 		font-weight: 800;
 		line-height: 6vw;
 		@media (min-width: 1024px) {
-			font-size: 2vw;
-			line-height: 3vh;
+			font-size: 2.5vw;
+			line-height: 4vw;
 		}
-		@media (min-width: 1440px) {
-			font-size: 2.208rem;
-			line-height: 2.816rem;
+		@media (min-width: 1440px) and (min-height: 821px) {
+			font-size: 4vw;
+			line-height: 6vw;
 		}
 	}
 
@@ -295,7 +303,6 @@ const TimedSlider = props => {
 					className="timed-slides"
 					css={css`
 					font-family: 'Axis', Helvetica, Arial, sans-seriff;
-					height: 60vh;
 					position: relative;
 					`}
 				>

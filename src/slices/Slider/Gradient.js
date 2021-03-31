@@ -18,6 +18,12 @@ const Gradient = props => {
 					css`
 						height: 100vh;
 						padding-top: 150px;
+						@media (min-width: 1024px) {
+							padding-top: 15vh;
+						}
+						@media (min-width: 1440px) and (min-height: 821px) {
+							padding-top: 150px;
+						}
 					`
 				}
 				fluid={props.gradientData}
@@ -33,7 +39,6 @@ const Gradient = props => {
 				>
 					<div 
 						className="slides-header"
-						css={css`padding: 0 1rem;`}
 						id="slide-header"
 					>
 						<h2
@@ -42,6 +47,7 @@ const Gradient = props => {
 								font-size: 3.5vw;
 								font-weight: 400;
 								line-height: 3vh;
+								padding: 0 2rem;
 								text-transform: capitalize;
 								@media (min-width: 768px) {
 									font-size: 1.25rem;

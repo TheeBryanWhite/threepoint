@@ -71,10 +71,21 @@ const Logos = props => {
 
 		#logo-1 {
 			top: 47%;
+			@media (min-width: 1024px) {
+				top: 37%;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: 47%;
+			}
 		}
 
 		#logo-2 {
-			top: 43%;
+			@media (min-width: 1024px) {
+				top: 33%;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: 43%;
+			}
 
 			svg {
 				fill: #ffffff;
@@ -82,11 +93,21 @@ const Logos = props => {
 		}
 
 		#logo-3 {
-			top:-11%;
+			@media (min-width: 1024px) {
+				top:-27%;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top:-11%;
+			}
 		}
 
 		#logo-4 {
-			top: 25%;
+			@media (min-width: 1024px) {
+				top: 15%;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: 25%;
+			}
 		}
 	`
 	

@@ -113,7 +113,7 @@ const Body = props => {
 							margin: 95px 0 25px;
 						}
 						@media (min-width: 768px) {
-							margin: 9vh 0 6vh;
+							margin: 6vh 0;
 						}
 						@media (min-width: 1440px) and (min-height: 821px) {
 							margin: 95px 0 25px;

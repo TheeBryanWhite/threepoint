@@ -10,23 +10,38 @@ let inOutQuart = new Helpers('in-out-quart')
 const ProductImageEl = styled.div`
 	#productimg-1 {
 		.gatsby-image-wrapper {
-			left: 25%;
-			top: -180px;
+			@media (min-width: 1024px) {
+				left: 25%;
+				top: -310px;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: -180px;
+			}
 		}
 	}
 
 	#productimg-2 {
 		.gatsby-image-wrapper {
-			left: -5%;
-			top: -60px;
 			width: 100%;
+			@media (min-width: 1024px) {
+				left: -5%;
+				top: -180px;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: -60px;
+			}
 		}
 	}
 
 	#productimg-3 {
 		.gatsby-image-wrapper {
-			left: -15%;
-			top: -125px;
+			@media (min-width: 1024px) {
+				left: -15%;
+				top: -245px;
+			}
+			@media (min-width: 1440px) and (min-height: 821px) {
+				top: -125px;
+			}
 		}
 	}
 

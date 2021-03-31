@@ -13,11 +13,16 @@ const TeamEl = styled.section`
 	color: #fff;
 	height: 100vh;
 	overflow-x: hidden;
-	padding-top: 150px;
 	position: relative;
 	z-index: 1;
+	@media (min-width: 1024px) {
+		padding-top: 15vh;
+	}
+	@media (min-width: 1440px) and (min-height: 821px) {
+		padding-top: 150px;
+	}
 
-	h2 {
+	h1 {
 		font-size: 4vw;
 		font-style: italic;
 		font-weight: 300;
@@ -35,7 +40,10 @@ const TeamEl = styled.section`
 	}
 
 	.team-header {
-		@media (min-width: 1440px) {
+		@media (min-width: 1024px) {
+			margin-bottom: 4vh;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
 			margin-bottom: 9vh;
 		}
 		p {
@@ -45,10 +53,10 @@ const TeamEl = styled.section`
 			margin: 0;
 			text-transform: uppercase;
 			@media (min-width: 1024px) {
-				font-size: 2rem;	
-				line-height: 2.938rem;
+				font-size: 1.55rem;
+				line-height: 2.338rem;
 			}
-			@media (min-width: 1440px) {
+			@media (min-width: 1440px) and (min-height: 821px) {
 				font-size: 2.25rem;	
 				line-height: 2.938rem;
 			}
@@ -79,7 +87,8 @@ const Team = props => {
 					className="team-header"
 					css={css`padding: 0 2rem;`}
 				>
-					<div dangerouslySetInnerHTML={{ __html: props.input.primary.team_body.html }} />
+					<div dangerouslySetInnerHTML={{ __html: props.input.primary.title.html }} />
+					<div dangerouslySetInnerHTML={{ __html: props.input.primary.team_body.html }}  />
 				</div>
 				<TeamSlideContainer
 					css={css`

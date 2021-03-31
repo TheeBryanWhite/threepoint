@@ -2,7 +2,6 @@ import React, {useEffect} from 'react'
 import { css } from "@emotion/react"
 import Body from './Body'
 import LinkedContent from './LinkedContent'
-import Figure from './Figure'
 
 const OneCol = props => {
 	const compoData = props.input
@@ -47,6 +46,7 @@ const OneCol = props => {
 						align-items: center;
 						animation: fadeIn 1s linear forwards;
 						animation-delay: 1s;
+						background-color: ${item.one_col_background_color};
 						display: flex;
 						justify-content: center;
 						opacity: 0;
@@ -65,9 +65,9 @@ const OneCol = props => {
 					id={index === 0 ? compoData.primary.section_id : `${compoData.primary.section_id}-${index}`}
 					key={index}
 				>
-					<Figure compoData={item.one_col_background_color} />
 					<Body compoData={item} />
 					<LinkedContent compoData={item} />
+					
 				</section>
 			)
 		})

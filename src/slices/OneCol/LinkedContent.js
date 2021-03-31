@@ -1,18 +1,6 @@
 import React from 'preact'
 import { css } from "@emotion/react"
-import styled from "@emotion/styled"
 import Img from 'gatsby-image'
-
-const SlideCoverer = styled.div`
-	background-color: rgba(255, 255, 255, 0.5);
-	clip-path: polygon(0 0, 0% 100%, 100% 100%);
-	height: 100%;
-	opacity: 1;
-	position: absolute;
-	transition: opacity 0.3s linear;
-	width: 100%;
-	z-index: 1;
-`
 
 const LinkedContent = props => {
 	const blackOrWhite = colorObj => {
@@ -58,30 +46,11 @@ const LinkedContent = props => {
 					max-width: 1440px;
 					opacity: 0;
 					padding: 0 2rem;
-					pointer-events: none;
 					position: fixed;
 					top: 50%;
 					transform: translateY(-50%);
 					width: 100%;
-					z-index: 1;
-					
-					h1 {
-						
-					}
-					p {
-						color: ${blackOrWhite(props.compoData.one_col_background_color)};
-						font-size: 3vw;
-						line-height: 3vh;
-						margin-top: 45px;
-						@media (min-width: 1024px) {
-							font-size: 1.125rem;
-							line-height: 2.25rem;
-						}
-
-						.Indent {
-							margin-left: 2%;
-						}
-					}
+					z-index: -1;
 					&.scrolled {
 						opacity: 1;
 					}
@@ -93,11 +62,32 @@ const LinkedContent = props => {
 							color: ${blackOrWhite(props.compoData.one_col_background_color)};
 							font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 							font-size: 1.25rem;
+							line-height: 1.25rem;
 							font-weight: 300;
 							letter-spacing: 0;
-							margin-bottom: 120px;
+							margin: 6vh 0;
+							@media (min-width: 1440px) and (min-height: 821px) {
+								margin-bottom: 120px;
+							}
 							&:before {
 								content: '//';
+							}
+							p {
+								color: ${blackOrWhite(props.compoData.one_col_background_color)};
+								font-size: 3vw;
+								line-height: 3vh;
+								margin-top: 45px;
+								@media (min-width: 1024px) {
+									font-size: 1.125rem;
+									line-height: 1.65rem;
+								}
+								@media (min-width: 1440px) and (min-height: 821px) {
+									line-height: 2.125rem;
+								}
+		
+								.Indent {
+									margin-left: 2%;
+								}
 							}
 						}
 					`}
@@ -124,14 +114,17 @@ const LinkedContent = props => {
 									`}
 									key={index}
 								>
-									<div className="org-logo">
+									<div 
+										className="org-logo"
+										css={css`margin-bottom: 15px;`}
+									>
 										<a
 											css={css`
 												background-color: #ffffff;
 												display: block;
 												position: relative;
 												&:hover {
-													${SlideCoverer} {
+													.slide-coverer {
 														opacity: 0;
 													}
 												}
@@ -140,8 +133,26 @@ const LinkedContent = props => {
 											rel="noreferrer"
 											target="_blank"
 										>
-											<SlideCoverer />
-											<Img fluid={org.image.localFile.childImageSharp.fluid} alt="" />
+											<div
+												className="slide-coverer"
+												css={css`
+													background-color: rgba(255, 255, 255, 0.5);
+													clip-path: polygon(0 0, 0% 100%, 100% 100%);
+													height: 100%;
+													opacity: 1;
+													position: absolute;
+													transition: opacity 0.3s linear;
+													width: 100%;
+													z-index: 1;
+												`}
+											/>
+											<Img
+												alt=""
+												css={css`
+													height: 250px;
+												`}
+												fluid={org.image.localFile.childImageSharp.fluid}
+											/>
 										</a>
 									</div>
 									<div className="org-body" dangerouslySetInnerHTML={{ __html: org.body.html }} />

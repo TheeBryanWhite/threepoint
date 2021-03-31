@@ -67,6 +67,13 @@ const TeamMemberTeaser = styled.div`
 	.gatsby-image-wrapper {
 		cursor: pointer;
 		width: 100% !important;
+		@media (min-width: 1024px) {
+			height: 38vh;
+			margin-bottom: 15px;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			height: auto;
+		}
 	}
 
 	button {

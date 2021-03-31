@@ -137,6 +137,10 @@ const SlidesContainer = props => {
 								line-height: 2.938rem;
 							}
 							@media (min-width: 1024px) {
+								font-size: 1.55rem;
+    							line-height: 2.338rem;
+							}
+							@media (min-width: 1440px) and (min-height: 821px) {
 								font-size: 2.25rem;
 								line-height: 2.938rem;
 							}
@@ -194,11 +198,13 @@ const SlidesContainer = props => {
 								@media (min-width: 1024px) {
 									grid-template-columns: 20% 20% 20% 20% 20%;
 									grid-template-rows: 50% 50%;
+									max-height: 50vh;
+									max-width: 100%;
+									padding: 0 2rem;
 								}
-								@media (min-width: 1440px) {
+								@media (min-width: 1440px) and (min-height: 821px) {
 									max-height: none;
 									max-width: none;
-									padding: 0 2rem;
 								}
 							`}
 						>
@@ -209,6 +215,7 @@ const SlidesContainer = props => {
 											css={css`
 												background-color: #ffffff;
 												cursor: pointer;
+												overflow: hidden;
 												position: relative;
 												@media (min-width: 1024px) {
 													grid-column: span 2;
@@ -256,10 +263,8 @@ const SlidesContainer = props => {
 											<Img
 												alt=""
 												css={css`
-													.gatsby-image-wrapper {
-														height: 100%;
-														object-fit: cover;
-													}
+													top: 50%;
+    												transform: translateY(-50%);
 												
 													img {
 														display: block;
@@ -296,6 +301,12 @@ const SlidesContainer = props => {
 											font-size: 1.188rem;
 											line-height: 4.054rem;
 											margin-top: 100px;
+											@media (min-width: 1024px) {
+												margin-top: 0;
+											}
+											@media (min-width: 1440px) and (min-height: 821px) {
+												margin-top: 100px;
+											}
 										`}
 									>
 										<b css={css`font-weight: 700;`}>{index + 1}</b>/4

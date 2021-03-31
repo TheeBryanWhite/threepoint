@@ -25,8 +25,10 @@ const TeamMember = styled.div`
 	@media (min-width: 1024px) {
 		background-color: transparent;
 		display: flex;
-		margin-top: 4vh;
 		position: absolute;
+	}
+	@media (min-width: 1440px) and (min-height: 821px) {
+		margin-top: 4vh;
 	}
 
 	button {
@@ -83,8 +85,6 @@ const TeamMember = styled.div`
 `
 
 const TeamMemberMeta = styled.div`
-	
-
 	p {
 		margin: 0;
 	}
