@@ -337,12 +337,11 @@ const SlidesContainer = props => {
 												left: 0;
 												list-style-type: none;
 												margin: 0;
-												padding-left: 20px;
+												padding-left: 35px;
 												position: relative;
-												text-transform: uppercase;
 												@media (min-width: 1024px) {
-													font-size: 1.125rem;
-													line-height: 1.75rem;
+													font-size: 1.5rem;
+													line-height: 2rem;
 												}
 
 												&:before {
