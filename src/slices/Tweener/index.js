@@ -10,7 +10,7 @@ let white = new Helpers('white')
 const TweenerEl = styled.section`
 	background-color: rgb(${yellow.defaultColors()});
 	color: rgb(${yellow.defaultColors()});
-	font-family: 'Axis', Helvetica, Arial, sans-seriff;
+	font-family: 'ADLMounTiane', Helvetica, Arial, sans-seriff;
 	font-size: 9vw;
 	height: 100vh;
 	line-height: 6vh;
@@ -20,8 +20,8 @@ const TweenerEl = styled.section`
 		font-size: 5.3vw;
 	}
 	@media (min-width: 1440px) {
-		font-size: 1.75rem;
-		line-height: 3.25rem;
+		font-size: 5.436rem;
+		line-height: 1.864rem;
 	}
 
 	.Break {
@@ -35,6 +35,7 @@ const TweenerEl = styled.section`
 	.Large {
 		color: rgb(${white.defaultColors()});
 		display: block;
+		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 12vw;
 		line-height: 10vh;
 		@media (min-width: 768px) {

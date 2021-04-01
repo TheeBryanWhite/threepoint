@@ -171,6 +171,7 @@ const Container = styled.div`
 
 		h1 {
 			color: rgb(${yellow.defaultColors()});
+			letter-spacing: -5px;
 
 			&:before {
 				bottom: 3px;

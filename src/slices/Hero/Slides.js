@@ -21,9 +21,11 @@ const slide = css`
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 10vw;
 		font-weight: 400;
-
-		${bplarge.respondTo()} {
+		@media (min-width: 1024px) {
 			font-size: 8vw;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			font-size: 146px;
 		}
 	}
 

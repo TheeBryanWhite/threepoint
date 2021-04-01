@@ -50,7 +50,7 @@ const Nav = props => {
 										display: inline-block;
 										font-family: 'Axis', Helvetica, Arial, sans-seriff;
 										font-size: 5vw;
-										line-height: 7vh;
+										line-height: 5vh;
 										padding: 10px 0;
 										text-decoration: none;
 										width: 100%;
