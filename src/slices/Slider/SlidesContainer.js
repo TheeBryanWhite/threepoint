@@ -319,6 +319,7 @@ const SlidesContainer = props => {
 											p,
 											ul {
 												font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+												font-weight: 600;
 											}
 
 											p {

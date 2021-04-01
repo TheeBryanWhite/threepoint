@@ -77,6 +77,10 @@ const Logos = props => {
 			@media (min-width: 1440px) and (min-height: 821px) {
 				top: 47%;
 			}
+
+			svg {
+				fill: #ffffff;
+			}
 		}
 
 		#logo-2 {

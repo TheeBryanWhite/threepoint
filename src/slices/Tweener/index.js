@@ -37,6 +37,7 @@ const TweenerEl = styled.section`
 		display: block;
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 12vw;
+		letter-spacing: -5px;
 		line-height: 10vh;
 		@media (min-width: 768px) {
 			display: inline;
