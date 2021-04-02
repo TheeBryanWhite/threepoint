@@ -1,8 +1,11 @@
 import React from "preact"
 import { connect } from 'react-redux'
 import { setFooterStatus } from '../redux/actions'
-import styled from "@emotion/styled"
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import Helpers from '../utils/Helpers'
+import { ReactComponent as SVGLinkedIn } from '../svg/linkedin-logo.svg'
+import { ReactComponent as SVGInstagram } from '../svg/instagram.svg'
 
 let white = new Helpers('white')
 let outQuart = new Helpers('out-quart')
@@ -62,7 +65,7 @@ const Footer = props => {
 		}
 	`
 
-	const socialSpacing = new Helpers(100)
+	const socialSpacing = new Helpers(50)
 	const SocialList = styled.ul`
 		align-items: center;
 		display: flex;
@@ -96,8 +99,36 @@ const Footer = props => {
 				<div className="copyright">&copy; {theYear} &#47;&#47; {props.siteTitle} &#47;&#47; All rights reserved</div>
 				<div className="social">
 					<SocialList>
-						<li><a href="http://instagram.com" target="_blank" rel="noreferrer">IG</a></li>
-						<li><a href="http://linkedin.com" target="_blank" rel="noreferrer">LI</a></li>
+						<li>
+							<a 
+								href="http://instagram.com"
+								rel="noreferrer"
+								target="_blank"
+							>
+								<SVGInstagram 
+									css={css`
+										fill: #ffffff;
+										height: 20px;
+										width: 20px;
+									`} 
+								/>
+							</a>
+						</li>
+						<li>
+							<a 
+								href="http://linkedin.com" 
+								rel="noreferrer"
+								target="_blank"
+							>
+								<SVGLinkedIn 
+									css={css`
+										fill: #ffffff;
+										height: 20px;
+										width: 20px;
+									`}
+								/>
+							</a>
+						</li>
 					</SocialList>
 				</div>
 			</Container>
