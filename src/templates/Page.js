@@ -59,6 +59,7 @@ export const pageQuery = graphql`
             slice_type
             items {
               mask_this
+              center_vertically
               one_col_background_color
               one_column_body {
                 html

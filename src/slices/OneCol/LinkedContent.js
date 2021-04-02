@@ -35,10 +35,26 @@ const LinkedContent = props => {
 		}
 	}
 
+	const classBuilder = () => {
+		let classArr = []
+
+		if (props.compoData.mask_this) {
+			classArr.push('mask-this')
+		}
+
+		if (props.compoData.center_vertically) {
+			classArr.push('center-vertically')
+		}
+
+		const classes = classArr.join(' ')
+
+		return classes
+	}
+
 	if (props.compoData.list_items.document) {
 		return(
 			<div
-				className={props.compoData.mask_this ? 'mask-this' : ''}
+				className={classBuilder()}
 				css={css`
 					font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 					font-weight: 600;
@@ -47,46 +63,47 @@ const LinkedContent = props => {
 					opacity: 0;
 					padding: 0 2rem;
 					position: fixed;
-					top: 50%;
-					transform: translateY(-50%);
+					top: 0;
 					width: 100%;
 					z-index: -1;
 					&.scrolled {
 						opacity: 1;
 					}
+					&.center-vertically {
+						top: 50%;
+						transform: translateY(-50%);
+					}
 				`}
 			>
 				<div 
 					css={css`
+						margin-bottom: 10vh;
+
 						h1 {
 							color: ${blackOrWhite(props.compoData.one_col_background_color)};
-							font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-							font-size: 1.25rem;
-							line-height: 1.25rem;
-							font-weight: 300;
-							letter-spacing: 0;
-							margin: 6vh 0;
-							@media (min-width: 1440px) and (min-height: 821px) {
-								margin-bottom: 120px;
-							}
-							&:before {
-								content: '//';
-							}
-							p {
-								color: ${blackOrWhite(props.compoData.one_col_background_color)};
-								font-size: 3vw;
+							font-family: 'Axis', Helvetica, Arial, sans-seriff;
+							font-size: 9vw;
+							line-height: 5vh;
+							margin: 0;
+							position: relative;
+							@media (min-width: 1024px) {
+								font-size: 11vw;
 								line-height: 3vh;
-								margin-top: 45px;
-								@media (min-width: 1024px) {
-									font-size: 1.125rem;
-									line-height: 1.65rem;
-								}
-								@media (min-width: 1440px) and (min-height: 821px) {
-									line-height: 2.125rem;
-								}
-		
-								.Indent {
-									margin-left: 2%;
+							}
+							@media (min-width: 1440px) {
+								font-size: 9.323rem;
+								letter-spacing: -0.4rem;
+								line-height: 8.341rem;
+							}
+							.Title {
+								font-size: 1.25rem;
+								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+								font-weight: 300;
+								letter-spacing: 0;
+								line-height: 2.938rem;
+	
+								&:before {
+									content: '//';
 								}
 							}
 						}

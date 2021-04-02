@@ -16,8 +16,8 @@ const TimedSlideBody = styled.div`
 			line-height: 4vw;
 		}
 		@media (min-width: 1440px) and (min-height: 821px) {
-			font-size: 4vw;
-			line-height: 6vw;
+			font-size: 2.208rem;
+			line-height: 2.816rem;
 		}
 	}
 

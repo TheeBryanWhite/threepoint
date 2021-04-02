@@ -122,6 +122,13 @@
 					"label": "Mask This"
 				  }
 				},
+				"center_vertically": {
+				  "type": "Boolean",
+				  "config": {
+					"default_value": false,
+					"label": "Center Vertically?"
+				  }
+				},
 				"list_items": {
 				  "type": "Link",
 				  "config": {

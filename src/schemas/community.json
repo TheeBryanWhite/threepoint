@@ -1,41 +1,42 @@
 {
-	"Main": {
-	  "title": {
-		"type": "StructuredText",
-		"config": {
-		  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-		  "label": "Title"
+	"Main" : {
+	  "title" : {
+		"type" : "StructuredText",
+		"config" : {
+		  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+		  "label" : "Title",
+		  "labels": ["Title"]
 		}
 	  },
-	  "organization": {
-		"type": "Group",
-		"config": {
-		  "fields": {
-			"image": {
-			  "type": "Image",
-			  "config": {
-				"constraint": {},
-				"thumbnails": [],
-				"label": "Image"
+	  "organization" : {
+		"type" : "Group",
+		"config" : {
+		  "fields" : {
+			"image" : {
+			  "type" : "Image",
+			  "config" : {
+				"constraint" : { },
+				"thumbnails" : [ ],
+				"label" : "Image"
 			  }
 			},
-			"link": {
-			  "type": "Link",
-			  "config": {
-				"allowTargetBlank": true,
-				"label": "Link"
+			"link" : {
+			  "type" : "Link",
+			  "config" : {
+				"allowTargetBlank" : true,
+				"label" : "Link"
 			  }
 			},
-			"body": {
-			  "type": "StructuredText",
-			  "config": {
-				"multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-				"allowTargetBlank": true,
-				"label": "Body"
+			"body" : {
+			  "type" : "StructuredText",
+			  "config" : {
+				"multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+				"allowTargetBlank" : true,
+				"label" : "Body"
 			  }
 			}
 		  },
-		  "label": "Organization"
+		  "label" : "Organization"
 		}
 	  }
 	}
