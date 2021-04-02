@@ -115,6 +115,7 @@ const TimedSlidesBody = props => {
 				return(
 					<TimedSlide
 						className={classBuilder(index)}
+						id={`slide-body-${index}`}
 						key={index}
 					>
 						<div

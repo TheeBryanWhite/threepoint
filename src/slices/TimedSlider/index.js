@@ -53,6 +53,10 @@ const Container = styled.div`
 			content: '//';
 		}
 	}
+
+	#slide-body-0 h3 {
+		color: #F7931E;
+	}
 `
 
 const TimedSlider = props => {

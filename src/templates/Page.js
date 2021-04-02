@@ -122,15 +122,6 @@ export const pageQuery = graphql`
               our_work_body {
                 html
               }
-              our_work_gradient {
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
             }
             items {
               our_work_bg_color

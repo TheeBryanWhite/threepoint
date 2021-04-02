@@ -50,10 +50,7 @@ const Slider = props => {
 			`}
 			id={props.input.primary.section_id}
 		>
-			<Gradient
-				compoData={props}
-				gradientData={props.input.primary.our_work_gradient.localFile.childImageSharp.fluid}
-			/>
+			<Gradient compoData={props} />
 			<SlideNav />
 		</section>
 	)
