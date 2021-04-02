@@ -64,6 +64,7 @@ const TeamEl = styled.section`
 
 		em {
 			color: rgb(${yellow.defaultColors()});
+			font-style: normal;
 		}
 	}
 `

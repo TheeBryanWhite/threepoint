@@ -9,7 +9,9 @@ import {
 import Helpers from '../../utils/Helpers'
 import intervalHandler from '../../utils/intervalHandler'
 
-import { ReactComponent as SVGThreePtFrame } from '../../svg/threepoint-frame.svg'
+import TimedSlidesHeader from './TimedSlidesHeader'
+import ThreePointTriangle from './ThreePointTriangle'
+import TimedSlidesBody from './TimedSlidesBody'
 
 const black = new Helpers('black')
 const white = new Helpers('white')
@@ -53,202 +55,7 @@ const Container = styled.div`
 	}
 `
 
-const TimedSlideImage = styled.div`
-	left: 50%;
-	opacity: 0.3;
-	padding: 0 2rem;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-	@media (min-width: 1024px) {
-		left: 0;
-		opacity: 1;
-		position: absolute;
-		top: 130px;
-		transform: none;
-		width: 40%;
-	}
-	@media (min-width: 1024px) {
-		padding: 5%;
-		top: 5vh;
-	}
-	@media (min-width: 1440px) and (min-height: 821px) {
-		top: 17vh;
-	}
-
-	svg {
-		height: 100%;
-		width: 100%;
-	}
-
-	#threepoint-frame_svg__middle_full,
-	#threepoint-frame_svg__top_full,
-	#threepoint-frame_svg__right_full,
-	#threepoint-frame_svg__left_full {
-		opacity: 0;
-		transition: opacity 0.2s linear;
-
-		&.ghost {
-			opacity: 0.4;
-		}
-	}
-
-	#threepoint-frame_svg__middle_full.ghost {
-		fill: #F7931E;
-		opacity: 0.4;
-	}
-
-	&.go-0 {
-		#threepoint-frame_svg__middle_full {
-			fill: #F7931E;
-			opacity: 0.8;
-		}
-	}
-
-
-	&.go-1 {
-		#threepoint-frame_svg__top_full {
-			opacity: 0.8;
-		}
-	}
-
-	&.go-2 {
-		#threepoint-frame_svg__right_full {
-			opacity: 0.8;
-		}
-	}
-
-	&.go-3 {
-		#threepoint-frame_svg__left_full {
-			opacity: 0.8;
-		}
-	}
-`
-
-const TimedSlide = styled.div`
-	opacity: 0;
-	position: absolute;
-	top: 165px;
-	@media (min-width: 768px) {
-		top: 190px;
-	}
-	@media (min-width: 1024px) {
-		top: 7vh;
-	}
-	@media (min-width: 1440px) and (min-height: 821px) {
-		top: 175px;
-	}
-
-	h3 {
-		color: rgb(${yellow.defaultColors()});
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 4vw;
-		font-weight: 800;
-		line-height: 4vh;
-		text-transform: uppercase;
-		@media (min-width: 1024px) {
-			font-size: 2vw;
-			line-height: 3vh;
-		}
-		@media (min-width: 1440px) {
-			font-size: 1.563rem;
-			line-height: 1.734rem;
-		}
-	}
-
-	&.active {
-		opacity: 1;
-	}
-
-	&.inactive {
-		opacity: 0;
-	}
-`
-
-const TimedSliderPageHeader = styled.div`
-	opacity: 0;
-
-	&.active {
-		opacity: 1;
-	}
-
-	p {
-		font-size: 4vw;
-		line-height: 4vh;
-		@media (min-width: 1024px) {
-			font-size: 1.55rem;
-			line-height: 2.338rem;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			font-size: 2.25rem;
-			line-height: 2.938rem;
-		}
-	}
-`
-
-const TimedSlideBody = styled.div`
-	p {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 4vw;
-		font-weight: 800;
-		line-height: 6vw;
-		@media (min-width: 1024px) {
-			font-size: 2.5vw;
-			line-height: 4vw;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			font-size: 4vw;
-			line-height: 6vw;
-		}
-	}
-
-	ul {
-		margin: 0;
-		text-transform: uppercase;
-	}
-
-	li {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 3vw;
-		font-weight: 500;
-		line-height: 3vh;
-		list-style-type: none;
-		margin: 0;
-		@media (min-width: 1024px) {
-			font-size: 1.25vw;
-			line-height: 2.5vh;
-		}
-	}
-`
-
-let imgArr = []
-
 const TimedSlider = props => {
-
-	const classBuilder = index => {
-		let classArr = []
-
-		if (props.activeSlide === index) {
-			classArr.push('active')
-		}
-
-		if (typeof props.inactiveSlide !== 'undefined' && props.inactiveSlide === index) {
-			classArr.push('inactive')
-		}
-
-		const classes = classArr.join(' ')
-
-		return classes
-	}
-
-	const imgBuilder = () => {
-		imgArr = [`go-${props.activeSlide}`]
-
-		const classes = imgArr.join(' ')
-
-		return classes
-	}
 
 	let index = 0
 
@@ -267,6 +74,8 @@ const TimedSlider = props => {
 	const stopAutoSlide = intervalHandler(autoSlide, 8000)
 
 	useEffect(() => {
+		let clickThis = document.getElementsByClassName('threepoint-frame_svg__st1')
+		
 		const ghostThis = target => {
 			target.classList.add('ghost')
 		}
@@ -274,7 +83,12 @@ const TimedSlider = props => {
 			target.classList.remove('ghost')
 		}
 
-		let clickThis = document.getElementsByClassName('threepoint-frame_svg__st1')
+		const activateThis = target => {
+			props.setInactiveSlide(target.getAttribute("data-slide") - 1)
+			props.setActiveSlide(target.getAttribute("data-slide"))
+			stopAutoSlide()
+		}
+
 		clickThis = Array.from(clickThis)
 		clickThis.forEach(element => {
 			element.addEventListener("mouseenter", event => {
@@ -283,8 +97,11 @@ const TimedSlider = props => {
 			element.addEventListener("mouseleave", event => {
 				dontGhostThis(event.currentTarget)
 			})
+			element.addEventListener("click", event => {
+				activateThis(event.currentTarget)
+			})
 		});
-	}, [])
+	}, [props, stopAutoSlide])
 
 	return(
 		<TimedSliderEl
@@ -306,64 +123,22 @@ const TimedSlider = props => {
 					position: relative;
 					`}
 				>
-					{
-						props.input.items.map((slide, index) => {
-							return(
-								<TimedSliderPageHeader 
-									className={classBuilder(index)}
-									css={css`
-										padding: 0 2rem;
-										position: absolute;
-										top: 0;
-										width: 100%;
-									`}
-									dangerouslySetInnerHTML={{ __html: slide.timed_slider_page_header.html }} 
-									key={index}
-								/>
-							)
-						})
-					}
+					<TimedSlidesHeader
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+						slideData={props.input.items}
+					/>
 
-					<TimedSlideImage className={imgBuilder(index)}>
-						<SVGThreePtFrame />
-					</TimedSlideImage>
+					<ThreePointTriangle
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+					/>
 
-					<div
-						className="timed-slider-container"
-						css={css`
-							position: absolute;
-							right: 0;
-							top: 10px;
-							width: 100%;
-							@media (min-width: 1024px) {
-								width: 60%;
-							}
-						`}
-					>
-					{
-						props.input.items.map((slide, index) => {
-							return(
-								<TimedSlide
-									className={classBuilder(index)}
-									key={index}
-								>
-									<div
-										css={css`
-											padding: 0 2rem;
-											@media (min-width: 1440px) {
-												padding-top: 7vh;
-											}
-										`}
-										className="timed-slider-body"
-									>
-										<div className="timed-slide-title" dangerouslySetInnerHTML={{ __html: slide.timed_slide_title.html }} />
-										<TimedSlideBody dangerouslySetInnerHTML={{ __html: slide.timed_slide_body.html }} />
-									</div>
-								</TimedSlide>
-							)
-						})
-					}
-					</div>
+					<TimedSlidesBody
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+						slideData={props.input.items}
+					/>
 				</div>
 			</Container>
 		</TimedSliderEl>

@@ -40,14 +40,19 @@ const SlideNav = props => {
 				top: 50%;
 				transform: translateY(-50%);
 				width: 100%;
+				z-index: 10;
 			`}
 		>
 			<button 
 				css={css`
 					background-color: transparent;
 					border: 0;
-					left: 2%;
+					cursor: pointer;
+					left: 0;
 					position: absolute;
+					@media (min-width: 1440px) and (min-height: 821px) {
+						left: 2%;
+					}
 					&:focus {
 						outline: none;
 					}
@@ -66,8 +71,12 @@ const SlideNav = props => {
 				css={css`
 					background-color: transparent;
 					border: 0;
-					right: 2%;
+					cursor: pointer;
+					right: 0;
 					position: absolute;
+					@media (min-width: 1440px) and (min-height: 821px) {
+						left: 2%;
+					}
 					&:focus {
 						outline: none;
 					}

@@ -49,28 +49,28 @@
 	.st43{clip-path:url(#SVGID_76_);}
 </style>
 <g id="Layer_2_1_">
-	<g id="middle_ghost">
+	<g id="middle_ghost" data-slide="0">
 		<polygon class="st0" points="139.2,132.1 234.2,159.3 276.1,237.5 196.9,260.9 101.9,233.7"/>
 	</g>
-	<g id="middle_full">
+	<g id="middle_full" data-slide="0">
 		<polygon class="st1" points="139.2,132.1 234.2,159.3 276.1,237.5 196.9,260.9 101.9,233.7"/>
 	</g>
-	<g id="top_ghost">
+	<g id="top_ghost" data-slide="1">
 		<polygon class="st0" points="119.3,46.1 138.5,81.7 233.5,108.9 250.2,62.7 155.2,35.5"/>
 	</g>
-	<g id="top_full">
+	<g id="top_full" data-slide="1">
 		<polygon class="st1" points="119.3,46.1 138.5,81.7 233.5,108.9 250.2,62.7 155.2,35.5"/>
 	</g>
-	<g id="left_ghost">
+	<g id="left_ghost" data-slide="3">
 		<polygon class="st0" points="34.4,278.4 70.5,267.4 165.5,294.6 148.6,341.3 54.2,314"/>
 	</g>
-	<g id="left_full">
+	<g id="left_full" data-slide="3">
 		<polygon class="st1" points="34.4,278.4 70.5,267.4 165.5,294.6 148.6,341.3 54.2,314"/>
 	</g>
-	<g id="right_ghost">
+	<g id="right_ghost" data-slide="2">
 		<polygon class="st0" points="329.3,287.4 346.2,240.8 251.2,213.5 215.3,224.5 234.3,260.2"/>
 	</g>
-	<g id="right_full">
+	<g id="right_full" data-slide="2">
 		<polygon class="st1" points="329.3,287.4 346.2,240.8 251.2,213.5 215.3,224.5 234.3,260.2"/>
 	</g>
 	<g id="frame">
