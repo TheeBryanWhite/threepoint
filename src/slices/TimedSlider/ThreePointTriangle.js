@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact'
 import styled from '@emotion/styled'
 import { ReactComponent as SVGThreePtFrame } from '../../svg/threepoint-frame.svg'
 

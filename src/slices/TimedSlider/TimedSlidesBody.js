@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import Helpers from '../../utils/Helpers'
