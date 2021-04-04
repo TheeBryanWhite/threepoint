@@ -97,7 +97,7 @@ const Footer = props => {
 	return (
 		<FooterEl>
 			<Container>
-				<div className="copyright">&copy; {theYear} &#47;&#47; {props.siteTitle} &#47;&#47; All rights reserved</div>
+				<div className="copyright">{`© ${theYear} // ${props.siteTitle} // All rights reserved`}</div>
 				<div className="social">
 					<SocialList>
 						<li>
