@@ -35,51 +35,6 @@ const SlideBody = styled.div`
 			line-height: 1.734rem;
 		}
 	}
-
-	&.active {
-		animation: cyclein 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 1;
-		transform: translateX(0);
-	}
-
-	&.inactive {
-		animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 0;
-		transform: translateX(120%);
-	}
-
-	@keyframes cyclein {
-		0% {
-			opacity: 0;
-			transform: translate(120%);
-		}
-
-		50% {
-			opacity: 0;
-		}
-	
-		100% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	}
-	
-	@keyframes cycleout {
-		0% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	
-		50% {
-			opacity: 0;
-			transform: translate(-120%);
-		}
-	
-		100% {
-			opacity: 0;
-			transform: translate(120%);
-		}
-	}
 `
 
 const SlidesContainer = props => {
@@ -112,7 +67,105 @@ const SlidesContainer = props => {
 	}
 
 	return(
-		<div className="slides-container">
+		<div 
+			className={`slides-container ${props.slideDirection}`}
+			css={css`
+				&.null,
+				&.next {
+					.active {
+						animation: cycleinLeft 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 1;
+						transform: translateX(0);
+					}
+				
+					.inactive {
+						animation: cycleoutLeft 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 0;
+						transform: translateX(120%);
+					}
+				}
+
+				&.prev {
+					.active {
+						animation: cycleinRight 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 1;
+						transform: translateX(0);
+					}
+				
+					.inactive {
+						animation: cycleoutRight 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 0;
+						transform: translateX(120%);
+					}
+				}
+			
+				@keyframes cycleinLeft {
+					0% {
+						opacity: 0;
+						transform: translate(120%);
+					}
+			
+					50% {
+						opacity: 0;
+					}
+				
+					100% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				}
+				
+				@keyframes cycleoutLeft {
+					0% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				
+					50% {
+						opacity: 0;
+						transform: translate(-120%);
+					}
+				
+					100% {
+						opacity: 0;
+						transform: translate(120%);
+					}
+				}
+			
+				@keyframes cycleinRight {
+					0% {
+						opacity: 0;
+						transform: translate(-120%);
+					}
+			
+					50% {
+						opacity: 0;
+					}
+				
+					100% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				}
+				
+				@keyframes cycleoutRight {
+					0% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				
+					50% {
+						opacity: 0;
+						transform: translate(120%);
+					}
+				
+					100% {
+						opacity: 0;
+						transform: translate(-120%);
+					}
+				}
+			`}
+		>
 			<div
 				css={css`
 					position: relative;
@@ -214,7 +267,6 @@ const SlidesContainer = props => {
 										<div
 											css={css`
 												background-color: #ffffff;
-												cursor: pointer;
 												overflow: hidden;
 												position: relative;
 												@media (min-width: 1024px) {
@@ -245,34 +297,45 @@ const SlidesContainer = props => {
 												}
 											`}
 											key={index}
-											onClick={() => {clickHandler(index + 1)}}
 										>
-											<div
-												className="slide-coverer"
+											<button
 												css={css`
-													background-color: rgba(255, 255, 255, 0.5);
-													clip-path: polygon(0 0, 0% 100%, 100% 100%);
+													background: transparent;
+													border: 0;
+													cursor: pointer;
 													height: 100%;
-													opacity: 1;
-													position: absolute;
-													transition: opacity 0.3s linear;
+													padding: 0;
 													width: 100%;
-													z-index: 1;
 												`}
-											/>
-											<Img
-												alt=""
-												css={css`
-													top: 50%;
-    												transform: translateY(-50%);
-												
-													img {
-														display: block;
-														margin: 0;
-													}
-												`}
-												fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
-											/>
+												onClick={() => {clickHandler(index + 1)}}
+											>
+												<div
+													className="slide-coverer"
+													css={css`
+														background-color: rgba(255, 255, 255, 0.5);
+														clip-path: polygon(0 0, 0% 100%, 100% 100%);
+														height: 100%;
+														opacity: 1;
+														position: absolute;
+														transition: opacity 0.3s linear;
+														width: 100%;
+														z-index: 1;
+													`}
+												/>
+												<Img
+													alt=""
+													css={css`
+														top: 50%;
+														transform: translateY(-50%);
+													
+														img {
+															display: block;
+															margin: 0;
+														}
+													`}
+													fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
+												/>
+											</button>
 										</div>
 									)
 								})
@@ -368,4 +431,8 @@ const SlidesContainer = props => {
 	)
 }
 
-export default connect(null, {setActiveWork, setInactiveWork})(SlidesContainer)
+const mapStateToProps = state => ({
+	slideDirection: state.app.slideDirection
+})
+
+export default connect(mapStateToProps, {setActiveWork, setInactiveWork})(SlidesContainer)

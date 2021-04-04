@@ -62,53 +62,6 @@ const ProductImageEl = styled.div`
 	}
 `
 
-const animations = css`
-	&.active {
-		animation: cyclein 1s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 1;
-		transform: translateX(0);
-	}
-
-	&.inactive {
-		animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 0;
-		transform: translateX(200%);
-	}
-
-	@keyframes cyclein {
-		0% {
-			opacity: 0;
-			transform: translate(200%);
-		}
-
-		50% {
-			opacity: 0;
-		}
-
-		100% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	}
-
-	@keyframes cycleout {
-		0% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	
-		50% {
-			opacity: 0;
-			transform: translate(-200%);
-		}
-	
-		100% {
-			opacity: 0;
-			transform: translate(200%);
-		}
-	}
-`
-
 const ProductImages = props => {
 	const classBuilder = index => {
 		let classArr = ['slide']
@@ -127,7 +80,105 @@ const ProductImages = props => {
 	}
 	
 	return(
-		<ProductImageEl>
+		<ProductImageEl
+			className={props.slideDirection}
+			css={css`
+				&.null,
+				&.next {
+					.active {
+						animation: cycleinLeft 1s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 1;
+						transform: translateX(0);
+					}
+				
+					.inactive {
+						animation: cycleoutLeft 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 0;
+						transform: translateX(200%);
+					}
+				}
+
+				&.prev {
+					.active {
+						animation: cycleinRight 1s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 1;
+						transform: translateX(0);
+					}
+				
+					.inactive {
+						animation: cycleoutRight 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+						opacity: 0;
+						transform: translateX(200%);
+					}
+				}
+			
+				@keyframes cycleinLeft {
+					0% {
+						opacity: 0;
+						transform: translate(200%);
+					}
+			
+					50% {
+						opacity: 0;
+					}
+			
+					100% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				}
+			
+				@keyframes cycleoutLeft {
+					0% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				
+					50% {
+						opacity: 0;
+						transform: translate(-200%);
+					}
+				
+					100% {
+						opacity: 0;
+						transform: translate(200%);
+					}
+				}
+
+				@keyframes cycleinRight {
+					0% {
+						opacity: 0;
+						transform: translate(-200%);
+					}
+			
+					50% {
+						opacity: 0;
+					}
+			
+					100% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				}
+			
+				@keyframes cycleoutRight{
+					0% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				
+					50% {
+						opacity: 0;
+						transform: translate(200%);
+					}
+				
+					100% {
+						opacity: 0;
+						transform: translate(-200%);
+					}
+				}
+			`}
+		>
 			{
 				props.imgData.items.map((img, index) => {
 					return(
@@ -138,7 +189,6 @@ const ProductImages = props => {
 								position: absolute;
 								transition: all 0.2s linear;
 								width: 100%;
-								${animations}
 							`}
 							id={`productimg-${index + 1}`}
 							key={index}
@@ -162,7 +212,8 @@ const ProductImages = props => {
 
 const mapStateToProps = state => ({
 	activeWork: state.app.activeWork,
-	inactiveWork: state.app.inactiveWork
+	inactiveWork: state.app.inactiveWork,
+	slideDirection: state.app.slideDirection
 })
 
 export default connect(mapStateToProps, null)(ProductImages)

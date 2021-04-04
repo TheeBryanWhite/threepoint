@@ -11,8 +11,6 @@ const yellow = new Helpers('yellow')
 const center = new GlobalStyles()
 const hideThis = new GlobalStyles()
 
-let bplarge = new Helpers('large')
-
 const slide = css`
 	${center.centerThis()};
 	width: 100%;

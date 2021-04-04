@@ -2,7 +2,6 @@ import React from 'preact'
 import { css } from "@emotion/react"
 
 const Body = props => {
-	console.log(props)
 	const blackOrWhite = colorObj => {
 		const rgb = hexToRgb(colorObj)
 

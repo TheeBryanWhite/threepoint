@@ -62,3 +62,10 @@ export const setMenu = (data) => (dispatch) => {
     payload: data,
   })
 }
+
+export const setSlideDirection = (data) => (dispatch) => {
+  dispatch({
+    type: types.SET_SLIDE_DIRECTION,
+    payload: data,
+  })
+}

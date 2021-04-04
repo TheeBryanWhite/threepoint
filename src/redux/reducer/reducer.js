@@ -8,7 +8,8 @@ const initialState = {
   inactiveSlide: null,
   inactiveTeam: null,
   inactiveWork: null,
-  menuOpen: false
+  menuOpen: false,
+  slideDirection: null
 };
 
 export default (state = initialState, action) => {
@@ -66,6 +67,12 @@ export default (state = initialState, action) => {
       return { 
         ...state, 
         menuOpen: action.payload
+    }
+
+    case types.SET_SLIDE_DIRECTION:
+      return { 
+        ...state, 
+        slideDirection: action.payload
     }
       
     default:

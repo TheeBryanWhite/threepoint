@@ -2,7 +2,8 @@ import React from 'preact'
 import { connect } from 'react-redux'
 import { 
 	setActiveWork,
-	setInactiveWork
+	setInactiveWork,
+	setSlideDirection
  } from '../../redux/actions'
 import { css } from '@emotion/react'
 
@@ -16,9 +17,11 @@ const SlideNav = props => {
 			if (props.activeWork <= 3) {
 				props.setActiveWork(props.activeWork + 1)
 				props.setInactiveWork(props.activeWork)
+				props.setSlideDirection('next')
 			} else {
 				props.setActiveWork(0)
 				props.setInactiveWork(4)
+				props.setSlideDirection('next')
 			}
 		}
 
@@ -26,9 +29,11 @@ const SlideNav = props => {
 			if (props.activeWork <= 0) {
 				props.setActiveWork(4)
 				props.setInactiveWork(0)
+				props.setSlideDirection('prev')
 			} else {
 				props.setActiveWork(props.activeWork - 1)
 				props.setInactiveWork(props.activeWork)
+				props.setSlideDirection('prev')
 			}
 		}
 	}
@@ -100,4 +105,4 @@ const mapStateToProps = state => ({
 	inactiveWork: state.app.inactiveWork
 })
 	
-  export default connect(mapStateToProps, {setActiveWork, setInactiveWork})(SlideNav)
+  export default connect(mapStateToProps, {setActiveWork, setInactiveWork, setSlideDirection})(SlideNav)
