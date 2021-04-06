@@ -54,13 +54,12 @@ const AllTeam = props => {
 						@media (min-width: 1024px) {
 							background-color: transparent;
 							display: flex;
-							margin-top: 2%;
 							padding: 0 2rem;
 							position: absolute;
 						}
 						@media (min-width: 1440px) and (min-height: 821px) {
 							align-items: center;
-							margin-top: 4vh;
+							margin-top: 2%;
 						}
 					
 						button {
@@ -131,6 +130,9 @@ const AllTeam = props => {
 										height: 500px;
 									}
 									@media (min-width: 1024px) {
+										height: 425px;
+									}
+									@media (min-width: 1440px) and (min-height: 821px) {
 										height: auto;
 									}
 								`}
