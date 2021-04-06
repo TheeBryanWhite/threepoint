@@ -18,26 +18,26 @@ const Gradient = props => {
 					background: radial-gradient(at bottom left, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%),
               		            radial-gradient(at top right, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%);
 					height: 100vh;
-					padding-top: 100px;
-					@media (min-width: 1024px) {
-						padding-top: 15vh;
-					}
-					@media (min-width: 1440px) and (min-height: 821px) {
-						padding-top: 150px;
-					}
 				`
 			}
 		>
 			<div 
 				css={css`
 					flex: 1;
+					height: 100vh;
 					margin: 0 auto;
 					max-width: 1440px;
+					position: relative;
 				`}
 				id="factor-this"
 			>
 				<div 
 					className="slides-header"
+					css={css`
+						padding-top: 100px;
+						position: absolute;
+						top: 0;
+					`}
 					id="slide-header"
 				>
 					<h2

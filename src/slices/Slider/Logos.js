@@ -66,16 +66,25 @@ const Logos = props => {
 	}
 
 	const LogoEl = styled.div`
+		display: none;
 		height: 100vh;
 		position: relative;
+		@media (min-width: 768px) {
+			display: block;
+		}
 
 		#logo-1 {
-			top: 47%;
+			bottom: 41%;
+			height: auto;
+			right: 13%;
+			width: 237px;
 			@media (min-width: 1024px) {
-				top: 37%;
+				right: 7%;
+				top: 70%;
 			}
 			@media (min-width: 1440px) and (min-height: 821px) {
-				top: 47%;
+				bottom: 47%;
+				right: 3%;
 			}
 
 			svg {
@@ -84,11 +93,16 @@ const Logos = props => {
 		}
 
 		#logo-2 {
+			bottom: 35%;
+			height: auto;
+			right: 13%;
+			width: 205px;
 			@media (min-width: 1024px) {
-				top: 33%;
+				bottom: 15%;
+				right: 6%;
 			}
 			@media (min-width: 1440px) and (min-height: 821px) {
-				top: 43%;
+				right: 3%;
 			}
 
 			svg {
@@ -97,20 +111,34 @@ const Logos = props => {
 		}
 
 		#logo-3 {
+			bottom: 74%;
+			height: auto;
+			right: 13%;
+			width: 155px;
+			// width: 315px;
 			@media (min-width: 1024px) {
-				top:-27%;
+				bottom: 61%;
+    			right: 7%;
+			}
+			@media (min-width: 1024px) {
+				width: 215px;
 			}
 			@media (min-width: 1440px) and (min-height: 821px) {
-				top:-11%;
+				bottom: 62%;
+				right: 1%;
 			}
 		}
 
 		#logo-4 {
+			bottom: 28%;
+			height: auto;
+			right: 13%;
+			width: 155px;
 			@media (min-width: 1024px) {
-				top: 15%;
+				bottom: 15%;
 			}
 			@media (min-width: 1440px) and (min-height: 821px) {
-				top: 25%;
+				bottom: 15%;
 			}
 		}
 	`
@@ -126,7 +154,6 @@ const Logos = props => {
 								opacity: 0;
 								position: absolute;
 								transition: all 0.2s linear;
-								width: 100%;
 								${animations}
 							`}
 							id={`logo-${index + 1}`}
@@ -136,8 +163,6 @@ const Logos = props => {
 								alt="" 
 								fluid={img.our_work_logo.localFile.childImageSharp.fluid}
 								imgStyle={{
-									objectPosition: 'right 150px',
-									objectFit: 'none',
 									zIndex: '-1'
 								}}
 							/>

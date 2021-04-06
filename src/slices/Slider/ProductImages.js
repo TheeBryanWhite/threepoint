@@ -9,60 +9,90 @@ let inOutQuart = new Helpers('in-out-quart')
 
 const ProductImageEl = styled.div`
 	#productimg-1 {
-		top: -20%;
-		.gatsby-image-wrapper {
-			height: 100vh;
-			left: 10%;
-			@media (min-width: 1024px) {
-				left: 25%;
-				top: -310px;
-			}
-			@media (min-width: 1440px) and (min-height: 821px) {
-				top: -180px;
-			}
+		left: 40px;
+		bottom: -50vh;
+		top: auto;
+		@media (min-width: 768px) {
+			bottom: -70vh;
+		}
+		@media (min-width: 1024px) {
+			bottom: -75vh;
+			left: auto;
+			right: 0;
+			width: 50%;
+		}
+		@media (min-width: 1280px) {
+			bottom: -97vh;
+			right: -12%;
+			width: 70%;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			right: -27%;
+			width: 90%;
 		}
 	}
 
 	#productimg-2 {
-		top: -15%;
-		.gatsby-image-wrapper {
-			height: 100vh;
-			width: 100%;
-			@media (min-width: 1024px) {
-				left: -5%;
-				top: -180px;
-			}
-			@media (min-width: 1440px) and (min-height: 821px) {
-				top: -60px;
-			}
+		padding: 15%;
+		bottom: -58vh;
+		top: auto;
+		@media (min-width: 768px) {
+			bottom: -72vh;
+		}
+		@media (min-width: 1024px) {
+			bottom: -83vh;
+			left: auto;
+			padding: 0;
+			right: 7%;
+			width: 50%;
+		}
+		@media (min-width: 1280px) {
+			bottom: -89vh;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			right: 1%;
+    		width: 57%;
 		}
 	}
 
 	#productimg-3 {
-		.gatsby-image-wrapper {
-			@media (min-width: 1024px) {
-				left: -15%;
-				top: -245px;
-			}
-			@media (min-width: 1440px) and (min-height: 821px) {
-				top: -125px;
-			}
+		padding: 29%;
+		bottom: -54vh;
+		top: auto;
+		@media (min-width: 768px) {
+			bottom: -80vh;
+			padding: 25%;
+		}
+		@media (min-width: 1024px) {
+			right: 15%;
+			bottom: -83vh;
+			padding: 0;
+			width: 35%;
+		}
+		@media (min-width: 1280px) {
+			bottom: -93vh;
+		}
+		@media (min-width: 1440px) and (min-height: 821px) {
+			right: 6%;
+			width: 45%;
 		}
 	}
 
 	#productimg-4 {
-		left: 0;
-		pointer-events: none;
-		position: fixed;
-		top: 0;
-		.gatsby-image-wrapper {
-			left: 0;
+		bottom: -44vh;
+		position: absolute;
+		top: auto;
+		@media (min-width: 768px) {
+			bottom: 0;
 			top: 0;
+			transform: translateY(-50%);
+			.gatsby-image-wrapper {
+				height: 100vh;
+				object-fit: cover;
+			}
 		}
-
-		img {
-			object-fit: cover !important;
-			object-position: left top !important;
+		@media (min-width: 1440px) and (min-height: 821px) {
+			width: 100vw;
 		}
 	}
 `
@@ -184,33 +214,39 @@ const ProductImages = props => {
 				}
 			`}
 		>
-			{
-				props.imgData.items.map((img, index) => {
-					return(
-						<div
-							className={classBuilder(index + 1)} 
-							css={css`
-								opacity: 0;
-								position: absolute;
-								transition: all 0.2s linear;
-								width: 100%;
-							`}
-							id={`productimg-${index + 1}`}
-							key={index}
-						>
-							<Img
-								alt="" 
-								fluid={img.our_work_image.localFile.childImageSharp.fluid}
-								imgStyle={{
-									objectPosition: 'right 150px',
-									objectFit: 'none',
-									zIndex: '-1'
-								}}
-							/>
-						</div>
-					)
-				})
-			}
+			<div
+				className="product-images-container"
+				css={css`
+					position: relative;
+				`}
+			>
+				{
+					props.imgData.items.map((img, index) => {
+						return(
+							<div
+								className={classBuilder(index + 1)} 
+								css={css`
+									opacity: 0;
+									position: absolute;
+									top: 0;
+									transition: all 0.2s linear;
+									width: 100%;
+								`}
+								id={`productimg-${index + 1}`}
+								key={index}
+							>
+								<Img
+									alt="" 
+									fluid={img.our_work_image.localFile.childImageSharp.fluid}
+									imgStyle={{
+										zIndex: '-1'
+									}}
+								/>
+							</div>
+						)
+					})
+				}
+			</div>
 		</ProductImageEl>
 	)
 }

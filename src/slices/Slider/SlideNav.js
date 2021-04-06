@@ -80,7 +80,7 @@ const SlideNav = props => {
 					right: 0;
 					position: absolute;
 					@media (min-width: 1440px) and (min-height: 821px) {
-						left: 2%;
+						right: 2%;
 					}
 					&:focus {
 						outline: none;

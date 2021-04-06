@@ -5,38 +5,10 @@ import {
 	setInactiveWork
  } from '../../redux/actions'
 import Img from 'gatsby-image'
-import styled from "@emotion/styled"
 import { css } from '@emotion/react'
 import Helpers from '../../utils/Helpers'
 
 let inOutQuart = new Helpers('in-out-quart')
-
-const SlideBody = styled.div`
-	flex: 0 0 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	transform: translateX(120%);
-	width: 100%;
-	z-index: 1;
-	@media (min-width: 1024px) {
-		align-items: flex-start;
-		display: flex;
-	}	
-
-	h3 {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 4vw;
-		font-weight: 800;
-		line-height: 4.5vh;
-		margin-bottom: 0;
-		text-transform: uppercase;
-		@media (min-width: 1024px) {
-			font-size: 1.563rem;
-			line-height: 1.734rem;
-		}
-	}
-`
 
 const SlidesContainer = props => {
 	const classBuilder = index => {
@@ -71,6 +43,9 @@ const SlidesContainer = props => {
 		<div 
 			className={`slides-container ${props.slideDirection}`}
 			css={css`
+				position: absolute;
+				top: 0;
+				width: 100%;
 				&.null,
 				&.next {
 					.active {
@@ -169,8 +144,8 @@ const SlidesContainer = props => {
 		>
 			<div
 				css={css`
+					height: 100vh;
 					position: relative;
-					height: 60vh;
 		
 					#slide-0 {
 						display: flex;
@@ -203,53 +178,81 @@ const SlidesContainer = props => {
 					}
 
 					#slide-1 {
-						bottom: 0;
-						top: auto;
 						.slide-content {
-							@media (min-width: 768px) {
+							@media (min-width: 1024px) {
 								width: 50%;
 							}
 						}
 					}
 
 					#slide-2 {
-						bottom: 0;
-						top: auto;
 						.slide-content {
-							@media (min-width: 768px) {
+							@media (min-width: 1024px) {
 								width: 40%;
 							}
 						}
 					}
 
 					#slide-3 {
-						bottom: 0;
-						top: auto;
 						.slide-content {
-							@media (min-width: 768px) {
+							@media (min-width: 1024px) {
 								width: 50%;
 							}
 						}
 					}
 
 					#slide-4 {
-						bottom: 0;
-						top: auto;
 						.slide-content {
-							@media (min-width: 768px) {
+							@media (min-width: 1024px) {
 								width: 50%;
 							}
 						}
 					}
 				`}
 			>
-				<SlideBody 
+				<div 
 					className={classBuilder(0)}
+					css={css`
+						align-items: 
+						flex: 0 0 100%;
+						height: 100vh;
+						left: 0;
+						position: absolute;
+						top: 0;
+						transform: translateX(120%);
+						width: 100%;
+						z-index: 1;
+						@media (min-width: 1024px) {
+							align-items: flex-start;
+							display: flex;
+						}	
+					
+						h3 {
+							font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+							font-size: 4vw;
+							font-weight: 800;
+							line-height: 4.5vh;
+							margin-bottom: 0;
+							text-transform: uppercase;
+							@media (min-width: 1024px) {
+								font-size: 1.563rem;
+								line-height: 1.734rem;
+							}
+						}
+					`}
 					id="slide-0"
 				>
+					<div
+						css={css`
+							flex: 0 0 100%;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						`}
+					>
 						<div 
 							css={css`
-								padding: 0 2rem;
+								padding: 60px 2rem 0;
 							`} 
 							dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
 						/>
@@ -264,6 +267,7 @@ const SlidesContainer = props => {
 								grid-template-areas:
 									". ."
 									". .";
+								margin: 0 auto;
 								max-height: 70%;
 								max-width: 70%;
 								@media (min-width: 1024px) {
@@ -271,7 +275,7 @@ const SlidesContainer = props => {
 									grid-template-rows: 50% 50%;
 									max-height: 50vh;
 									max-width: 100%;
-									padding: 0 2rem;
+									padding: 0 3rem;
 								}
 								@media (min-width: 1440px) and (min-height: 821px) {
 									max-height: none;
@@ -321,7 +325,6 @@ const SlidesContainer = props => {
 													background: transparent;
 													border: 0;
 													cursor: pointer;
-													height: 100%;
 													padding: 0;
 													width: 100%;
 												`}
@@ -344,7 +347,6 @@ const SlidesContainer = props => {
 													alt=""
 													css={css`
 														top: 50%;
-														transform: translateY(-50%);
 													
 														img {
 															display: block;
@@ -359,16 +361,36 @@ const SlidesContainer = props => {
 								})
 							}
 						</div>
-				</SlideBody>
+					</div>
+				</div>
 				{
 					props.slidesData.items.map((slide, index) => {
 						return(
-							<SlideBody
+							<div
 								className={classBuilder(index + 1)} 
 								css={css`
+									left: 0;
 									padding: 0 3rem;
-									@media (min-width: 768px) {
-										padding: 0 2rem;
+									position: absolute;
+									bottom: 125px;
+									transform: translateX(120%);
+									width: 100%;
+									z-index: 1;
+
+									h3 {
+										font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+										font-size: 4vw;
+										font-weight: 800;
+										line-height: 4.5vh;
+										margin-bottom: 0;
+										text-transform: uppercase;
+										@media (min-width: 1024px) {
+											font-size: 1.563rem;
+											line-height: 1.734rem;
+										}
+										@media (min-width: 1440px) and (min-height: 821px) {
+											margin-bottom: 65px;
+										}
 									}
 								`}
 								id={`slide-${index + 1}`}
@@ -391,7 +413,7 @@ const SlidesContainer = props => {
 												margin-top: 100px;
 											}
 											@media (min-width: 1024px) {
-												margin-top: 0;
+												margin: 0 0 60px;
 											}
 											@media (min-width: 1440px) and (min-height: 821px) {
 												margin-top: 100px;
@@ -403,7 +425,6 @@ const SlidesContainer = props => {
 									<div 
 										className="slide-content"
 										css={css`
-											flex: 0 0 50%;
 											position: relative;
 											p,
 											ul {
@@ -421,6 +442,12 @@ const SlidesContainer = props => {
 
 											ul {
 												margin: 0;
+												@media (min-width: 1280px) {
+													margin: 0 0 60px;
+												}
+												@media (min-width: 1440px) and (min-height: 821px) {
+													margin-top: 65px;
+												}
 											}
 
 											li {
@@ -433,6 +460,14 @@ const SlidesContainer = props => {
 												padding-left: 20px;
 												position: relative;
 												@media (min-width: 1024px) {
+													font-size: 1rem;
+													line-height: 1.5rem;
+													padding-left: 30px;
+												}
+												@media (min-width: 1280px) {
+													display: block;
+												}
+												@media (min-width: 1440px) and (min-height: 821px) {
 													font-size: 1.5rem;
 													line-height: 2rem;
 												}
@@ -451,7 +486,7 @@ const SlidesContainer = props => {
 										}
 									/>
 								</div>
-							</SlideBody>
+							</div>
 						)
 					})
 				}
