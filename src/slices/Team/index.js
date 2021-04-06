@@ -38,35 +38,6 @@ const TeamEl = styled.section`
 			content: '//';
 		}
 	}
-
-	.team-header {
-		@media (min-width: 1024px) {
-			margin-bottom: 4vh;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			margin-bottom: 9vh;
-		}
-		p {
-			font-family: 'Axis', Helvetica, Arial, sans-seriff;
-			font-size: 4vw;
-			line-height: 4vh;
-			margin: 0;
-			text-transform: uppercase;
-			@media (min-width: 1024px) {
-				font-size: 1.55rem;
-				line-height: 2.338rem;
-			}
-			@media (min-width: 1440px) and (min-height: 821px) {
-				font-size: 2.25rem;	
-				line-height: 2.938rem;
-			}
-		}
-
-		em {
-			color: rgb(${yellow.defaultColors()});
-			font-style: normal;
-		}
-	}
 `
 
 const TeamSlideContainer = styled.div`
@@ -87,8 +58,27 @@ const Team = props => {
 				<div 
 					className="team-header"
 					css={css`
-						margin-top: 100px;
 						padding: 0 2rem;
+						p {
+							font-family: 'Axis', Helvetica, Arial, sans-seriff;
+							font-size: 4vw;
+							line-height: 4vh;
+							margin: 0;
+							text-transform: uppercase;
+							@media (min-width: 1024px) {
+								font-size: 1.55rem;
+								line-height: 2.338rem;
+							}
+							@media (min-width: 1440px) and (min-height: 821px) {
+								font-size: 2.25rem;	
+								line-height: 2.938rem;
+							}
+						}
+				
+						em {
+							color: rgb(${yellow.defaultColors()});
+							font-style: normal;
+						}
 					`}
 				>
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.title.html }} />

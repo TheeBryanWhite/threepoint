@@ -53,6 +53,9 @@ const TeamMembersTeaser = props => {
 				@media (min-width: 768px) {
 					flex-wrap: nowrap;
 				}
+				@media (min-width: 1024px) {
+					margin-top: 2%;
+				}
 			
 				&.active {
 					animation: cyclein 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
@@ -132,6 +135,9 @@ const TeamMembersTeaser = props => {
 						
 							.team-image {
 								flex: 0 0 30%;
+								@media (min-width: 768px) {
+									flex: 0 0 100%;
+								}
 								button {
 									padding: 0;
 									width: 100%;
@@ -141,6 +147,9 @@ const TeamMembersTeaser = props => {
 							.team-bio-block {
 								flex: 0 0 70%;
 								padding: 5px 10px;
+								@media (min-width: 768px) {
+									flex: 0 0 100%;
+								}
 						
 								button {
 									color: rgb(${white.defaultColors()});

@@ -54,9 +54,12 @@ const AllTeam = props => {
 						@media (min-width: 1024px) {
 							background-color: transparent;
 							display: flex;
+							margin-top: 2%;
+							padding: 0 2rem;
 							position: absolute;
 						}
 						@media (min-width: 1440px) and (min-height: 821px) {
+							align-items: center;
 							margin-top: 4vh;
 						}
 					
@@ -116,12 +119,7 @@ const AllTeam = props => {
 					key={index}
 				>
 					<div className="team-member-photo" css={css`flex: 0 0 40%`}>
-						<div 
-							className="team-member-photo-inner"
-							css={css`
-								// padding-right: 60px;
-							`}
-						>
+						<div className="team-member-photo-inner">
 							<Img
 								alt={dude.team_member_photo.alt}
 								css={css`
@@ -134,7 +132,6 @@ const AllTeam = props => {
 									}
 									@media (min-width: 1024px) {
 										height: auto;
-										padding-right: 60px;
 									}
 								`}
 								fluid={dude.team_member_photo.localFile.childImageSharp.fluid}
@@ -144,8 +141,7 @@ const AllTeam = props => {
 					<div
 						className="team-member-bio"
 						css={css`
-							// flex: 0 0 60%;
-							// padding-left: 60px;
+							padding-left: 60px;
 						`}
 					>
 						<div
