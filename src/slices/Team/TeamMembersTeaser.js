@@ -4,135 +4,12 @@ import {
 	setActiveTeam,
 	setInactiveTeam
  } from '../../redux/actions'
-import styled from "@emotion/styled"
+import { css } from '@emotion/react'
 import Img from 'gatsby-image'
 import Helpers from '../../utils/Helpers'
 
 let white = new Helpers('white')
 let inOutQuart = new Helpers('in-out-quart')
-
-const TeamMember = styled.div`
-	display: flex;
-	flex: 0 0 100%;
-	transform: translateX(120%);
-
-	&.active {
-		animation: cyclein 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 1;
-		transform: translateX(0);
-	}
-
-	&.inactive {
-		animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
-		opacity: 0;
-		transform: translateX(120%);
-	}
-
-	@keyframes cyclein {
-		0% {
-			opacity: 0;
-			transform: translate(120%);
-		}
-	
-		100% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	}
-	
-	@keyframes cycleout {
-		0% {
-			opacity: 1;
-			transform: translate(0);
-		}
-	
-		50% {
-			opacity: 0;
-			transform: translate(-120%);
-		}
-	
-		100% {
-			opacity: 0;
-			transform: translate(120%);
-		}
-	}
-`
-
-const TeamMemberTeaser = styled.div`
-	flex: 1 1 33.333%;
-	@media (min-width: 768px) {
-		padding: 0 1rem;
-	}
-
-	.gatsby-image-wrapper {
-		cursor: pointer;
-		width: 100% !important;
-		@media (min-width: 1024px) {
-			height: 38vh;
-			margin-bottom: 15px;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			height: auto;
-		}
-	}
-
-	button {
-		background-color: transparent;
-		border: 0;
-	}
-
-	.team-image {
-		button {
-			padding: 0;
-			width: 100%;
-		}
-	}
-
-	.team-bio-block {
-		padding: 5px 10px;
-
-		button {
-			color: rgb(${white.defaultColors()});
-			cursor: pointer;
-			font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-			font-size: 13px;
-			margin-left: 0;
-			padding: 10px 0;
-			text-align: left;
-		}
-	}
-
-	h3,
-	h4 {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 13px;
-		line-height: 16px;
-		margin: 0;
-	}
-
-	h3 {
-		font-weight: 600
-	}
-
-	h4 {
-		font-weight: 400
-	}
-
-	.linkedin {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		margin: 0;
-
-		a {
-		color: rgb(${white.defaultColors()});
-		font-weight: 800;
-		text-decoration: none;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
-`
 
 const TeamMembersTeaser = props => {
 
@@ -165,15 +42,150 @@ const TeamMembersTeaser = props => {
 	}
 
 	return (
-		<TeamMember
+		<div
 			className={classBuilder(0)}
+			css={css`
+				display: flex;
+				flex: 0 0 100%;
+				flex-wrap: wrap;
+				margin-top: 5%;
+				transform: translateX(120%);
+				@media (min-width: 768px) {
+					flex-wrap: nowrap;
+				}
+			
+				&.active {
+					animation: cyclein 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
+					opacity: 1;
+					transform: translateX(0);
+				}
+			
+				&.inactive {
+					animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+					opacity: 0;
+					transform: translateX(120%);
+				}
+			
+				@keyframes cyclein {
+					0% {
+						opacity: 0;
+						transform: translate(120%);
+					}
+				
+					100% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				}
+				
+				@keyframes cycleout {
+					0% {
+						opacity: 1;
+						transform: translate(0);
+					}
+				
+					50% {
+						opacity: 0;
+						transform: translate(-120%);
+					}
+				
+					100% {
+						opacity: 0;
+						transform: translate(120%);
+					}
+				}
+			`}
 			id="team-0"
 		>
 		{
 			props.teamData.map((member, index) => {
 				const name = `${member.team_member_first_name.text} ${member.team_member_last_name.text}`
 				return(
-					<TeamMemberTeaser key={index}>
+					<div 
+						css={css`
+							align-items: center;
+							display: flex;
+							flex: 1 1 100%;
+							flex-wrap: wrap;
+							padding: 0 2rem;
+							@media (min-width: 768px) {
+								flex: 1 1 33.33%;
+								padding: 0 1rem;
+							}
+						
+							.gatsby-image-wrapper {
+								cursor: pointer;
+								width: 100% !important;
+								@media (min-width: 1024px) {
+									height: 38vh;
+									margin-bottom: 15px;
+								}
+								@media (min-width: 1440px) and (min-height: 821px) {
+									height: auto;
+								}
+							}
+						
+							button {
+								background-color: transparent;
+								border: 0;
+							}
+						
+							.team-image {
+								flex: 0 0 30%;
+								button {
+									padding: 0;
+									width: 100%;
+								}
+							}
+						
+							.team-bio-block {
+								flex: 0 0 70%;
+								padding: 5px 10px;
+						
+								button {
+									color: rgb(${white.defaultColors()});
+									cursor: pointer;
+									font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+									font-size: 13px;
+									margin-left: 0;
+									padding: 10px 0;
+									text-align: left;
+								}
+							}
+						
+							h3,
+							h4 {
+								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+								font-size: 13px;
+								line-height: 16px;
+								margin: 0;
+							}
+						
+							h3 {
+								font-weight: 600
+							}
+						
+							h4 {
+								font-weight: 400
+							}
+						
+							.linkedin {
+								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+								margin: 0;
+						
+								a {
+								color: rgb(${white.defaultColors()});
+								font-weight: 800;
+								text-decoration: none;
+						
+									&:hover {
+										text-decoration: underline;
+									}
+								}
+							}
+						`}
+						key={index}
+					>
 						<div className="team-image">
 							<button onClick={() => {clickHandler(index + 1)}}>
 								<Img
@@ -190,13 +202,12 @@ const TeamMembersTeaser = props => {
 							<h3 dangerouslySetInnerHTML={{ __html: name }} />
 							<div dangerouslySetInnerHTML={{ __html: member.team_member_position.html }} />
 							<button onClick={() => {clickHandler(index + 1)}}>&#47;&#47; See {member.team_member_first_name.text}'s Bio</button>
-							<p className="linkedin"><a href={member.team_member_linkedin.url} target="_blank" rel="noreferrer">LI</a></p>
 						</div>
-					</TeamMemberTeaser>
+					</div>
 				)
 			})
 		}
-		</TeamMember>
+		</div>
 	)
 }
 

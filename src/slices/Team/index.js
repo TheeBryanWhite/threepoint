@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import Helpers from '../../utils/Helpers'
 import TeamMembersTeaser from './TeamMembersTeaser'
 import AllTeam from './AllTeam'
-import { css } from "@emotion/react"
+import { css } from '@emotion/react'
 
 let black = new Helpers('black')
 let yellow = new Helpers('yellow')
@@ -86,7 +86,10 @@ const Team = props => {
 			>
 				<div 
 					className="team-header"
-					css={css`padding: 0 2rem;`}
+					css={css`
+						margin-top: 100px;
+						padding: 0 2rem;
+					`}
 				>
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.title.html }} />
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.team_body.html }}  />
