@@ -11,20 +11,20 @@ const TimedSlideImage = styled.div`
 	top: 50%;
 	transform: translate(-50%, -50%);
 	width: 100%;
+	@media (min-width: 768px) {
+		padding: 0 12rem;
+		transform: translate(-50%, -45%);
+	}
 	@media (min-width: 1024px) {
 		left: 0;
 		opacity: 1;
-		position: absolute;
-		top: 130px;
+		padding: 5%;
+		top: 35%;
 		transform: none;
 		width: 40%;
 	}
-	@media (min-width: 1024px) {
-		padding: 5%;
-		top: 5vh;
-	}
 	@media (min-width: 1440px) and (min-height: 821px) {
-		top: 17vh;
+		top: 37vh;
 	}
 
 	svg {
@@ -38,8 +38,11 @@ const TimedSlideImage = styled.div`
 	#threepoint-frame_svg__left_full {
 		cursor: pointer;
 		opacity: 0;
-		pointer-events: all;
+		pointer-events: none;
 		transition: opacity 0.2s linear;
+		@media (min-width: 768px) {
+			pointer-events: all;
+		}
 
 		&.ghost {
 			opacity: 0.4;

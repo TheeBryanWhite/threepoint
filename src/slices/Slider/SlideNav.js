@@ -68,7 +68,7 @@ const SlideNav = props => {
 				<SVGLeft
 					css={css`
 						fill: #FFDC32;
-						width: 40px;
+						width: 30px;
 					`}
 				/>
 			</button>
@@ -92,7 +92,7 @@ const SlideNav = props => {
 				<SVGRight
 					css={css`
 						fill: #FFDC32;
-						width: 40px;
+						width: 30px;
 					`}
 				/>
 			</button>

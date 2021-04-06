@@ -50,10 +50,13 @@ const Nav = props => {
 										display: inline-block;
 										font-family: 'Axis', Helvetica, Arial, sans-seriff;
 										font-size: 5vw;
-										line-height: 5vh;
+										line-height: 3vh;
 										padding: 10px 0;
 										text-decoration: none;
 										width: 100%;
+										@media (min-width: 768px) {
+											line-height: 5vh;
+										}
 									`}
 									href={`#${item.link}`}
 									onClick={

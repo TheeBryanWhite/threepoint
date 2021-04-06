@@ -26,9 +26,10 @@ const SlideBody = styled.div`
 
 	h3 {
 		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 5vw;
+		font-size: 4vw;
 		font-weight: 800;
 		line-height: 4.5vh;
+		margin-bottom: 0;
 		text-transform: uppercase;
 		@media (min-width: 1024px) {
 			font-size: 1.563rem;
@@ -169,6 +170,7 @@ const SlidesContainer = props => {
 			<div
 				css={css`
 					position: relative;
+					height: 60vh;
 		
 					#slide-0 {
 						display: flex;
@@ -181,7 +183,7 @@ const SlidesContainer = props => {
 				
 						p {
 							font-family: 'Axis', Helvetica, Arial, sans-seriff;
-							font-size: 4.5vw;
+							font-size: 4vw;
 							font-weight: 600;
 							line-height: 4vh;
 							text-transform: uppercase;
@@ -201,26 +203,42 @@ const SlidesContainer = props => {
 					}
 
 					#slide-1 {
+						bottom: 0;
+						top: auto;
 						.slide-content {
-							width: 50%;
+							@media (min-width: 768px) {
+								width: 50%;
+							}
 						}
 					}
 
 					#slide-2 {
+						bottom: 0;
+						top: auto;
 						.slide-content {
-							width: 40%;
+							@media (min-width: 768px) {
+								width: 40%;
+							}
 						}
 					}
 
 					#slide-3 {
+						bottom: 0;
+						top: auto;
 						.slide-content {
-							width: 50%;
+							@media (min-width: 768px) {
+								width: 50%;
+							}
 						}
 					}
 
 					#slide-4 {
+						bottom: 0;
+						top: auto;
 						.slide-content {
-							width: 50%;
+							@media (min-width: 768px) {
+								width: 50%;
+							}
 						}
 					}
 				`}
@@ -246,8 +264,8 @@ const SlidesContainer = props => {
 								grid-template-areas:
 									". ."
 									". .";
-								max-height: 75%;
-								max-width: 75%;
+								max-height: 70%;
+								max-width: 70%;
 								@media (min-width: 1024px) {
 									grid-template-columns: 20% 20% 20% 20% 20%;
 									grid-template-rows: 50% 50%;
@@ -348,7 +366,10 @@ const SlidesContainer = props => {
 							<SlideBody
 								className={classBuilder(index + 1)} 
 								css={css`
-									padding: 0 2rem;
+									padding: 0 3rem;
+									@media (min-width: 768px) {
+										padding: 0 2rem;
+									}
 								`}
 								id={`slide-${index + 1}`}
 								key={index}
@@ -361,9 +382,14 @@ const SlidesContainer = props => {
 									<p
 										css={css`
 											font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-											font-size: 1.188rem;
-											line-height: 4.054rem;
-											margin-top: 100px;
+											font-size: 1rem;
+											line-height: 1rem;
+											margin-bottom: 0;
+											@media (min-width: 768px) {
+												font-size: 1.188rem;
+												line-height: 1.188rem;
+												margin-top: 100px;
+											}
 											@media (min-width: 1024px) {
 												margin-top: 0;
 											}
@@ -382,6 +408,7 @@ const SlidesContainer = props => {
 											p,
 											ul {
 												font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+												font-size: 1rem;
 												font-weight: 600;
 											}
 
@@ -397,11 +424,13 @@ const SlidesContainer = props => {
 											}
 
 											li {
+												display: inline;
+												font-size: 0.875rem;
 												font-weight: 400;
 												left: 0;
 												list-style-type: none;
-												margin: 0;
-												padding-left: 35px;
+												margin: 0 5px 0 0;
+												padding-left: 20px;
 												position: relative;
 												@media (min-width: 1024px) {
 													font-size: 1.5rem;

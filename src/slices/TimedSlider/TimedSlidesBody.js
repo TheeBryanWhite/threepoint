@@ -1,84 +1,8 @@
 import React from 'preact'
 import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import Helpers from '../../utils/Helpers'
 
 const yellow = new Helpers('yellow')
-
-const TimedSlideBody = styled.div`
-	p {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 4vw;
-		font-weight: 800;
-		line-height: 6vw;
-		@media (min-width: 1024px) {
-			font-size: 2.5vw;
-			line-height: 4vw;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			font-size: 2.208rem;
-			line-height: 2.816rem;
-		}
-	}
-
-	ul {
-		margin: 0;
-		text-transform: uppercase;
-	}
-
-	li {
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 3vw;
-		font-weight: 500;
-		line-height: 3vh;
-		list-style-type: none;
-		margin: 0;
-		@media (min-width: 1024px) {
-			font-size: 1.25vw;
-			line-height: 2.5vh;
-		}
-	}
-`
-
-const TimedSlide = styled.div`
-	opacity: 0;
-	position: absolute;
-	top: 165px;
-	@media (min-width: 768px) {
-		top: 190px;
-	}
-	@media (min-width: 1024px) {
-		top: 7vh;
-	}
-	@media (min-width: 1440px) and (min-height: 821px) {
-		top: 175px;
-	}
-
-	h3 {
-		color: rgb(${yellow.defaultColors()});
-		font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-		font-size: 4vw;
-		font-weight: 800;
-		line-height: 4vh;
-		text-transform: uppercase;
-		@media (min-width: 1024px) {
-			font-size: 2vw;
-			line-height: 3vh;
-		}
-		@media (min-width: 1440px) {
-			font-size: 1.563rem;
-			line-height: 1.734rem;
-		}
-	}
-
-	&.active {
-		opacity: 1;
-	}
-
-	&.inactive {
-		opacity: 0;
-	}
-`
 
 const TimedSlidesBody = props => {
 	const classBuilder = index => {
@@ -101,11 +25,14 @@ const TimedSlidesBody = props => {
 		<div
 			className="timed-slider-container"
 			css={css`
+				height: 100vh;
 				position: absolute;
-				right: 0;
-				top: 10px;
+				top: 0;
 				width: 100%;
 				@media (min-width: 1024px) {
+					bottom: auto;
+					right: 0;
+					top: 10px;
 					width: 60%;
 				}
 			`}
@@ -113,8 +40,48 @@ const TimedSlidesBody = props => {
 		{
 			props.slideData.map((slide, index) => {
 				return(
-					<TimedSlide
+					<div
 						className={classBuilder(index)}
+						css={css`
+							bottom: 20%;
+							opacity: 0;
+							position: absolute;
+							@media (min-width: 768px) {
+								bottom: 6%;
+							}
+							@media (min-width: 1024px) {
+								bottom: auto;
+								top: 40vh;
+							}
+							@media (min-width: 1440px) and (min-height: 821px) {
+								top: 375px;
+							}
+						
+							h3 {
+								color: rgb(${yellow.defaultColors()});
+								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+								font-size: 4vw;
+								font-weight: 800;
+								line-height: 4vh;
+								margin-bottom: 0;
+								text-transform: uppercase;
+								@media (min-width: 768px) {
+									font-size: 1.563rem;
+									line-height: 1.734rem;
+								}
+								@media (min-width: 1440px) and (min-height: 821px) {
+									margin-bottom: 60px;
+								}
+							}
+						
+							&.active {
+								opacity: 1;
+							}
+						
+							&.inactive {
+								opacity: 0;
+							}
+						`}
 						id={`slide-body-${index}`}
 						key={index}
 					>
@@ -127,10 +94,72 @@ const TimedSlidesBody = props => {
 							`}
 							className="timed-slider-body"
 						>
-							<div className="timed-slide-title" dangerouslySetInnerHTML={{ __html: slide.timed_slide_title.html }} />
-							<TimedSlideBody dangerouslySetInnerHTML={{ __html: slide.timed_slide_body.html }} />
+							<div 
+								className="timed-slide-title"
+								dangerouslySetInnerHTML={{ __html: slide.timed_slide_title.html }}
+							/>
+							<div 
+								css={css`
+									p {
+										font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+										font-size: 4vw;
+										font-weight: 800;
+										line-height: 6vw;
+										margin-bottom: 0;
+										@media (min-width: 768px) {
+											font-size: 1.563rem;
+											line-height: 1.734rem;
+											margin: 15px 0;
+										}
+									}
+								
+									ul {
+										margin: 0;
+										text-transform: uppercase;
+
+										@media (min-width: 1440px) and (min-height: 821px) {
+											margin-top: 65px;
+										}
+									}
+								
+									li {
+										display: inline;
+										font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+										font-size: 3vw;
+										font-weight: 500;
+										line-height: 3vh;
+										list-style-type: none;
+										&:first-child:before {
+											content: none;
+										}
+										&:before {
+											background-color: #ffffff;
+											border-radius: 50%;
+											content: '';
+											display: inline-block;
+											height: 5px;
+											margin: 0 5px;
+											transform: translateY(-2px);
+											width: 5px;
+											@media (min-width: 1440px) and (min-height: 821px) {
+												transform: translateY(-5px);
+											}
+										}
+										@media (min-width: 768px) {
+											content: none;
+											font-size: 1rem;
+											line-height: 1.25rem;
+										}
+										@media (min-width: 1440px) and (min-height: 821px) {
+											display: inline-block;
+											margin-bottom: 15px;
+										}
+									}
+								`}
+								dangerouslySetInnerHTML={{ __html: slide.timed_slide_body.html }} 
+							/>
 						</div>
-					</TimedSlide>
+					</div>
 				)
 			})
 		}

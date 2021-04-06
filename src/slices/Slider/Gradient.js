@@ -18,7 +18,7 @@ const Gradient = props => {
 					background: radial-gradient(at bottom left, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%),
               		            radial-gradient(at top right, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%);
 					height: 100vh;
-					padding-top: 150px;
+					padding-top: 100px;
 					@media (min-width: 1024px) {
 						padding-top: 15vh;
 					}
@@ -51,6 +51,7 @@ const Gradient = props => {
 							@media (min-width: 768px) {
 								font-size: 1.25rem;
 								line-height: 1.45rem;
+								padding: 0 2rem;
 							}
 						`}
 					>

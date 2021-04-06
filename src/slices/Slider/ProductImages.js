@@ -9,7 +9,10 @@ let inOutQuart = new Helpers('in-out-quart')
 
 const ProductImageEl = styled.div`
 	#productimg-1 {
+		top: -20%;
 		.gatsby-image-wrapper {
+			height: 100vh;
+			left: 10%;
 			@media (min-width: 1024px) {
 				left: 25%;
 				top: -310px;
@@ -21,7 +24,9 @@ const ProductImageEl = styled.div`
 	}
 
 	#productimg-2 {
+		top: -15%;
 		.gatsby-image-wrapper {
+			height: 100vh;
 			width: 100%;
 			@media (min-width: 1024px) {
 				left: -5%;

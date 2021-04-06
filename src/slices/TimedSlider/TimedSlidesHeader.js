@@ -19,7 +19,12 @@ const TimedSlidesHeader = props => {
 	}
 
 	return(
-		<div className="page-slide-headers">
+		<div
+			className="page-slide-headers"
+			css={css`
+				position: relative;
+			`}
+		>
 			{
 				props.slideData.map((slide, index) => {
 					return(
@@ -29,16 +34,22 @@ const TimedSlidesHeader = props => {
 								opacity: 0;
 								padding: 0 2rem;
 								position: absolute;
-								top: 0;
+								top: 25vh;
 								width: 100%;
+								@media (min-width: 768px) {
+									top: 15vh;
+								}
+								@media (min-width: 1024px) {
+									top: 20vh;
+								}
 								&.active {
 									opacity: 1;
 								}
 			
 								p {
 									font-size: 4vw;
-									line-height: 4vh;
-									@media (min-width: 1024px) {
+									line-height: 5vh;
+									@media (min-width: 768px) {
 										font-size: 1.55rem;
 										line-height: 2.338rem;
 									}

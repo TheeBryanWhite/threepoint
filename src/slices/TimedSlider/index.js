@@ -13,51 +13,7 @@ import TimedSlidesHeader from './TimedSlidesHeader'
 import ThreePointTriangle from './ThreePointTriangle'
 import TimedSlidesBody from './TimedSlidesBody'
 
-const black = new Helpers('black')
-const white = new Helpers('white')
 const yellow = new Helpers('yellow')
-
-const TimedSliderEl = styled.section`
-	background-color: rgb(${black.defaultColors()});
-	height: 100vh;
-	position: relative;
-	z-index: 1;
-	@media (min-width: 1024px) {
-		padding-top: 15vh;
-	}
-	@media (min-width: 1440px) and (min-height: 821px) {
-		padding-top: 150px;
-	}
-`
-
-const Container = styled.div`
-	color: rgb(${white.defaultColors()});
-	max-width: 1440px;
-    margin: 0 auto;
-
-	h2 {
-		font-size: 4vw;
-		font-style: italic;
-		font-weight: 300;
-		line-height: 4vh;
-		@media (min-width: 768px) {
-			font-size: 1.25rem;
-			line-height: 1.25rem;
-		}
-		@media (min-width: 1440px) {
-			margin-bottom: 5vh;
-		}
-
-		&:before {
-			color: rgb(${yellow.defaultColors()});
-			content: '//';
-		}
-	}
-
-	#slide-body-0 h3 {
-		color: #F7931E;
-	}
-`
 
 const TimedSlider = props => {
 
@@ -108,13 +64,52 @@ const TimedSlider = props => {
 	}, [props, stopAutoSlide])
 
 	return(
-		<TimedSliderEl
+		<section
+			css={css`
+				background-color: #000000;
+				color: #ffffff;
+				height: 100vh;
+				position: relative;
+				z-index: 1;
+
+				h2 {
+					font-size: 4vw;
+					font-style: italic;
+					font-weight: 300;
+					line-height: 4vh;
+					@media (min-width: 768px) {
+						font-size: 1.25rem;
+						line-height: 1.25rem;
+					}
+					@media (min-width: 1440px) {
+						margin-bottom: 5vh;
+					}
+			
+					&:before {
+						color: rgb(${yellow.defaultColors()});
+						content: '//';
+					}
+				}
+			
+				#slide-body-0 h3 {
+					color: #F7931E;
+				}
+			`}
 			id={props.input.primary.section_id}
 		>
-			<Container>
+			<div
+				css={css`
+					margin: 0 auto;
+					max-width: 1440px;
+					position: relative;
+				`}
+				>
 				<div 
 					css={css`
-						padding: 0 2rem;
+						padding: 100px 2rem 0;
+						@media (min-width: 1440px) and (min-height: 821px) {
+							padding: 150px 2rem 0;
+						}
 					`}
 					className="timed-slider-header"
 				>
@@ -123,8 +118,11 @@ const TimedSlider = props => {
 				<div
 					className="timed-slides"
 					css={css`
-					font-family: 'Axis', Helvetica, Arial, sans-seriff;
-					position: relative;
+						font-family: 'Axis', Helvetica, Arial, sans-seriff;
+						height: 100vh;
+						position: absolute;
+						top: 0;
+						width: 100%;
 					`}
 				>
 					<TimedSlidesHeader
@@ -144,8 +142,8 @@ const TimedSlider = props => {
 						slideData={props.input.items}
 					/>
 				</div>
-			</Container>
-		</TimedSliderEl>
+				</div>
+		</section>
 	)
 }
 
