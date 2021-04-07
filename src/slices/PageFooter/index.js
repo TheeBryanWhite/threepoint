@@ -14,9 +14,12 @@ const PageFooter = props => {
 				font-weight: 400;
 				height: 100vh;
 				line-height: 5vh;
-				padding-top: 150px;
+				padding-top: 100px;
 				position: relative;
 				z-index: 1;
+				@media (min-width: 768px) {
+					margin-top: 150px;
+				}
 			
 				h2 {
 					font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
@@ -36,6 +39,8 @@ const PageFooter = props => {
 			
 				p {
 					font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+					font-size: 1rem;
+					line-height: 1.5rem;
 					@media (min-width: 768px) {
 						font-size: 2rem;
 						line-height: 2.938rem;
@@ -52,9 +57,9 @@ const PageFooter = props => {
 			
 				strong {
 					font-family: 'Axis', Helvetica, Arial, sans-seriff;
-					font-size: 6vw;
+					font-size: 4vw;
 					display: inline-block;
-					margin-top: 10vh;
+					margin-top: 7vh;
 					text-transform: uppercase;
 					@media (min-width: 768px) {
 						font-size: 2.813rem;
@@ -83,12 +88,6 @@ const PageFooter = props => {
 			id={props.input.primary.section_id}
 		>
 			<div
-				css={css`
-					position: absolute;
-					top: 45%;
-					transform: translateY(-50%);
-					width: 100%;
-				`}
 			>
 				<div
 					css={css`
@@ -104,7 +103,7 @@ const PageFooter = props => {
 				css={css`
 					background-color: rgb(${black.defaultColors()});
 					bottom: 0;
-					height: 110px;
+					height: 175px;
 					position: absolute;
 					width: 100%;
 					@media (min-width: 768px) {

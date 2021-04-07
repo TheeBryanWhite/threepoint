@@ -34,7 +34,7 @@ const TimedSlidesHeader = props => {
 								opacity: 0;
 								padding: 0 2rem;
 								position: absolute;
-								top: 25vh;
+								top: 20vh;
 								width: 100%;
 								@media (min-width: 768px) {
 									top: 15vh;

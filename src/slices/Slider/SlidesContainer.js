@@ -158,9 +158,9 @@ const SlidesContainer = props => {
 				
 						p {
 							font-family: 'Axis', Helvetica, Arial, sans-seriff;
-							font-size: 4vw;
+							font-size: 3vw;
 							font-weight: 600;
-							line-height: 4vh;
+							line-height: 3.5vh;
 							text-transform: uppercase;
 							@media (min-width: 768px) {
 								font-size: 1.75rem;
@@ -247,12 +247,15 @@ const SlidesContainer = props => {
 							flex: 0 0 100%;
 							position: absolute;
 							top: 50%;
-							transform: translateY(-50%);
+							transform: translateY(-55%);
 						`}
 					>
 						<div 
 							css={css`
-								padding: 60px 2rem 0;
+								padding: 0 2rem;
+								@media (min-width: 768px) {
+									padding: 60px 2rem 0;
+								}
 							`} 
 							dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
 						/>
@@ -372,7 +375,7 @@ const SlidesContainer = props => {
 									left: 0;
 									padding: 0 3rem;
 									position: absolute;
-									bottom: 125px;
+									bottom: 170px;
 									transform: translateX(120%);
 									width: 100%;
 									z-index: 1;

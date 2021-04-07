@@ -79,7 +79,7 @@ const ProductImageEl = styled.div`
 	}
 
 	#productimg-4 {
-		bottom: -44vh;
+		bottom: -37vh;
 		position: absolute;
 		top: auto;
 		@media (min-width: 768px) {

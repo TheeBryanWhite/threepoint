@@ -143,12 +143,14 @@ const AllTeam = props => {
 					<div
 						className="team-member-bio"
 						css={css`
-							padding-left: 60px;
+							@media (min-width: 1024px) {
+								padding-left: 60px;
+							}
 						`}
 					>
 						<div
 							css={css`
-								margin: 25px 0;
+								margin: 25px 0 10px;
 								padding: 0 1rem;
 								@media (min-width: 1024px) {
 									margin-top: 0;
@@ -165,6 +167,7 @@ const AllTeam = props => {
 							<p
 								className="team-member-name"
 								css={css`
+									font-size: 0.875rem;
 									margin: 0;
 								`}
 							>
@@ -173,16 +176,20 @@ const AllTeam = props => {
 							<p
 								className="team-member-position" 
 								css={css`
+									font-size: 0.875rem;
 									margin: 0;
 								`}
 								dangerouslySetInnerHTML={{ __html: dude.team_member_position.text }} 
 							/>
 						</div>
 						<div css={css`
+							height: 27vh;
+							overflow-y: scroll;
 							padding: 0 1rem;
 
 							a {
 								color: #fff;
+								font-size: 0.875rem;
 								text-decoration: none;
 
 								&:hover {
@@ -190,8 +197,23 @@ const AllTeam = props => {
 								}
 							}
 						`}>
-							<div className="team-member-bio" dangerouslySetInnerHTML={{ __html: dude.team_member_bio.html }} />
-							<button className="back-button" onClick={() => {clickHandler(index + 1)}}>&#8249; Back</button>
+							<div
+								className="team-member-bio"
+								css={css`
+									p {
+										font-size: 0.875rem;
+										margin-bottom: 1rem;
+									}
+								`}
+								dangerouslySetInnerHTML={{ __html: dude.team_member_bio.html }}
+							/>
+							<button
+								className="back-button" 
+								css={css`
+									font-size: 0.875rem;
+								`}
+								onClick={() => {clickHandler(index + 1)}}
+							>&#8249; Back</button>
 						</div>
 					</div>
 				</div>

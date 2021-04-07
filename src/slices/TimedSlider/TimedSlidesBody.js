@@ -43,7 +43,7 @@ const TimedSlidesBody = props => {
 					<div
 						className={classBuilder(index)}
 						css={css`
-							bottom: 20%;
+							bottom: 25%;
 							opacity: 0;
 							position: absolute;
 							@media (min-width: 768px) {
@@ -129,7 +129,7 @@ const TimedSlidesBody = props => {
 										font-weight: 500;
 										line-height: 3vh;
 										list-style-type: none;
-										&:first-child:before {
+										&:first-of-type:before {
 											content: none;
 										}
 										&:before {

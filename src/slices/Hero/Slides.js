@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import styled from "@emotion/styled"
 import { css } from "@emotion/react"
 import Typer from './Typer'
 import Helpers from '../../utils/Helpers'
@@ -8,17 +7,23 @@ import { ReactComponent as SVGThreePt } from '../../svg/threepoint-logo.svg'
 
 const white = new Helpers('white')
 const yellow = new Helpers('yellow')
-const center = new GlobalStyles()
 const hideThis = new GlobalStyles()
 
 const slide = css`
-	${center.centerThis()};
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -65%);
 	width: 100%;
+	@media (min-width: 768px) {
+		transform: translate(-50%, -50%);
+	}
 
 	h1 {
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
 		font-size: 10vw;
 		font-weight: 400;
+
 		@media (min-width: 1024px) {
 			font-size: 8vw;
 		}
@@ -44,17 +49,15 @@ const ScreenReaderText = css`${hideThis.screenReaderText()}`
 
 const Slides = () => {
 
-	const Slides = styled.div`
-		position: relative;
-		width: 100%;
-	`
-
 	useEffect(() => {
 		Typer()
 	}, [])
 
 	return (
-		<Slides>
+		<div css={css`
+			position: relative;
+			width: 100%;
+		`}>
 			<div css={slide} className="slide" id="slide-1">
 				<h1>Convergent</h1>
 			</div>
@@ -400,7 +403,7 @@ const Slides = () => {
 					<h1>ThreePoint</h1>
 				</div>
 			</div>
-		</Slides>
+		</div>
 	)
 }
 

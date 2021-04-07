@@ -19,7 +19,8 @@ const TimedSlideImage = styled.div`
 		left: 0;
 		opacity: 1;
 		padding: 5%;
-		top: 35%;
+		bottom: 3%;
+		top: auto;
 		transform: none;
 		width: 40%;
 	}

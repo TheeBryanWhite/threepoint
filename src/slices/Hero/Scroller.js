@@ -15,7 +15,7 @@ const scroller = css`
 	animation-fill-mode: forwards, forwards;
 	animation-iteration-count: 1, infinite;
 	animation-timing-function: linear, cubic-bezier(${inOutQuart.ease()});
-	bottom: 115px;
+	bottom: 165px;
 	fill: rgb(${white.defaultColors()});
 	left: 50%;
 	opacity: 0;

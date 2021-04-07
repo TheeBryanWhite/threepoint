@@ -15,7 +15,7 @@ const Page = (props, isLoaded) => {
     <Layout>
       <SEO title={props.data.prismicPage.uid} />
       <Helmet>
-        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=bryanjsite"></script>
+        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=threepoint"></script>
       </Helmet>
       <SliceZone allSlices={liveData.body} />
     </Layout>

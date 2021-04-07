@@ -21,7 +21,6 @@ module.exports = {
       options: {
         repositoryName: 'threepoint',
         accessToken: 'MC5Yc2g3WkJFQUFDUUFDV3pS.PBnvv70rBUpM77-977-9Tu-_ve-_vVjvv73vv70jSmpw77-9U--_ve-_vTbvv703CO-_vTTvv70C77-9',
-        prismicToolbar: true,
         linkResolver: () => linkResolver,
         htmlSerializer: ({ node, key, value }) => (
           type,

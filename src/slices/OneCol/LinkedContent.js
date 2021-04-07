@@ -61,11 +61,15 @@ const LinkedContent = props => {
 					margin: 0 auto;
 					max-width: 1440px;
 					opacity: 0;
-					padding: 0 2rem;
+					padding: 100px 2rem 0;
+					pointer-events: none;
 					position: fixed;
 					top: 0;
 					width: 100%;
 					z-index: -1;
+					@media (min-width: 1024px) {
+						padding-top: 150px;
+					}
 					&.scrolled {
 						opacity: 1;
 					}
@@ -77,8 +81,6 @@ const LinkedContent = props => {
 			>
 				<div 
 					css={css`
-						margin-bottom: 10vh;
-
 						h1 {
 							color: ${blackOrWhite(props.compoData.one_col_background_color)};
 							font-family: 'Axis', Helvetica, Arial, sans-seriff;
@@ -166,7 +168,10 @@ const LinkedContent = props => {
 											<Img
 												alt=""
 												css={css`
-													height: 250px;
+													height: 175px;
+													@media (min-width: 768px) {
+														height: 250px;
+													}
 												`}
 												fluid={org.image.localFile.childImageSharp.fluid}
 											/>

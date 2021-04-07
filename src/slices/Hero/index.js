@@ -171,7 +171,9 @@ const Container = styled.div`
 
 		h1 {
 			color: rgb(${yellow.defaultColors()});
-			letter-spacing: -5px;
+			@media (min-width: 768px) {
+				letter-spacing: -5px;
+			}
 
 			&:before {
 				bottom: 3px;
@@ -306,7 +308,15 @@ const Hero = props => {
 			id= {compoData.primary.section_id}
 		>
 			<BackgroundImage
+				css={css`
+					@media (min-width: 768px) {
+						height: auto;
+					}
+				`}
 				fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}
+				imgStyle={{
+					height: '100vh'
+				}}
 				Tag="div"
 			>
 				<div css={css`position: absolute; width: 100%;`}>

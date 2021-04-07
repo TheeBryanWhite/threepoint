@@ -92,7 +92,6 @@ const Footer = props => {
 
 	const theDate = new Date()
 	const theYear = theDate.getFullYear()
-	console.log(theYear)
 
 	return (
 		<FooterEl>

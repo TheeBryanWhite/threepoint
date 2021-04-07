@@ -2,6 +2,7 @@ import React from 'preact'
 import { css } from "@emotion/react"
 
 const Body = props => {
+	console.log(props)
 	const blackOrWhite = colorObj => {
 		const rgb = hexToRgb(colorObj)
 
@@ -97,7 +98,7 @@ const Body = props => {
 							}
 							@media (min-width: 1024px) {
 								line-height: 2.1rem;
-								transform: translateY(-21px);
+								transform: translateY(-41px);
 							}
 							@media (min-width: 1440px) {
 								font-size: 5.47rem;
@@ -126,11 +127,6 @@ const Body = props => {
 						text-transform: uppercase;
 						@media (min-width: 768px) {
 							margin: 95px 0 25px;
-						}
-						@media (min-width: 1024px) {
-							font-size: 2.25rem;
-							line-height: 2.938rem;
-							margin: 3vh 0;
 						}
 						@media (min-width: 1440px) and (min-height: 821px) {
 							font-size: 2.25rem;

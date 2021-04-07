@@ -11,6 +11,7 @@ const OneCol = props => {
 		const target = document.querySelectorAll('.mask-this')
 		const clipMask = () => {
 			[...target].forEach(element => {
+				element.style.opacity = 1
 				const targetRect = element.getBoundingClientRect()
 				const targetParent = element.parentNode
 				const parentRect = targetParent.getBoundingClientRect()

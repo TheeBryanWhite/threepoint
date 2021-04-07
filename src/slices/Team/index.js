@@ -51,7 +51,7 @@ const Team = props => {
 		>
 			<div 
 				css={css`
-					margin: 0 auto;
+					margin: 100px auto 0;
 					max-width: 1440px;
 				`}
 			>
@@ -61,8 +61,8 @@ const Team = props => {
 						padding: 0 2rem;
 						p {
 							font-family: 'Axis', Helvetica, Arial, sans-seriff;
-							font-size: 4vw;
-							line-height: 4vh;
+							font-size: 3vw;
+							line-height: 3.5vh;
 							margin: 0;
 							text-transform: uppercase;
 							@media (min-width: 1024px) {
