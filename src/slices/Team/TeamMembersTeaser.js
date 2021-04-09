@@ -120,6 +120,9 @@ const TeamMembersTeaser = props => {
 								cursor: pointer;
 								height:13vh;
 								width: 100% !important;
+								@media (min-width: 768px) {
+									height: auto;
+								}
 								@media (min-width: 1024px) {
 									height: 38vh;
 									margin-bottom: 15px;

@@ -54,7 +54,7 @@ const AllTeam = props => {
 						@media (min-width: 1024px) {
 							background-color: transparent;
 							display: flex;
-							padding: 0 2rem;
+							padding: 0 3rem;
 							position: absolute;
 						}
 						@media (min-width: 1440px) and (min-height: 821px) {
