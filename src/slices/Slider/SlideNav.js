@@ -55,7 +55,7 @@ const SlideNav = props => {
 					cursor: pointer;
 					left: 0;
 					position: absolute;
-					@media (min-width: 1440px) and (min-height: 821px) {
+					@media (min-width: 1920px) {
 						left: 2%;
 					}
 					&:focus {
@@ -79,7 +79,7 @@ const SlideNav = props => {
 					cursor: pointer;
 					right: 0;
 					position: absolute;
-					@media (min-width: 1440px) and (min-height: 821px) {
+					@media (min-width: 1920px) {
 						right: 2%;
 					}
 					&:focus {

@@ -9,84 +9,85 @@ let inOutQuart = new Helpers('in-out-quart')
 
 const ProductImageEl = styled.div`
 	#productimg-1 {
-		left: 40px;
-		bottom: -50vh;
-		top: auto;
-		@media (min-width: 768px) {
-			bottom: -70vh;
-		}
-		@media (min-width: 1024px) {
-			bottom: -75vh;
-			left: auto;
-			right: 0;
-			width: 50%;
+		.gatsby-image-wrapper {
+			height: auto;
+			left: 10%;
+			position: absolute;
+			top: -20%;
+			width: 100%;
+			@media (min-width: 768px) {
+				top: -10%;
+			}
+			@media (min-width: 1024px) {
+				left: 43%;
+				top: 0;
+				width: 70%;
+			}
+			@media (min-width: 1440px) {
+				left: 40%;
+			}
 		}
 		@media (min-width: 1280px) {
-			bottom: -97vh;
-			right: -12%;
-			width: 70%;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			right: -27%;
-			width: 90%;
+			width: 100%;
 		}
 	}
 
 	#productimg-2 {
-		padding: 15%;
-		bottom: -58vh;
-		top: auto;
-		@media (min-width: 768px) {
-			bottom: -72vh;
-		}
-		@media (min-width: 1024px) {
-			bottom: -83vh;
-			left: auto;
-			padding: 0;
-			right: 7%;
-			width: 50%;
-		}
-		@media (min-width: 1280px) {
-			bottom: -89vh;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			right: 1%;
-    		width: 57%;
+		.gatsby-image-wrapper {
+			height: auto;
+			margin: 10%;
+			top: -16%;
+			width: 100%;
+			@media (min-width: 768px) {
+				top: -10%;
+			}
+			@media (min-width: 1024px) {
+				left: 43%;
+				margin: 0;
+				top: 0;
+				width: 50%;
+			}
+			@media (min-width: 1440px) {
+				width: 50%;
+			}
 		}
 	}
 
 	#productimg-3 {
-		padding: 29%;
-		bottom: -54vh;
-		top: auto;
-		@media (min-width: 768px) {
-			bottom: -80vh;
-			padding: 25%;
-		}
-		@media (min-width: 1024px) {
-			right: 15%;
-			bottom: -83vh;
-			padding: 0;
-			width: 35%;
-		}
-		@media (min-width: 1280px) {
-			bottom: -93vh;
-		}
-		@media (min-width: 1440px) and (min-height: 821px) {
-			right: 6%;
-			width: 45%;
+		.gatsby-image-wrapper {
+			height: auto;
+			margin: 0 29%;
+			top: -25%;
+			width: 100%;
+			@media (min-width: 768px) {
+				margin: 0px 19%;
+				top: -12%;
+			}
+			@media (min-width: 1024px) {
+				height: auto;
+				left: 45%;
+				margin: 0;
+				top: 0;
+				width: 40%;
+			}
+			@media (min-width: 1440px) {
+				width: 40%
+			}
+			@media (min-width: 1920px) {
+				left: 39%;
+				width: 50%
+			}
 		}
 	}
 
 	#productimg-4 {
-		bottom: -37vh;
 		position: absolute;
-		top: auto;
-		@media (min-width: 768px) {
-			bottom: 0;
-			top: 0;
-			transform: translateY(-50%);
-			.gatsby-image-wrapper {
+		top: 0;
+		.gatsby-image-wrapper {
+			left: 50%;
+			transform: translateX(-50%);
+			width: 120%;
+			@media (min-width: 768px) {
 				height: 100vh;
 				object-fit: cover;
 			}
@@ -118,6 +119,18 @@ const ProductImages = props => {
 		<ProductImageEl
 			className={props.slideDirection}
 			css={css`
+				position: absolute;
+				top: 0;
+				width: 100%;
+				.slide {
+					align-items: center;
+					display: flex;
+					height: 100vh;
+					opacity: 0;
+					position: absolute;
+					top: 0;
+					transform: translateX(-150%);
+				}
 				&.null,
 				&.next {
 					.active {
@@ -150,7 +163,7 @@ const ProductImages = props => {
 				@keyframes cycleinLeft {
 					0% {
 						opacity: 0;
-						transform: translate(200%);
+						transform: translateX(200%);
 					}
 			
 					50% {
@@ -159,31 +172,31 @@ const ProductImages = props => {
 			
 					100% {
 						opacity: 1;
-						transform: translate(0);
+						transform: translateX(0);
 					}
 				}
 			
 				@keyframes cycleoutLeft {
 					0% {
 						opacity: 1;
-						transform: translate(0);
+						transform: translateX(0);
 					}
 				
 					50% {
 						opacity: 0;
-						transform: translate(-200%);
+						transform: translateX(-200%);
 					}
 				
 					100% {
 						opacity: 0;
-						transform: translate(200%);
+						transform: translateX(200%);
 					}
 				}
 
 				@keyframes cycleinRight {
 					0% {
 						opacity: 0;
-						transform: translate(-200%);
+						transform: translateX(-200%);
 					}
 			
 					50% {
@@ -192,24 +205,24 @@ const ProductImages = props => {
 			
 					100% {
 						opacity: 1;
-						transform: translate(0);
+						transform: translateX(0);
 					}
 				}
 			
 				@keyframes cycleoutRight{
 					0% {
 						opacity: 1;
-						transform: translate(0);
+						transform: translateX(0);
 					}
 				
 					50% {
 						opacity: 0;
-						transform: translate(200%);
+						transform: translateX(200%);
 					}
 				
 					100% {
 						opacity: 0;
-						transform: translate(-200%);
+						transform: translateX(-200%);
 					}
 				}
 			`}
@@ -217,6 +230,7 @@ const ProductImages = props => {
 			<div
 				className="product-images-container"
 				css={css`
+					height: 100vh;
 					position: relative;
 				`}
 			>
@@ -227,8 +241,6 @@ const ProductImages = props => {
 								className={classBuilder(index + 1)} 
 								css={css`
 									opacity: 0;
-									position: absolute;
-									top: 0;
 									transition: all 0.2s linear;
 									width: 100%;
 								`}

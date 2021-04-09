@@ -1,7 +1,5 @@
-const WebpackModules = require('webpack-modules');
+import WebpackModules from 'webpack-modules';
  
-module.exports = {
-  plugins: [
-    new WebpackModules()
-  ]
-}
+export const plugins = [
+  new WebpackModules()
+];

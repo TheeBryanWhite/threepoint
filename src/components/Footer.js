@@ -40,7 +40,6 @@ const Footer = props => {
 		}
 	`
 
-	const containerMargin = new Helpers(32)
 	const footerFontS = new Helpers(12)
 	const footerFontL = new Helpers(15)
 	const Container = styled.div`
@@ -51,7 +50,7 @@ const Footer = props => {
 		justify-content: space-between;
 		margin: 0 auto;
 		max-width: 1440px;
-		padding: 0 ${containerMargin.toRem};
+		padding: 0 3rem;
 		text-align: center;
 		text-transform: uppercase;
 

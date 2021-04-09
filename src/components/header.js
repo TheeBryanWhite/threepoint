@@ -47,7 +47,7 @@ const Header = props => {
           justify-content: space-between;
           margin: 0 auto;
           max-width: 1440px;
-          padding: 0 0.438rem;
+          padding: 0 1.438rem;
         `}
       >
         <h1 

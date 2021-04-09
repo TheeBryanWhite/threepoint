@@ -37,6 +37,7 @@ const Gradient = props => {
 						padding-top: 100px;
 						position: absolute;
 						top: 0;
+						z-index: 1;
 					`}
 					id="slide-header"
 				>
@@ -44,6 +45,7 @@ const Gradient = props => {
 						css={css`
 							font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 							font-size: 3.5vw;
+							font-style: italic;
 							font-weight: 400;
 							line-height: 3vh;
 							padding: 0 2rem;
@@ -55,13 +57,12 @@ const Gradient = props => {
 							}
 						`}
 					>
-						<em>&#x2F;&#x2F;</em>What we do
+						<span css={css`color: #FFDC32;`}>&#x2F;&#x2F;</span>What we do
 					</h2>
 				</div>
 				<div css={css`position: relative`}>
 					<SlidesContainer 
 						activeWork={props.activeWork}
-						css={css`flex: 0 0 100%;`}
 						inactiveWork={props.inactiveWork} 
 						slidesData={props.compoData.input}
 					/>

@@ -48,7 +48,7 @@ const AllTeam = props => {
 						left: 0;
 						position: fixed;
 						top: 0;
-						transform: translateX(120%);
+						transform: translateX(150%);
 						width: 100%;
 						z-index: 89;
 						@media (min-width: 1024px) {
@@ -82,13 +82,13 @@ const AllTeam = props => {
 						&.inactive {
 							animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
 							opacity: 0;
-							transform: translateX(120%);
+							transform: translateX(150%);
 						}
 					
 						@keyframes cyclein {
 							0% {
 								opacity: 0;
-								transform: translate(120%);
+								transform: translate(150%);
 							}
 						
 							100% {
@@ -105,12 +105,12 @@ const AllTeam = props => {
 						
 							50% {
 								opacity: 0;
-								transform: translate(-120%);
+								transform: translate(-150%);
 							}
 						
 							100% {
 								opacity: 0;
-								transform: translate(120%);
+								transform: translate(150%);
 							}
 						}
 					`}

@@ -126,6 +126,12 @@ export const pageQuery = graphql`
             }
             items {
               our_work_bg_color
+              client {
+              html
+            }
+            services {
+              html
+            }
               our_work_body {
                 html
               }
