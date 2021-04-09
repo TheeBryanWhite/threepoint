@@ -6,6 +6,38 @@ import LinkedContent from './LinkedContent'
 const OneCol = props => {
 	const compoData = props.input
 
+	const blackOrWhite = colorObj => {
+		const rgb = hexToRgb(colorObj)
+
+		let Luminance = null
+
+		for (const color in rgb) {
+			let calcColor = color / 255.0
+
+			if (calcColor <= 0.03928) {
+				calcColor = calcColor/12.92
+			} else {
+				calcColor = ((calcColor+0.055)/1.055) ^ 2.4
+			}
+			Luminance = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b
+		}
+
+		if ((Luminance + 0.05) / (0.0 + 0.05) > (1.0 + 0.05) / (Luminance + 0.05)) {
+			return '#000000'
+		} else {
+			return '#ffffff'
+		}
+	}
+
+	const hexToRgb = hex => {
+		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		return {
+			r: parseInt(result[1], 16),
+			g: parseInt(result[2], 16),
+			b: parseInt(result[3], 16)
+		}
+	}
+
 	useEffect(() => {
 		const main = document.getElementsByTagName('main')
 		const target = document.querySelectorAll('.mask-this')
@@ -38,20 +70,29 @@ const OneCol = props => {
 		}
 	}, [])
 
+	const PageTitle = () => {
+		if (compoData.primary.title) {
+			return <div 
+				css={css`
+					padding-top: 100px;
+				`}
+				dangerouslySetInnerHTML={{ __html: compoData.primary.title.html }} 
+			/>
+		}
+		return false
+	}
+
 	return (
 		compoData.items.map((item, index) => {
 			return(
 				<section
 					className="one-col"
 					css={css`
-						align-items: center;
 						animation: fadeIn 1s linear forwards;
 						animation-delay: 1s;
 						background-color: ${item.one_col_background_color};
-						display: flex;
-						justify-content: center;
-						opacity: 0;
 						height: 100vh;
+						opacity: 0;
 						position: relative;
 						z-index: 1;
 						@keyframes fadeIn {
@@ -62,10 +103,33 @@ const OneCol = props => {
 								opacity: 1;
 							}
 						}
+						h2 {
+							color: ${blackOrWhite(item.one_col_background_color)};
+							font-family: 'Core Sans',Helvetica,Arial,sans-seriff;
+							font-size: 4vw;
+							font-style: italic;
+							font-weight: 300;
+							margin: 0 auto 1.45rem;
+							max-width: 1440px;
+							padding: 0 2rem;
+							text-transform: none;
+							@media (min-width: 768px) {
+								font-size: 1.25rem;	
+							}
+							@media (min-width: 1440px) {
+								margin-bottom: 4vh;
+							}
+	
+							&:before {
+								color: #FFDC32;
+								content: '//';
+							}
+						}
 					`}
 					id={index === 0 ? compoData.primary.section_id : `${compoData.primary.section_id}-${index}`}
 					key={index}
 				>
+					<PageTitle />
 					<Body compoData={item} />
 					<LinkedContent compoData={item} />
 					

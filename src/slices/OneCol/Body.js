@@ -2,7 +2,6 @@ import React from 'preact'
 import { css } from "@emotion/react"
 
 const Body = props => {
-	console.log(props)
 	const blackOrWhite = colorObj => {
 		const rgb = hexToRgb(colorObj)
 
@@ -61,11 +60,8 @@ const Body = props => {
 					margin: 0 auto;
 					max-width: 1440px;
 					opacity: 0;
-					padding: 0 2rem;
+					padding: 0 3rem;
 					pointer-events: none;
-					position: fixed;
-					top: 0;
-					width: 100%;
 					z-index: 1;
 					
 					h1 {
@@ -125,13 +121,9 @@ const Body = props => {
 						letter-spacing: 0;
 						margin: 4% 0;
 						text-transform: uppercase;
-						@media (min-width: 768px) {
-							margin: 95px 0 25px;
-						}
 						@media (min-width: 1440px) and (min-height: 821px) {
 							font-size: 2.25rem;
 							line-height: 2.938rem;
-							margin: 60px 0 25px;
 						}
 						
 						.Title {
@@ -188,6 +180,19 @@ const Body = props => {
 						i {
 							font-style: italic;
 						}
+						.Title {
+							font-family: 'Axis',Helvetica,Arial,sans-seriff;
+							font-size: 3vw;
+							line-height: 3.5vh;
+							@media (min-width: 1024px) {
+								font-size: 1.55rem;
+								line-height: 2.338rem;
+							}
+							@media (min-width: 1280px) {
+								font-size: 2.25rem;
+								line-height: 2.938rem;
+							}
+						}
 					}
 					&.scrolled {
 						opacity: 1;
@@ -195,6 +200,15 @@ const Body = props => {
 					&.center-vertically {
 						top: 50%;
 						transform: translateY(-50%);
+					}
+					.block-img {
+						margin-top: 10vh;
+						@media (min-width: 1024px) {
+							margin-top: 0;
+						}
+						@media (min-width: 1440px) {
+							margin-top: 5vh;
+						}
 					}
 				`}
 			>

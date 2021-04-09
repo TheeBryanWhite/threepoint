@@ -55,6 +55,9 @@ export const pageQuery = graphql`
             id
             primary {
               section_id
+              title {
+                html
+              }
             }
             slice_type
             items {
@@ -69,9 +72,6 @@ export const pageQuery = graphql`
                   ... on PrismicCommunity {
                     id
                     data {
-                      title {
-                        html
-                      }
                       organization {
                         body {
                           html

@@ -15,12 +15,6 @@ const TeamEl = styled.section`
 	overflow-x: hidden;
 	position: relative;
 	z-index: 1;
-	@media (min-width: 1024px) {
-		padding-top: 15vh;
-	}
-	@media (min-width: 1440px) {
-		padding-top: 100px;
-	}
 
 	h1 {
 		font-size: 4vw;
@@ -52,9 +46,6 @@ const Team = props => {
 			<div 
 				css={css`
 					margin: 100px auto 0;
-					@media (min-width: 1024px) {
-						margin-top: 0;
-					}
 					max-width: 1440px;
 				`}
 			>
@@ -67,11 +58,11 @@ const Team = props => {
 							font-size: 3vw;
 							line-height: 3.5vh;
 							margin: 0;
-							padding: 0 1rem;
 							text-transform: uppercase;
 							@media (min-width: 1024px) {
 								font-size: 1.55rem;
 								line-height: 2.338rem;
+								padding: 0 1rem;
 							}
 							@media (min-width: 1920px) {
 								font-size: 2.25rem;	
