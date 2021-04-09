@@ -98,7 +98,7 @@ const Body = props => {
 							}
 							@media (min-width: 1440px) {
 								font-size: 5.47rem;
-								line-height: 8.841rem;
+								line-height: 6.841rem;
 								transform: translateY(-23px);
 							}
 						}
@@ -164,9 +164,10 @@ const Body = props => {
 							font-size: 1.44rem;
 							line-height: 2.48rem;
 						}
-						@media (min-width: 1440px) and (min-height: 821px) {
+						@media (min-width: 1440px) {
 							font-size: 1.688rem;
 							line-height: 2.025rem;
+							padding: 0 1rem;
 						}
 						.Indent {
 							margin-left: 2%;

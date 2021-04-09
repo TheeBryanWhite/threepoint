@@ -17,9 +17,6 @@ const PageFooter = props => {
 				padding-top: 100px;
 				position: relative;
 				z-index: 1;
-				@media (min-width: 768px) {
-					margin-top: 150px;
-				}
 			
 				h2 {
 					font-family: 'Core Sans', Helvetica, Arial, sans-seriff;

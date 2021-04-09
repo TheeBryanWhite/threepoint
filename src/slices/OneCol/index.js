@@ -71,11 +71,15 @@ const OneCol = props => {
 	}, [])
 
 	const PageTitle = () => {
-		if (compoData.primary.title) {
+		if (compoData.primary.title.html) {
 			return <div 
 				css={css`
 					padding: 0 2rem;
 					padding-top: 100px;
+					@media (min-width: 1024px) {
+						padding: 0 3rem;
+						padding-top: 100px;
+					}
 					h2 {
 						font-size: 4vw;
 						font-style: italic;
@@ -84,8 +88,9 @@ const OneCol = props => {
 				`}
 				dangerouslySetInnerHTML={{ __html: compoData.primary.title.html }} 
 			/>
+		} else {
+			return false
 		}
-		return false
 	}
 
 	return (
