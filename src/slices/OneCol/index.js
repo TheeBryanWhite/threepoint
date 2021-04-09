@@ -74,7 +74,13 @@ const OneCol = props => {
 		if (compoData.primary.title) {
 			return <div 
 				css={css`
+					padding: 0 2rem;
 					padding-top: 100px;
+					h2 {
+						font-size: 4vw;
+						font-style: italic;
+						font-weight: 300;
+					}
 				`}
 				dangerouslySetInnerHTML={{ __html: compoData.primary.title.html }} 
 			/>
@@ -106,12 +112,11 @@ const OneCol = props => {
 						h2 {
 							color: ${blackOrWhite(item.one_col_background_color)};
 							font-family: 'Core Sans',Helvetica,Arial,sans-seriff;
-							font-size: 4vw;
+							font-size: 0;
 							font-style: italic;
 							font-weight: 300;
 							margin: 0 auto 1.45rem;
 							max-width: 1440px;
-							padding: 0 2rem;
 							text-transform: none;
 							@media (min-width: 768px) {
 								font-size: 1.25rem;	

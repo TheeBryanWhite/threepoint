@@ -53,8 +53,8 @@ const TimedSlidesBody = props => {
 								bottom: auto;
 								top: 40vh;
 							}
-							@media (min-width: 1440px) and (min-height: 821px) {
-								top: 375px;
+							@media (min-width: 1920px) {
+								top: 40%;
 							}
 						
 							h3 {
@@ -89,7 +89,10 @@ const TimedSlidesBody = props => {
 							css={css`
 								padding: 0 2rem;
 								@media (min-width: 1440px) {
-									padding-top: 7vh;
+									padding-top: 3vh;
+								}
+								@media (min-width: 1536px) {
+									padding-top: 0;
 								}
 							`}
 							className="timed-slider-body"

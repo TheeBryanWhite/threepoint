@@ -155,7 +155,8 @@ const Body = props => {
 					p {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
 						font-size: 3.6vw;
-						line-height: 3vh;
+						line-height: 2.8vh;
+						margin-bottom: 2vh;
 						@media (min-width: 768px) {
 							line-height: 4vh;
 						}
@@ -198,6 +199,7 @@ const Body = props => {
 						opacity: 1;
 					}
 					&.center-vertically {
+						position: fixed;
 						top: 50%;
 						transform: translateY(-50%);
 					}

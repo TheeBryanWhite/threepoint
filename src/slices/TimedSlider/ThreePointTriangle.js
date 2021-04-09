@@ -24,8 +24,17 @@ const TimedSlideImage = styled.div`
 		transform: none;
 		width: 40%;
 	}
-	@media (min-width: 1440px) and (min-height: 821px) {
-		top: 37vh;
+	@media (min-width: 1024px) {
+		bottom: 8%; 
+	}
+	@media (min-width: 1280px) {
+		bottom: 2%;
+	}
+	@media (min-width: 1440px) {
+		bottom: 2%;
+	}
+	@media (min-width: 1920px) {
+		bottom: 10vh;
 	}
 
 	svg {
