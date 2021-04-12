@@ -200,9 +200,10 @@ const Body = props => {
 						opacity: 1;
 					}
 					&.center-vertically {
+						left: 50%;
 						position: fixed;
 						top: 50%;
-						transform: translateY(-50%);
+						transform: translate(-50%, -50%);
 					}
 					.block-img {
 						margin-top: 10vh;

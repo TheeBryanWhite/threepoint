@@ -46,7 +46,7 @@ const PageFooter = props => {
 						font-size: 1.8rem;
 						line-height: 3.075rem;
 					}
-					@media (min-width: 1440px) and (min-height: 821px) {
+					@media (min-width: 1440px){
 						font-size: 2.25rem;
 						line-height: 2.938rem;
 					}

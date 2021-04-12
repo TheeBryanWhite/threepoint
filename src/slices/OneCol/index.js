@@ -84,6 +84,10 @@ const OneCol = props => {
 						font-size: 4vw;
 						font-style: italic;
 						font-weight: 300;
+						@media (min-width: 1024px) {
+							font-size: 1.25rem;
+							line-height: 1.25rem;
+						}
 					}
 				`}
 				dangerouslySetInnerHTML={{ __html: compoData.primary.title.html }} 
