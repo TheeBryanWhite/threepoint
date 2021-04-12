@@ -204,6 +204,7 @@ const Body = props => {
 						position: fixed;
 						top: 50%;
 						transform: translate(-50%, -50%);
+						width: 100%;
 					}
 					.block-img {
 						margin-top: 10vh;
