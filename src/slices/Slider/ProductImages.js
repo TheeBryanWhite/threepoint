@@ -78,15 +78,23 @@ const ProductImageEl = styled.div`
 	}
 
 	#productimg-4 {
-		position: absolute;
-		top: 0;
 		.gatsby-image-wrapper {
 			left: 50%;
+			top: -20%;
 			transform: translateX(-50%);
 			width: 120%;
 			@media (min-width: 768px) {
-				height: 100vh;
 				object-fit: cover;
+				top: -10%;
+				width: 100%;
+			}
+			@media (min-width: 1024px) {
+				left: 70%;
+				top: 0;
+				width: 70%;
+			}
+			@media (min-width: 1920px) {
+				left: 60%;
 			}
 		}
 		@media (min-width: 1440px) {

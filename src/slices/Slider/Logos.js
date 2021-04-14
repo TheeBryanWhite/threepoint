@@ -67,15 +67,14 @@ const Logos = props => {
 			.gatsby-image-wrapper {
 				height: auto;
 				left: 76%;
-				top: -23%;
 				width: 15%;
 				@media (min-width: 768px) {
 					left: 72%;
-					top: -29%;				
+					top: 15%;			
 				}
 				@media (min-width: 1024px) {
 					left: 76%;
-					top: -23%;
+					top: 25%;
 				}
 				@media (min-width: 1440px) {		
 					left: 76%;
@@ -83,7 +82,7 @@ const Logos = props => {
 				}
 				@media (min-width: 1920px) {		
 					left: 80%;
-					top: -27%;
+					top: 25%;
 				}
 			}
 		}

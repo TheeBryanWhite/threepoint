@@ -126,23 +126,31 @@ const Tweener = props => {
 					fluid={compoData.primary.tweener_background_image.localFile.childImageSharp.fluid}
 					Tag="div"
 				>
-					<div 
-						className="container-inner" 
-						css={
-							css`
-								align-items: center;
-								display: flex;
-								height: 100vh;
-								margin: 0 auto;
-								max-width: 1440px;
-								padding: 0 2rem; 
-								position: relative;
-							`
-						}
+					<div
+						css={css`
+							background: radial-gradient(at bottom left, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%),
+										radial-gradient(at top right, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%);
+							height: 100vh;
+						`}
 					>
 						<div 
-							dangerouslySetInnerHTML={{ __html: compoData.primary.tweener_body.html }} 
-						/>
+							className="container-inner" 
+							css={
+								css`
+									align-items: center;
+									display: flex;
+									height: 100vh;
+									margin: 0 auto;
+									max-width: 1440px;
+									padding: 0 2rem; 
+									position: relative;
+								`
+							}
+						>
+							<div 
+								dangerouslySetInnerHTML={{ __html: compoData.primary.tweener_body.html }} 
+							/>
+						</div>
 					</div>
 				</BackgroundImage>
 			</div>

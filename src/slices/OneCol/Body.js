@@ -75,6 +75,10 @@ const Body = props => {
 							font-size: 1.25rem;
 							line-height: 1.25rem;
 						}
+						&:before {
+							color: #FFDC32;
+							content: '//';
+						}
 					}
 				`}
 				dangerouslySetInnerHTML={{ __html: props.pageTitle }} 
@@ -242,6 +246,9 @@ const Body = props => {
 					.block-img {
 						margin: 0 auto;
 						width: 60vw;
+						@media (min-width: 1920px) {
+							width: auto;
+						}
 					}
 				`}
 			>

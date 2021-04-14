@@ -105,11 +105,6 @@ const OneCol = props => {
 							@media (min-width: 1440px) {
 								margin-bottom: 4vh;
 							}
-	
-							&:before {
-								color: #FFDC32;
-								content: '//';
-							}
 						}
 					`}
 					id={index === 0 ? compoData.primary.section_id : `${compoData.primary.section_id}-${index}`}
