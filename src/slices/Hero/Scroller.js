@@ -22,13 +22,15 @@ const scroller = css`
 	position: absolute;
 	transform: translateX(-50%);
 	width: 7%;
-	
-	${bpMedium.respondTo()} {
+	@media (min-width: 768px) {
 		bottom: 60px;
 		width: 5%;
 	}
-
-	${bpLarge.respondTo()} {
+	@media (min-width: 1024px) {
+		bottom: 70px;
+		width: 3%;
+	}
+	@media (min-width: 1280px) {
 		bottom: 30px;
 		width: 3%;
 	}

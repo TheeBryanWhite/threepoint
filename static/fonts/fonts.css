@@ -1,124 +1,124 @@
 @font-face {
+	font-display: swap;
     font-family:"ADLMounTiane";
     src: url("./adlmountiane/ADLMounTiane.otf") format("opentype"),
 	     url("./adlmountiane/ADLMounTiane.ttf") format("truetype"),
 	     url("./adlmountiane/ADLMounTiane.woff2") format("woff2"),
 		 url("./adlmountiane/ADLMounTiane.woff") format("woff");
-    font-style:normal;
 	font-weight:400;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Axis";
-	font-weight: 900;
 	src: url("./axis/AXIS-Extra-Bold-800.otf") format("opentype"),
 		 url("./axis/AXIS-Extra-Bold-800.ttf") format("truetype"),
 	     url("./axis/AXIS-Extra-Bold-800.woff2") format("woff2"),
 		 url("./axis/AXIS-Extra-Bold-800.woff") format("woff");
-	font-display: swap;
+	font-weight: 900
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
 	font-weight: 400;
 	src: url("./core-sans/S-Core-CoreSansC-25ExtraLight.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-25ExtraLight.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-25ExtraLight.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-25ExtraLight.woff") format("woff");
-	font-display: swap;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
+	font-style: italic;
 	font-weight: 400;
 	src: url("./core-sans/S-Core-CoreSansC-25ExtraLightIt.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-25ExtraLightIt.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-25ExtraLightIt.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-25ExtraLightIt.woff") format("woff");
-	font-display: swap;
-	font-style: italic;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
 	font-weight: 500;
 	src: url("./core-sans/S-Core-CoreSansC-35Light.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-35Light.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-35Light.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-35Light.woff") format("woff");
-	font-display: swap;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
+	font-style: italic;
 	font-weight: 500;
 	src: url("./core-sans/S-Core-CoreSansC-35LightIt.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-35LightIt.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-35LightIt.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-35LightIt.woff") format("woff");
-	font-display: swap;
-	font-style: italic;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
 	font-weight: 600;
 	src: url("./core-sans/S-Core-CoreSansC-45Regular.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-45Regular.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-45Regular.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-45Regular.woff") format("woff");
-	font-display: swap;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
+	font-style: italic;
 	font-weight: 600;
 	src: url("./core-sans/S-Core-CoreSansC-45RegularIt.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-45RegularIt.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-45RegularIt.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-45RegularIt.woff") format("woff");
-	font-display: swap;
-	font-style: italic;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
 	font-weight: 700;
 	src: url("./core-sans/S-Core-CoreSansC-65Bold.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-65Bold.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-65Bold.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-65Bold.woff") format("woff");
-	font-display: swap;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
+	font-style: italic;
 	font-weight: 700;
 	src: url("./core-sans/S-Core-CoreSansC-65BoldIt.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-65BoldIt.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-65BoldIt.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-65BoldIt.woff") format("woff");
-	font-display: swap;
-	font-style: italic;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
 	font-weight: 800;
 	src: url("./core-sans/S-Core-CoreSansC-85Heavy.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-85Heavy.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-85Heavy.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-85Heavy.woff") format("woff");
-	font-display: swap;
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Core Sans";
+	font-style: italic;
 	font-weight: 800;
 	src: url("./core-sans/S-Core-CoreSansC-85HeavyIt.otf") format("opentype"),
 		 url("./core-sans/S-Core-CoreSansC-85HeavyIt.ttf") format("truetype"),
 	     url("./core-sans/S-Core-CoreSansC-85HeavyIt.woff2") format("woff2"),
 		 url("./core-sans/S-Core-CoreSansC-85HeavyIt.woff") format("woff");
-	font-display: swap;
-	font-style: italic;
 }
