@@ -2,7 +2,8 @@ import React from 'preact'
 import { connect } from 'react-redux'
 import { 
 	setActiveWork,
-	setInactiveWork
+	setInactiveWork,
+	setSlideDirection
  } from '../../redux/actions'
 import Img from 'gatsby-image'
 import { css } from '@emotion/react'
@@ -32,9 +33,11 @@ const SlidesContainer = props => {
 			if (index === 0 && props.activeWork === 0 ) {
 				props.setInactiveWork(4)
 				props.setActiveWork(index)
+				props.setSlideDirection('next')
 			} else {
 				props.setInactiveWork(props.activeWork)
 				props.setActiveWork(index)
+				props.setSlideDirection('next')
 			}
 		}
 	}
@@ -59,6 +62,7 @@ const SlidesContainer = props => {
 						animation: cycleinLeft 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
+						z-index: 100;
 					}
 				
 					.inactive {
@@ -73,6 +77,7 @@ const SlidesContainer = props => {
 						animation: cycleinRight 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
+						z-index: 100;
 					}
 				
 					.inactive {
@@ -174,8 +179,7 @@ const SlidesContainer = props => {
     							line-height: 2.338rem;
 							}
 							@media (min-width: 1920px) {
-								font-size: 2.25rem;
-								line-height: 2.938rem;
+								font-size: 2rem;
 							}
 						}
 
@@ -260,16 +264,26 @@ const SlidesContainer = props => {
 					}
 
 					#slide-4 {
-						bottom: 20%;
-						@media (min-width: 768px) {
-							bottom: 7%;
-						}
-						@media (min-width: 1024px) {
-							bottom: auto;
-						}
-						.slide-content {
+						height: 100vh;
+						position: absolute;
+						.slide-inner {
+							bottom: 20%;
+							left: 0;
+							padding: 0 3rem;
+							position: absolute;
+							@media (min-width: 768px) {
+								bottom: 7%;
+							}
 							@media (min-width: 1024px) {
-								width: 50%;
+								bottom: auto;
+								position: relative;
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								width: 100%;
+								.slide-content {
+									width: 40%;
+								}
 							}
 						}
 					}
@@ -360,10 +374,31 @@ const SlidesContainer = props => {
 											
 												&:hover {
 													.slide-coverer {
-														background-color: rgba(0, 0, 0, 0.5);
+														animation: covererIn 0.4s cubic-bezier(.61,.1,.56,1.49) forwards;
 													}
 													.client-teaser {
+														animation: teaserIn 0.2s cubic-bezier(.5,.64,.61,.93) forwards;
+														animation-delay: 0.3s;
+													}
+												}
+												@keyframes covererIn {
+													0% {
+														opacity: 0;
+														transform: scale(0);
+													}
+													100% {
 														opacity: 1;
+														transform: scale(0.95);
+													}
+												}
+												@keyframes teaserIn {
+													0% {
+														opacity: 0;
+														transform: translateY(-100%);
+													}
+													100% {
+														opacity: 1;
+														transform: translateY(0);
 													}
 												}
 											`}
@@ -385,17 +420,27 @@ const SlidesContainer = props => {
 												<div
 													className="client-teaser"
 													css={css`
-														color: #ffffff;
+														animation: teaserOut 0.3s cubic-bezier(.5,.64,.61,.93) forwards;
+														color: #000000;
 														display: none;
 														opacity: 0;
 														padding: 4% 5%;
 														position: absolute;
 														text-align: left;
-														transition: all 0.4s linear;
 														width: 100%;
 														z-index: 3;
 														@media (min-width: 768px) {
 															display: block;
+														}
+														@keyframes teaserOut {
+															0% {
+																opacity: 1;
+																transform: translateY(0);
+															}
+															100% {
+																opacity: 0;
+																transform: translateY(-100%);
+															}
 														}
 													`}
 												>
@@ -414,47 +459,35 @@ const SlidesContainer = props => {
 													<div 
 														css={css`
 															h3 {
+																font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 																font-size: 1rem !important;	
 															}
 														`}
 														dangerouslySetInnerHTML={{__html: slide.client.html}}
 													/>
-													<div
-														css={css`
-															ul {
-																font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-																margin: 0;
-															}
-															li {
-																font-size: 0.75rem !important;
-																font-weight: 400;
-																left: 0;
-																line-height: 1.2rem;
-																list-style-type: none;
-																margin: 0 5px 0 0;
-																padding-left: 20px;
-																position: relative;
-																&:before {
-																	content: '//';
-																	left: 0;
-																	position: absolute;
-																}
-															}
-														`}
-														dangerouslySetInnerHTML={{__html: slide.services.html}} 
-													/>
 												</div>
 												<div
 													className="slide-coverer"
 													css={css`
+														animation: covererOut 0.4s cubic-bezier(.5,.64,.61,.93) forwards;
+														animation-delay: 0.2s;
 														background-color: rgba(255, 255, 255, 0.5);
 														height: 100%;
 														opacity: 1;
 														position: absolute;
 														transform: scale(0.95);
-														transition: all 0.4s linear;
 														width: 100%;
 														z-index: 2;
+														@keyframes covererOut {
+															0% {
+																opacity: 0;
+																transform: scale(0.95);
+															}
+															100% {
+																opacity: 1;
+																transform: scale(0);
+															}
+														}
 													`}
 												/>
 												<Img
@@ -602,4 +635,4 @@ const mapStateToProps = state => ({
 	slideDirection: state.app.slideDirection
 })
 
-export default connect(mapStateToProps, {setActiveWork, setInactiveWork})(SlidesContainer)
+export default connect(mapStateToProps, {setActiveWork, setInactiveWork, setSlideDirection})(SlidesContainer)

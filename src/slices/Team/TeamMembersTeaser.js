@@ -124,7 +124,7 @@ const TeamMembersTeaser = props => {
 									height: auto;
 								}
 								@media (min-width: 1024px) {
-									height: 38vh;
+									height: 45vh;
 									margin-bottom: 15px;
 								}
 								@media (min-width: 1440px) and (min-height: 821px) {
@@ -172,6 +172,10 @@ const TeamMembersTeaser = props => {
 								font-size: 13px;
 								line-height: 16px;
 								margin: 0;
+								@media (min-width: 1920px) {
+									font-size: 18px;
+									line-height: 26px;
+								}
 							}
 						
 							h3 {

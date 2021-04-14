@@ -169,6 +169,10 @@ const AllTeam = props => {
 								css={css`
 									font-size: 0.875rem;
 									margin: 0;
+									@media (min-width: 1920px) {
+										font-size: 18px;
+										line-height: 26px;
+									}
 								`}
 							>
 								{name}
@@ -178,6 +182,10 @@ const AllTeam = props => {
 								css={css`
 									font-size: 0.875rem;
 									margin: 0;
+									@media (min-width: 1920px) {
+										font-size: 18px;
+										line-height: 26px;
+									}
 								`}
 								dangerouslySetInnerHTML={{ __html: dude.team_member_position.text }} 
 							/>
@@ -203,6 +211,10 @@ const AllTeam = props => {
 									p {
 										font-size: 0.875rem;
 										margin-bottom: 1rem;
+										@media (min-width: 1920px) {
+											font-size: 18px;
+											line-height: 26px;
+										}
 									}
 								`}
 								dangerouslySetInnerHTML={{ __html: dude.team_member_bio.html }}

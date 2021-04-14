@@ -38,6 +38,9 @@ const Gradient = props => {
 						position: absolute;
 						top: 0;
 						z-index: 1;
+						@media (min-width: 1920px) {
+							padding-top: 150px;
+						}
 					`}
 					id="slide-header"
 				>

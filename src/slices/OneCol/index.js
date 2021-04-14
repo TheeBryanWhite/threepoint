@@ -70,33 +70,6 @@ const OneCol = props => {
 		}
 	}, [])
 
-	const PageTitle = () => {
-		if (compoData.primary.title.html) {
-			return <div 
-				css={css`
-					padding: 0 2rem;
-					padding-top: 100px;
-					@media (min-width: 1024px) {
-						padding: 0 3rem;
-						padding-top: 100px;
-					}
-					h2 {
-						font-size: 4vw;
-						font-style: italic;
-						font-weight: 300;
-						@media (min-width: 1024px) {
-							font-size: 1.25rem;
-							line-height: 1.25rem;
-						}
-					}
-				`}
-				dangerouslySetInnerHTML={{ __html: compoData.primary.title.html }} 
-			/>
-		} else {
-			return false
-		}
-	}
-
 	return (
 		compoData.items.map((item, index) => {
 			return(
@@ -122,7 +95,6 @@ const OneCol = props => {
 							color: ${blackOrWhite(item.one_col_background_color)};
 							font-family: 'Core Sans',Helvetica,Arial,sans-seriff;
 							font-size: 0;
-							font-style: italic;
 							font-weight: 300;
 							margin: 0 auto 1.45rem;
 							max-width: 1440px;
@@ -143,9 +115,14 @@ const OneCol = props => {
 					id={index === 0 ? compoData.primary.section_id : `${compoData.primary.section_id}-${index}`}
 					key={index}
 				>
-					<PageTitle />
-					<Body compoData={item} />
-					<LinkedContent compoData={item} />
+					<Body
+						compoData={item}
+						pageTitle={compoData.primary.title.html} 
+					/>
+					<LinkedContent
+						compoData={item}
+						pageTitle={compoData.primary.title.html} 
+					/>
 					
 				</section>
 			)

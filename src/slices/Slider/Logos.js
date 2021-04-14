@@ -68,7 +68,7 @@ const Logos = props => {
 				height: auto;
 				left: 76%;
 				top: -23%;
-				width: 20%;
+				width: 15%;
 				@media (min-width: 768px) {
 					left: 72%;
 					top: -29%;				
@@ -79,7 +79,7 @@ const Logos = props => {
 				}
 				@media (min-width: 1440px) {		
 					left: 76%;
-					top: -27%;
+					top: 25%;
 				}
 				@media (min-width: 1920px) {		
 					left: 80%;
@@ -92,7 +92,7 @@ const Logos = props => {
 				height: auto;
 				left: 70%;
 				top: 25%;
-				width: 20%;
+				width: 15%;
 			}
 		}
 	`

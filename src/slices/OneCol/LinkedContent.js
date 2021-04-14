@@ -20,6 +20,38 @@ const LinkedContent = props => {
 		return classes
 	}
 
+	const PageTitle = () => {
+		if (props.pageTitle) {
+			return <div 
+				css={css`
+					margin: 0 auto;
+					max-width: 1440px;
+					padding-top: 100px;
+					@media (min-width: 1024px) {
+						padding-top: 100px;
+						@media (min-width: 1920px) {
+							padding-top: 150px;
+						}
+					}
+					h2 {
+						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+						font-size: 4vw;
+						font-style: italic;
+						font-weight: 300;
+						margin-top: 0;
+						@media (min-width: 1024px) {
+							font-size: 1.25rem;
+							line-height: 1.25rem;
+						}
+					}
+				`}
+				dangerouslySetInnerHTML={{ __html: props.pageTitle }} 
+			/>
+		} else {
+			return false
+		}
+	}
+
 	if (props.compoData.list_items.document) {
 		return(
 			<div
@@ -36,11 +68,17 @@ const LinkedContent = props => {
 						opacity: 1;
 					}
 					p {
+						color: #ffffff;
 						font-size: 0.875rem;
 						line-height: 1rem;
 						margin-bottom: 2vh;
 						&:last-child {
 							margin: 0;
+						}
+
+						strong,
+						b {
+							font-size: 1.125rem;
 						}
 					}
 
@@ -49,72 +87,85 @@ const LinkedContent = props => {
 						font-weight: 600;
 						text-decoration: none;
 					}
+					&.mask-this {
+						left: 50%;
+						position: fixed;
+						top: 0;
+						transform: translateX(-50%);
+						width: 100%;
+						z-index: -1;
+					}
 				`}
 			>
-				<div
-					css={css`
-						@media (min-width: 768px) {
-							align-items: flex-start;
-							display: flex;
-							justify-content: center;
-						}
-					`}
-				>
-					{
-						props.compoData.list_items.document.data.organization.map((org, index) => {
-							return(
+				{
+					props.compoData.list_items.document.data.organization.map((org, index) => {
+						return(
+							<div>
+								<PageTitle />
 								<div
-									className="organization"
 									css={css`
-										background-color: #C0C2C4;
-										flex: 1;
-										padding: 10px;
 										@media (min-width: 768px) {
-											flex: 0 0 33.33%;
+											align-items: flex-start;
+											display: flex;
 										}
 									`}
-									key={index}
 								>
-									<div 
-										className="org-logo"
+									<div
+										className="organization"
 										css={css`
-											border: 3px solid #FFF203;
-											margin-bottom: 15px;
+											flex: 1;
+											padding: 10px;
+											@media (min-width: 768px) {
+												flex: 0 0 33.33%;
+											}
 										`}
+										key={index}
 									>
-										<a
+										<div 
+											className="org-logo"
 											css={css`
-												background-color: #ffffff;
-												display: block;
-												position: relative;
-												&:hover {
-													.slide-coverer {
-														opacity: 0;
-													}
-												}
+												border: 3px solid #FFF203;
+												margin-bottom: 35px;
 											`}
-											href={org.link.url}
-											rel="noreferrer"
-											target="_blank"
 										>
-											<Img
-												alt=""
+											<a
 												css={css`
-													height: 175px;
-													@media (min-width: 768px) {
-														height: 250px;
+													background-color: #ffffff;
+													display: block;
+													position: relative;
+													&:hover {
+														.slide-coverer {
+															opacity: 0;
+														}
 													}
 												`}
-												fluid={org.image.localFile.childImageSharp.fluid}
-											/>
-										</a>
+												href={org.link.url}
+												rel="noreferrer"
+												target="_blank"
+											>
+												<Img
+													alt=""
+													css={css`
+														display: block !important;
+														height: 25vh;
+														@media (min-width:768px) {
+															height: 20vh;
+														}
+														@media (min-width:1024px) {
+															height: 35vh;
+														}
+													`}
+													fluid={org.image.localFile.childImageSharp.fluid}
+												/>
+											</a>
+										</div>
+										<div className="org-body" dangerouslySetInnerHTML={{ __html: org.body.html }} />
 									</div>
-									<div className="org-body" dangerouslySetInnerHTML={{ __html: org.body.html }} />
 								</div>
-							)
-						})
-					}
-				</div>
+							</div>
+						)
+					})
+				}
 			</div>
 		)
 	} else {

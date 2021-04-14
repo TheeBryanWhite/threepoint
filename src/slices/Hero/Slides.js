@@ -27,7 +27,7 @@ const slide = css`
 		@media (min-width: 1024px) {
 			font-size: 8vw;
 		}
-		@media (min-width: 1440px) and (min-height: 821px) {
+		@media (min-width: 1440px) {
 			font-size: 146px;
 		}
 	}

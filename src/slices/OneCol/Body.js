@@ -50,6 +50,40 @@ const Body = props => {
 		return classes
 	}
 
+	const PageTitle = () => {
+		if (props.pageTitle) {
+			return <div 
+				css={css`
+					margin: 0 auto;
+					max-width: 1440px;
+					padding-top: 100px;
+					@media (min-width: 1024px) {
+						padding: 100px 2rem 0;
+						padding-top: 100px;
+						@media (min-width: 1920px) {
+							padding-top: 150px;
+						}
+					}
+					h2 {
+						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+						font-size: 4vw;
+						font-style: italic;
+						font-weight: 300;
+						margin-top: 0;
+						text-transform: none;
+						@media (min-width: 1024px) {
+							font-size: 1.25rem;
+							line-height: 1.25rem;
+						}
+					}
+				`}
+				dangerouslySetInnerHTML={{ __html: props.pageTitle }} 
+			/>
+		} else {
+			return false
+		}
+	}
+
 	if (!props.compoData.list_items.document) {
 		return(
 			<div
@@ -60,7 +94,6 @@ const Body = props => {
 					margin: 0 auto;
 					max-width: 1440px;
 					opacity: 0;
-					padding: 0 3rem;
 					pointer-events: none;
 					z-index: 1;
 					
@@ -97,7 +130,7 @@ const Body = props => {
 								transform: translateY(-41px);
 							}
 							@media (min-width: 1440px) {
-								font-size: 5.47rem;
+								font-size: 4.688rem;
 								line-height: 6.841rem;
 								transform: translateY(-23px);
 							}
@@ -119,7 +152,7 @@ const Body = props => {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
 						font-family: 'Axis', Helvetica, Arial, sans-seriff;
 						letter-spacing: 0;
-						margin: 4% 0;
+						margin: 4% 0 2%;
 						text-transform: uppercase;
 						@media (min-width: 1440px) and (min-height: 821px) {
 							font-size: 2.25rem;
@@ -139,17 +172,6 @@ const Body = props => {
 								font-size: 3.2rem;
 								line-height: 4rem;
 							}
-							&:before {
-								bottom: 0px;
-								content: '//';
-								display: inline-block;
-								font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-								font-size: 0.8rem;
-								font-weight: 500;
-								line-height: 1rem;
-								margin-right: 3px;
-								transform: translateY(-10%);
-							}
 						}
 					}
 					p {
@@ -167,7 +189,6 @@ const Body = props => {
 						@media (min-width: 1440px) {
 							font-size: 1.688rem;
 							line-height: 2.025rem;
-							padding: 0 1rem;
 						}
 						.Indent {
 							margin-left: 2%;
@@ -194,10 +215,22 @@ const Body = props => {
 								font-size: 2.25rem;
 								line-height: 2.938rem;
 							}
+
+							strong,
+							b {
+								color: #FFDC32;
+							}
 						}
 					}
 					&.scrolled {
 						opacity: 1;
+					}
+					&.mask-this {
+						left: 50%;
+						position: fixed;
+						top: 0;
+						transform: translateX(-50%);
+						width: 100%;
 					}
 					&.center-vertically {
 						left: 50%;
@@ -207,17 +240,13 @@ const Body = props => {
 						width: 100%;
 					}
 					.block-img {
-						margin-top: 10vh;
-						@media (min-width: 1024px) {
-							margin-top: 0;
-						}
-						@media (min-width: 1440px) {
-							margin-top: 5vh;
-						}
+						margin: 0 auto;
+						width: 60vw;
 					}
 				`}
 			>
-				<div dangerouslySetInnerHTML={{ __html: props.compoData.one_column_body.html }} />
+				<PageTitle />
+				<div css={css`padding: 0 3rem;`} dangerouslySetInnerHTML={{ __html: props.compoData.one_column_body.html }} />
 			</div>
 		)
 	} else {

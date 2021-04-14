@@ -47,6 +47,9 @@ const Team = props => {
 				css={css`
 					margin: 100px auto 0;
 					max-width: 1440px;
+					@media (min-width: 1920px) {
+						margin-top: 150px;
+					}
 				`}
 			>
 				<div 

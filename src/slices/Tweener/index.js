@@ -11,7 +11,8 @@ const TweenerEl = styled.section`
 	background-color: rgb(${yellow.defaultColors()});
 	color: rgb(${yellow.defaultColors()});
 	font-family: 'ADLMounTiane', Helvetica, Arial, sans-seriff;
-	font-size: 9vw;
+	// font-size: 9vw;
+	font-size: 12vw;
 	height: 100vh;
 	line-height: 6vh;
 	position: relative; 
@@ -36,8 +37,6 @@ const TweenerEl = styled.section`
 		color: rgb(${white.defaultColors()});
 		display: block;
 		font-family: 'Axis', Helvetica, Arial, sans-seriff;
-		font-size: 12vw;
-		line-height: 10vh;
 		@media (min-width: 768px) {
 			display: inline;
 			font-size: 10.3vw;

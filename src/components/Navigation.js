@@ -49,7 +49,7 @@ const Nav = props => {
 										color: #ffffff;
 										display: inline-block;
 										font-family: 'Axis', Helvetica, Arial, sans-seriff;
-										font-size: 5vw;
+										font-size: 4vw;
 										line-height: 3vh;
 										padding: 10px 0;
 										text-decoration: none;

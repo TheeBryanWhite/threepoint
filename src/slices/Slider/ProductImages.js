@@ -68,14 +68,11 @@ const ProductImageEl = styled.div`
 				left: 45%;
 				margin: 0;
 				top: 0;
-				width: 40%;
-			}
-			@media (min-width: 1440px) {
-				width: 40%
+				width: 35%;
 			}
 			@media (min-width: 1920px) {
 				left: 39%;
-				width: 50%
+				width: 45%
 			}
 		}
 	}
@@ -92,7 +89,7 @@ const ProductImageEl = styled.div`
 				object-fit: cover;
 			}
 		}
-		@media (min-width: 1440px) and (min-height: 821px) {
+		@media (min-width: 1440px) {
 			width: 100vw;
 		}
 	}

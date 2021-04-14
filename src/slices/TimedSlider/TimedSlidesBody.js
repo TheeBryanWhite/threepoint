@@ -66,8 +66,8 @@ const TimedSlidesBody = props => {
 								margin-bottom: 0;
 								text-transform: uppercase;
 								@media (min-width: 768px) {
-									font-size: 1.563rem;
-									line-height: 1.734rem;
+									font-size: 1.2rem;
+									line-height: 2.234rem;
 								}
 								@media (min-width: 1440px) and (min-height: 821px) {
 									margin-bottom: 60px;
@@ -106,7 +106,7 @@ const TimedSlidesBody = props => {
 									p {
 										font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 										font-size: 4vw;
-										font-weight: 800;
+										font-weight: 600;
 										line-height: 6vw;
 										margin-bottom: 0;
 										@media (min-width: 768px) {
@@ -115,10 +115,18 @@ const TimedSlidesBody = props => {
 											margin: 15px 0;
 										}
 									}
+
+									.Superscript {
+										display: inline-block;
+										margin-left: 2px;
+										transform: translateY(-13px);
+										font-size: 20px;
+									}
 								
 									ul {
+										column-count: 2;
+    									column-gap: 20px;
 										margin: 0;
-										text-transform: uppercase;
 
 										@media (min-width: 1440px) and (min-height: 821px) {
 											margin-top: 65px;
@@ -147,14 +155,17 @@ const TimedSlidesBody = props => {
 											@media (min-width: 1440px) and (min-height: 821px) {
 												transform: translateY(-5px);
 											}
+											@media (min-width: 1440px) {
+												content: none;
+											}
 										}
 										@media (min-width: 768px) {
 											content: none;
 											font-size: 1rem;
 											line-height: 1.25rem;
 										}
-										@media (min-width: 1440px) and (min-height: 821px) {
-											display: inline-block;
+										@media (min-width: 1440px) {
+											display: block;
 											margin-bottom: 15px;
 										}
 									}

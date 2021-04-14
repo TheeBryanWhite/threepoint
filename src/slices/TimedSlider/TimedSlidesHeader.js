@@ -54,10 +54,20 @@ const TimedSlidesHeader = props => {
 										font-size: 1.55rem;
 										line-height: 2.338rem;
 									}
-									@media (min-width: 1440px) and (min-height: 821px) {
-										font-size: 2.25rem;
-										line-height: 2.938rem;
+									@media (min-width: 1440px) {
+										font-size: 2rem;
 									}
+								}
+
+								.Highlight {
+									color: rgb(255,220,50);
+								}
+
+								.Superscript {
+									display: inline-block;
+									margin-left: -10px;
+									transform: translateY(-18px);
+									font-size: 20px;
 								}
 							`}
 							dangerouslySetInnerHTML={{ __html: slide.timed_slider_page_header.html }} 
