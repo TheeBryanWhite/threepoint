@@ -43,6 +43,10 @@ const LinkedContent = props => {
 							font-size: 1.25rem;
 							line-height: 1.25rem;
 						}
+						&:before {
+							color: #FFDC32;
+							content: '//';
+						}
 					}
 				`}
 				dangerouslySetInnerHTML={{ __html: props.pageTitle }} 

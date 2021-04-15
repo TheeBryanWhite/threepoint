@@ -135,6 +135,9 @@ const PageFooter = props => {
 						@media (min-width: 768px) {
 							font-size: 1rem;
 						}
+						@media (min-width: 1280px) {
+							font-size: 1.5rem;
+						}
 						`}
 					>
 						<span css={css`color: rgb(${yellow.defaultColors()});`}>//</span>Omne Trium Perfectum

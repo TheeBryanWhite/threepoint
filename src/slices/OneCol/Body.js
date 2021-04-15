@@ -60,9 +60,9 @@ const Body = props => {
 					@media (min-width: 1024px) {
 						padding: 100px 2rem 0;
 						padding-top: 100px;
-						@media (min-width: 1920px) {
-							padding-top: 150px;
-						}
+					}
+					@media (min-width: 1920px) {
+						padding-top: 150px;
 					}
 					h2 {
 						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
@@ -74,6 +74,10 @@ const Body = props => {
 						@media (min-width: 1024px) {
 							font-size: 1.25rem;
 							line-height: 1.25rem;
+						}
+						@media (min-width: 1920px) {
+							font-size: 2rem;
+							line-height: 2.338rem;
 						}
 						&:before {
 							color: #FFDC32;
@@ -100,6 +104,9 @@ const Body = props => {
 					opacity: 0;
 					pointer-events: none;
 					z-index: 1;
+					@media (min-width: 1920px) {
+						margin-top: 5vh;
+					}
 					
 					h1 {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
@@ -176,6 +183,10 @@ const Body = props => {
 								font-size: 3.2rem;
 								line-height: 4rem;
 							}
+							@media (min-width: 1920px) {
+								font-size: 2rem;
+								line-height: 2.338rem;
+							}
 						}
 					}
 					p {
@@ -247,6 +258,7 @@ const Body = props => {
 						margin: 0 auto;
 						width: 60vw;
 						@media (min-width: 1920px) {
+							margin-top: 5vh;
 							width: auto;
 						}
 					}

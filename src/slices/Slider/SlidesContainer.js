@@ -311,6 +311,7 @@ const SlidesContainer = props => {
 							css={css`
 								padding: 0 3rem;
 								@media (min-width: 768px) {
+									margin-bottom: 5vh;
 									padding: 60px 3rem 0;
 								}
 							`} 

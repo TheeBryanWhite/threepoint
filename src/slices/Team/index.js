@@ -68,8 +68,8 @@ const Team = props => {
 								padding: 0 1rem;
 							}
 							@media (min-width: 1920px) {
-								font-size: 2.25rem;	
-								line-height: 2.938rem;
+								font-size: 2rem;	
+								line-height: 2.338rem;
 							}
 						}
 				
@@ -79,7 +79,12 @@ const Team = props => {
 						}
 					`}
 				>
-					<div dangerouslySetInnerHTML={{ __html: props.input.primary.title.html }} />
+					<div
+						css={css`
+							margin-bottom: 7vh;
+						`}
+						dangerouslySetInnerHTML={{ __html: props.input.primary.title.html }} 
+					/>
 					<div dangerouslySetInnerHTML={{ __html: props.input.primary.team_body.html }}  />
 				</div>
 				<TeamSlideContainer
