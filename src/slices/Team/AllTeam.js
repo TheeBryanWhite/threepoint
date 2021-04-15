@@ -194,7 +194,9 @@ const AllTeam = props => {
 							height: 27vh;
 							overflow-y: scroll;
 							padding: 0 1rem;
-
+							@media (min-width: 768px) {
+								overflow-y: visible;
+							}
 							a {
 								color: #fff;
 								font-size: 0.875rem;

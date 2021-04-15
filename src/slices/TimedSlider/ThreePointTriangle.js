@@ -30,13 +30,17 @@ const TimedSlideImage = styled.div`
 	@media (min-width: 1280px) {
 		bottom: 2%;
 	}
+	@media (min-width: 1366px) {
+		bottom: 2%;
+	}
 	@media (min-width: 1440px) {
-		bottom: 0;
-		padding: 8%;
+		bottom: auto;
+		top: 30vh;
 	}
 	@media (min-width: 1920px) {
-		bottom: 10vh;
+		bottom: auto;
 		padding: 0;
+		top: 35vh;
 	}
 
 	svg {

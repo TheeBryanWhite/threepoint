@@ -124,11 +124,7 @@ const TeamMembersTeaser = props => {
 									height: auto;
 								}
 								@media (min-width: 1024px) {
-									height: 45vh;
 									margin-bottom: 15px;
-								}
-								@media (min-width: 1440px) and (min-height: 821px) {
-									height: auto;
 								}
 							}
 						

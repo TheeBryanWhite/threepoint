@@ -13,7 +13,6 @@
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-emotion": "^5.3.0",
     "gatsby-plugin-google-tagmanager": "^2.11.0",
-    "gatsby-plugin-guess-js": "^1.10.0",
     "gatsby-plugin-imgix": "^0.9.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-preact": "^4.6.0",

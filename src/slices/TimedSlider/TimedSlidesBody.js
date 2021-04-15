@@ -53,6 +53,10 @@ const TimedSlidesBody = props => {
 								bottom: auto;
 								top: 40vh;
 							}
+							@media (min-width: 1440px) {
+								bottom: auto;
+								top: 35vh;
+							}
 							@media (min-width: 1920px) {
 								top: 40%;
 							}
