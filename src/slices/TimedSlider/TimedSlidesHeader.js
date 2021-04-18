@@ -67,7 +67,7 @@ const TimedSlidesHeader = props => {
 									display: inline-block;
 									margin-left: -10px;
 									transform: translateY(-18px);
-									font-size: 20px;
+									font-size: 10px;
 								}
 							`}
 							dangerouslySetInnerHTML={{ __html: slide.timed_slider_page_header.html }} 

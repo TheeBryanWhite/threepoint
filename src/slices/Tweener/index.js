@@ -9,9 +9,8 @@ let white = new Helpers('white')
 
 const TweenerEl = styled.section`
 	background-color: rgb(${yellow.defaultColors()});
-	color: rgb(${yellow.defaultColors()});
+	color: #fff;
 	font-family: 'ADLMounTiane', Helvetica, Arial, sans-seriff;
-	// font-size: 9vw;
 	font-size: 12vw;
 	height: 100vh;
 	line-height: 6vh;
@@ -19,6 +18,9 @@ const TweenerEl = styled.section`
 	z-index: 1;
 	@media (min-width: 768px) {
 		font-size: 5.3vw;
+	}
+	@media (min-width: 1024px) {
+		color: rgb(${yellow.defaultColors()});
 	}
 	@media (min-width: 1440px) {
 		font-size: 5.436rem;
@@ -116,7 +118,7 @@ const Tweener = props => {
 							background-color: #FFDC32;
   							background-blend-mode: multiply;
 							height: 100vh;
-							left: 100%;
+							left: 150%;
 							pointer-events: none;
 							position: fixed !important;
 							top: 0;

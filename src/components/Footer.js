@@ -27,7 +27,10 @@ const Footer = props => {
 		}
 
 		svg {
-			height: 43px;
+			height: 25px;
+			@media (min-width: 1024px) {
+				height: 43px;
+			}
 		}
 
 		@keyframes riseIn {
@@ -73,6 +76,7 @@ const Footer = props => {
 
 		li {
 			flex: 1;
+			margin: 0;
 
 			${bpMedium.respondTo()} {
 				margin: 0 0 0 ${socialSpacing.toRem};

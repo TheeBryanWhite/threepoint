@@ -1,4 +1,5 @@
 import React from 'preact'
+import Div100vh from 'react-div-100vh'
 import { css } from '@emotion/react'
 import Helpers from '../../utils/Helpers'
 
@@ -22,10 +23,9 @@ const TimedSlidesBody = props => {
 	}
 
 	return(
-		<div
+		<Div100vh
 			className="timed-slider-container"
 			css={css`
-				height: 100vh;
 				position: absolute;
 				top: 0;
 				width: 100%;
@@ -43,11 +43,11 @@ const TimedSlidesBody = props => {
 					<div
 						className={classBuilder(index)}
 						css={css`
-							bottom: 25%;
+							bottom: 15%;
 							opacity: 0;
 							position: absolute;
 							@media (min-width: 768px) {
-								bottom: 6%;
+								bottom: 12%;
 							}
 							@media (min-width: 1024px) {
 								bottom: auto;
@@ -128,11 +128,12 @@ const TimedSlidesBody = props => {
 									}
 								
 									ul {
-										column-count: 2;
-    									column-gap: 20px;
 										margin: 0;
-
-										@media (min-width: 1440px) and (min-height: 821px) {
+										@media (min-width: 1280px) {
+											column-count: 2;
+    										column-gap: 20px;
+										}
+										@media (min-width: 1440px) {
 											margin-top: 65px;
 										}
 									}
@@ -181,7 +182,7 @@ const TimedSlidesBody = props => {
 				)
 			})
 		}
-		</div>
+		</Div100vh>
 	)
 }
 

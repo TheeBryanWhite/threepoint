@@ -13,7 +13,8 @@ const scrollSnapContainer = css`
   overflow: scroll;
   scroll-snap-type: y mandatory;  
 
-  section {
+  section,
+  #how-we-do-it {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }

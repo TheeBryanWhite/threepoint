@@ -1,6 +1,7 @@
-import React, {useEffect} from "react"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
+import React, {useEffect} from 'react'
+import Div100vh from 'react-div-100vh'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import BackgroundImage from 'gatsby-background-image'
 import Scroller from './Scroller'
 import Helpers from '../../utils/Helpers'
@@ -307,36 +308,38 @@ const Hero = props => {
 			css={heroReveal}
 			id= {compoData.primary.section_id}
 		>
-			<BackgroundImage
-				css={css`
-					@media (min-width: 768px) {
-						height: auto;
-					}
-				`}
-				fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}
-				imgStyle={{
-					height: '100vh'
-				}}
-				Tag="div"
-			>
-				<div css={css`position: absolute; width: 100%;`}>
-					<Video 
-						autoPlay
-						loop
-						muted
-						preload="auto"
-						id="hero-video"
-					>
-						<source src={compoData.primary.hero_video_mp4.url} type="video/mp4" />
-						<source src={compoData.primary.hero_video_ogv.url} type="video/ogv" />
-					</Video>
-					<Overlay />
-					<Container>
-						<Slides />
-						<Scroller />
-					</Container>
-				</div>
-			</BackgroundImage>
+			<Div100vh>
+				<BackgroundImage
+					css={css`
+						@media (min-width: 768px) {
+							height: auto;
+						}
+					`}
+					fluid={compoData.primary.hero_background_image.localFile.childImageSharp.fluid}
+					imgStyle={{
+						height: '100vh'
+					}}
+					Tag="div"
+				>
+					<div css={css`position: absolute; width: 100%;`}>
+						<Video 
+							autoPlay
+							loop
+							muted
+							preload="auto"
+							id="hero-video"
+						>
+							<source src={compoData.primary.hero_video_mp4.url} type="video/mp4" />
+							<source src={compoData.primary.hero_video_ogv.url} type="video/ogv" />
+						</Video>
+						<Overlay />
+						<Container>
+							<Slides />
+							<Scroller />
+						</Container>
+					</div>
+				</BackgroundImage>
+			</Div100vh>
 		</section>
 	)
 }

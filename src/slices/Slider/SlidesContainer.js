@@ -62,7 +62,6 @@ const SlidesContainer = props => {
 						animation: cycleinLeft 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
-						z-index: 100;
 					}
 				
 					.inactive {
@@ -77,7 +76,6 @@ const SlidesContainer = props => {
 						animation: cycleinRight 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
-						z-index: 100;
 					}
 				
 					.inactive {
@@ -171,8 +169,8 @@ const SlidesContainer = props => {
 							line-height: 3.5vh;
 							text-transform: uppercase;
 							@media (min-width: 768px) {
-								font-size: 1.75rem;
-								line-height: 2.938rem;
+								font-size: 1rem;
+								line-height: 1.5rem;
 							}
 							@media (min-width: 1024px) {
 								font-size: 1.55rem;
@@ -192,7 +190,7 @@ const SlidesContainer = props => {
 						height: 100vh;
 						position: absolute;
 						.slide-inner {
-							bottom: 20%;
+							bottom: 25%;
 							left: 0;
 							padding: 0 3rem;
 							position: absolute;
@@ -217,7 +215,7 @@ const SlidesContainer = props => {
 						height: 100vh;
 						position: absolute;
 						.slide-inner {
-							bottom: 20%;
+							bottom: 25%;
 							left: 0;
 							padding: 0 3rem;
 							position: absolute;
@@ -242,7 +240,7 @@ const SlidesContainer = props => {
 						height: 100vh;
 						position: absolute;
 						.slide-inner {
-							bottom: 20%;
+							bottom: 25%;
 							left: 0;
 							padding: 0 3rem;
 							position: absolute;
@@ -267,7 +265,7 @@ const SlidesContainer = props => {
 						height: 100vh;
 						position: absolute;
 						.slide-inner {
-							bottom: 20%;
+							bottom: 25%;
 							left: 0;
 							padding: 0 3rem;
 							position: absolute;
@@ -305,6 +303,7 @@ const SlidesContainer = props => {
 					<div
 						css={css`
 							flex: 0 0 100%;
+							transform: translateY(-5%);
 						`}
 					>
 						<div 
@@ -494,9 +493,11 @@ const SlidesContainer = props => {
 												<Img
 													alt=""
 													css={css`
-														top: 50%;
-														transform: translateY(-50%);
 														z-index: 1;
+														@media (min-width: 1280px) {
+															top: 50%;
+															transform: translateY(-50%);
+														}
 													`}
 													fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
 												/>

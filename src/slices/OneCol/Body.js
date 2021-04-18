@@ -195,6 +195,7 @@ const Body = props => {
 						line-height: 2.8vh;
 						margin-bottom: 2vh;
 						@media (min-width: 768px) {
+							font-size: 2.6vw;
 							line-height: 4vh;
 						}
 						@media (min-width: 1024px) {

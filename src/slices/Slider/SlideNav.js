@@ -45,7 +45,7 @@ const SlideNav = props => {
 				top: 50%;
 				transform: translateY(-50%);
 				width: 100%;
-				z-index: 10;
+				z-index: 1000;
 			`}
 		>
 			<button 

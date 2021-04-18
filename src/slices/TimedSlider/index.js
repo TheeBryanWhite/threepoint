@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import Div100vh from 'react-div-100vh'
 import { css } from "@emotion/react"
 import { connect } from 'react-redux'
 import { 
@@ -67,7 +68,6 @@ const TimedSlider = props => {
 			css={css`
 				background-color: #000000;
 				color: #ffffff;
-				height: 100vh;
 				position: relative;
 				z-index: 1;
 
@@ -96,52 +96,53 @@ const TimedSlider = props => {
 			`}
 			id={props.input.primary.section_id}
 		>
-			<div
-				css={css`
-					margin: 0 auto;
-					max-width: 1440px;
-					position: relative;
-				`}
-				>
-				<div 
-					css={css`
-						padding: 100px 2rem 0;
-						@media (min-width: 1440px) and (min-height: 821px) {
-							padding: 150px 2rem 0;
-						}
-					`}
-					className="timed-slider-header"
-				>
-					<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
-				</div>
+			<Div100vh>
 				<div
-					className="timed-slides"
 					css={css`
-						font-family: 'Axis', Helvetica, Arial, sans-seriff;
-						height: 100vh;
-						position: absolute;
-						top: 0;
-						width: 100%;
+						margin: 0 auto;
+						max-width: 1440px;
+						position: relative;
 					`}
-				>
-					<TimedSlidesHeader
-						activeSlide={props.activeSlide}
-						inactiveSlide={props.inactiveSlide}
-						slideData={props.input.items}
-					/>
+					>
+					<div 
+						css={css`
+							padding: 100px 2rem 0;
+							@media (min-width: 1440px) and (min-height: 821px) {
+								padding: 150px 2rem 0;
+							}
+						`}
+						className="timed-slider-header"
+					>
+						<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
+					</div>
+					<Div100vh
+						className="timed-slides"
+						css={css`
+							font-family: 'Axis', Helvetica, Arial, sans-seriff;
+							position: absolute;
+							top: 0;
+							width: 100%;
+						`}
+					>
+						<TimedSlidesHeader
+							activeSlide={props.activeSlide}
+							inactiveSlide={props.inactiveSlide}
+							slideData={props.input.items}
+						/>
 
-					<ThreePointTriangle
-						activeSlide={props.activeSlide}
-						inactiveSlide={props.inactiveSlide}
-					/>
+						<ThreePointTriangle
+							activeSlide={props.activeSlide}
+							inactiveSlide={props.inactiveSlide}
+						/>
 
-					<TimedSlidesBody
-						activeSlide={props.activeSlide}
-						inactiveSlide={props.inactiveSlide}
-						slideData={props.input.items}
-					/>
+						<TimedSlidesBody
+							activeSlide={props.activeSlide}
+							inactiveSlide={props.inactiveSlide}
+							slideData={props.input.items}
+						/>
+					</Div100vh>
 				</div>
-				</div>
+			</Div100vh>
 		</section>
 	)
 }

@@ -3,8 +3,6 @@ import { css } from "@emotion/react"
 import Helpers from '../../utils/Helpers'
 
 let white = new Helpers('white')
-let bpMedium = new Helpers('medium')
-let bpLarge = new Helpers('large')
 let inOutQuart = new Helpers('in-out-quart')
 let outQuart = new Helpers('out-quart')
 

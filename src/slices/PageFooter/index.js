@@ -140,7 +140,7 @@ const PageFooter = props => {
 						}
 						`}
 					>
-						<span css={css`color: rgb(${yellow.defaultColors()});`}>//</span>Omne Trium Perfectum
+						<span css={css`color: rgb(${yellow.defaultColors()});`}>{`//`}</span>Omne Trium Perfectum
 					</p>
 				</div>
 			</div>
