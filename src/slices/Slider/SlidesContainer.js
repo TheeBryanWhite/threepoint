@@ -492,13 +492,7 @@ const SlidesContainer = props => {
 												/>
 												<Img
 													alt=""
-													css={css`
-														z-index: 1;
-														@media (min-width: 1280px) {
-															top: 50%;
-															transform: translateY(-50%);
-														}
-													`}
+													css={css`z-index: 1;`}
 													fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
 												/>
 											</button>
