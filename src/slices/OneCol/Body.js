@@ -258,9 +258,11 @@ const Body = props => {
 					.block-img {
 						margin: 0 auto;
 						width: 60vw;
+						@media (min-width: 1024px) {
+							width: auto;
+						}
 						@media (min-width: 1920px) {
 							margin-top: 5vh;
-							width: auto;
 						}
 					}
 				`}

@@ -1,4 +1,5 @@
 import React from 'preact'
+import Div100vh from 'react-div-100vh'
 import Helpers from '../../utils/Helpers'
 import { css } from "@emotion/react"
 
@@ -7,23 +8,20 @@ let yellow = new Helpers('yellow')
 
 const PageFooter = props => {
 	return(
-		<section
-			css={css`
-				background-color: rgb(${yellow.defaultColors()});
-				font-size: 5vw;
-				font-weight: 400;
-				height: 100vh;
-				line-height: 5vh;
-				padding-top: 100px;
-				position: relative;
-				z-index: 1;
-				@media (min-width: 1920px) {
-					padding-top: 150px;
-				}
-			`}
-			id={props.input.primary.section_id}
-		>
-			<div
+		<section id={props.input.primary.section_id}>
+			<Div100vh
+				css={css`
+					background-color: rgb(${yellow.defaultColors()});
+					font-size: 5vw;
+					font-weight: 400;
+					line-height: 5vh;
+					padding-top: 100px;
+					position: relative;
+					z-index: 1;
+					@media (min-width: 1920px) {
+						padding-top: 150px;
+					}
+				`}
 			>
 				<div
 					css={css`
@@ -97,25 +95,24 @@ const PageFooter = props => {
 					`}
 					dangerouslySetInnerHTML={{ __html: props.input.primary.page_footer_body.html }}
 				/>
-			</div>
-			<div
-				css={css`
-					background-color: rgb(${black.defaultColors()});
-					bottom: 0;
-					height: 175px;
-					position: absolute;
-					width: 100%;
-					@media (min-width: 768px) {
-						height: 95px;
-					}
-					@media (min-width: 1024px) {
-						height: 80px;
-					}
-					@media (min-width: 1024px) {
-						height: 18vh;
-					}
-				`}
-			>
+				<div
+					css={css`
+						background-color: rgb(${black.defaultColors()});
+						bottom: 0;
+						height: 175px;
+						position: absolute;
+						width: 100%;
+						@media (min-width: 768px) {
+							height: 95px;
+						}
+						@media (min-width: 1024px) {
+							height: 80px;
+						}
+						@media (min-width: 1024px) {
+							height: 18vh;
+						}
+					`}
+				>
 				<div css={css`
 					margin: 0 auto;
 					max-width: 1440px;
@@ -143,7 +140,8 @@ const PageFooter = props => {
 						<span css={css`color: rgb(${yellow.defaultColors()});`}>{`//`}</span>Omne Trium Perfectum
 					</p>
 				</div>
-			</div>
+				</div>
+			</Div100vh>
 		</section>
 	)
 }
