@@ -57,6 +57,7 @@ const Body = props => {
 					margin: 0 auto;
 					max-width: 1440px;
 					padding-top: 100px;
+					text-transform: normal;
 					@media (min-width: 1024px) {
 						padding: 100px 2rem 0;
 						padding-top: 100px;
@@ -69,11 +70,11 @@ const Body = props => {
 						font-size: 4vw;
 						font-style: italic;
 						font-weight: 300;
-						margin-top: 0;
+						margin-top: 0 !important;
 						text-transform: none;
 						@media (min-width: 1024px) {
-							font-size: 1.25rem;
-							line-height: 1.25rem;
+							font-size: 1.25rem !important;
+							line-height: 1.25rem !important;
 						}
 						@media (min-width: 1920px) {
 							font-size: 2rem;
@@ -97,7 +98,6 @@ const Body = props => {
 			<div
 				className={classBuilder()}
 				css={css`
-					font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 					font-weight: 600;
 					margin: 0 auto;
 					max-width: 1440px;
@@ -161,11 +161,11 @@ const Body = props => {
 					}
 					h2 {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
-						font-family: 'Axis', Helvetica, Arial, sans-seriff;
+						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 						letter-spacing: 0;
 						margin: 4% 0 2%;
 						text-transform: uppercase;
-						@media (min-width: 1440px) and (min-height: 821px) {
+						@media (min-width: 1440px) {
 							font-size: 2.25rem;
 							line-height: 2.938rem;
 						}
@@ -191,6 +191,7 @@ const Body = props => {
 					}
 					p {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
+						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 						font-size: 3.6vw;
 						line-height: 2.8vh;
 						margin-bottom: 2vh;
@@ -201,10 +202,6 @@ const Body = props => {
 						@media (min-width: 1024px) {
 							font-size: 1.44rem;
 							line-height: 2.48rem;
-						}
-						@media (min-width: 1440px) {
-							font-size: 1.688rem;
-							line-height: 2.025rem;
 						}
 						.Indent {
 							margin-left: 2%;
@@ -231,7 +228,10 @@ const Body = props => {
 								font-size: 2.25rem;
 								line-height: 2.938rem;
 							}
-
+							@media (min-width: 1440px) {
+								font-size: 1.55rem;
+								line-height: 2.338rem;
+							}
 							strong,
 							b {
 								color: #FFDC32;
