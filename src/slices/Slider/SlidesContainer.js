@@ -302,12 +302,7 @@ const SlidesContainer = props => {
 					`}
 					id="slide-0"
 				>
-					<div
-						css={css`
-							flex: 0 0 100%;
-							transform: translateY(-5%);
-						`}
-					>
+					<div css={css`flex: 0 0 100%;`}>
 						<div 
 							css={css`
 								padding: 0 3rem;
