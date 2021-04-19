@@ -62,6 +62,7 @@ const SlidesContainer = props => {
 						animation: cycleinLeft 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
+						z-index: 111;
 					}
 				
 					.inactive {
@@ -76,6 +77,7 @@ const SlidesContainer = props => {
 						animation: cycleinRight 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
 						opacity: 1;
 						transform: translateX(0);
+						z-index: 111;
 					}
 				
 					.inactive {
