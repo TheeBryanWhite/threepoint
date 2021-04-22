@@ -25,39 +25,39 @@ const heroReveal = css`
 	&.reveal {
 		&:after {
 			animation: fadeOut 0.5s linear forwards;
-			animation-delay: 8s;
+			animation-delay: 5s;
 		}
 
 		video {
 			animation: partialFade 0.5s linear forwards;
-			animation-delay: 8s;
+			animation-delay: 6.5s;
 		}
 		
 		#slide-1 {
 			h1 {
 				animation: foldOut 0.5s forwards;
-				animation-delay: 1.5s;
+				animation-delay: .75s;
 
 				&:after {
-					animation: glowFade 0.7s forwards;
+					animation: glowFade 0.3s forwards;
 				}
 			}
 		}
 
 		#slide-2 {
 			animation: fadeOut 0.5s linear forwards;
-			animation-delay: 8s;
+			animation-delay: 6s;
 		}
 
 		.bubbles path {
 			animation: fillIn 4s cubic-bezier(${inOutQuart.ease()}) forwards;
-			animation-delay: 2s;
+			animation-delay: 1s;
 		}
 
 		#slide-3 .logo-container {
 			animation-name: fadeIn, zoom;
 			animation-duration: 2s, 10s;
-			animation-delay: 8s, 8s;
+			animation-delay: 6.5s, 6.5s;
 			animation-timing-function: linear, cubic-bezier(${outQuart.ease()});
 			animation-fill-mode: forwards, forwards;
 		}
@@ -212,7 +212,7 @@ const Container = styled.div`
 
 	#sm-bubbleswhite path,
 	#lg-bubbleswhite path {
-		animation-delay: 2s;
+		animation-delay: 1s;
 		transform: scale(0);
 		transform-origin: 50% 50%;
 		transform-box: fill-box;
@@ -296,11 +296,6 @@ const Video = styled.video`
 
 const Hero = props => {
 	const compoData = props.input
-
-	useEffect(() => {
-		const theVideo = document.getElementById('hero-video')
-		theVideo.playbackRate = 0.5
-	}, [])
 
 	return (
 		<section

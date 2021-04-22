@@ -12,7 +12,7 @@ const Typer = () => {
 			}, 100)
 		}
 		else if (typeof fnCallback == 'function') {
-			setTimeout(fnCallback, 700)
+			setTimeout(fnCallback, 350)
 		}
 	}
 	const StartTextAnimation = index => {
