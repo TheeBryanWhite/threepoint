@@ -42,9 +42,6 @@ const Team = props => {
 					css={css`
 						margin: 0 auto;
 						max-width: 1440px;
-						@media (min-width: 1920px) {
-							margin-top: 150px;
-						}
 					`}
 				>
 					<div 

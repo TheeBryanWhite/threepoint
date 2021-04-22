@@ -39,7 +39,6 @@ const TimedSlideImage = styled.div`
 	}
 	@media (min-width: 1920px) {
 		bottom: auto;
-		padding: 0;
 		top: 35vh;
 	}
 

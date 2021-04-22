@@ -66,7 +66,7 @@ const Body = props => {
 						padding-top: 150px;
 					}
 					h2 {
-						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+						font-family: 'Core Sans', Helvetica, Arial, sans-seriff !important;
 						font-size: 4vw;
 						font-style: italic;
 						font-weight: 300;
@@ -104,9 +104,6 @@ const Body = props => {
 					opacity: 0;
 					pointer-events: none;
 					z-index: 1;
-					@media (min-width: 1920px) {
-						margin-top: 5vh;
-					}
 					
 					h1 {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
@@ -161,7 +158,7 @@ const Body = props => {
 					}
 					h2 {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
-						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+						font-family: 'Axis',Helvetica,Arial,sans-seriff;
 						letter-spacing: 0;
 						margin: 4% 0 2%;
 						text-transform: uppercase;
