@@ -19,9 +19,6 @@ const TweenerEl = styled.section`
 	@media (min-width: 768px) {
 		font-size: 5.3vw;
 	}
-	@media (min-width: 1024px) {
-		color: rgb(${yellow.defaultColors()});
-	}
 	@media (min-width: 1440px) {
 		font-size: 5.436rem;
 		line-height: 1.864rem;

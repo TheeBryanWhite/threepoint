@@ -107,8 +107,8 @@ const TimedSlider = props => {
 					<div 
 						css={css`
 							padding: 100px 2rem 0;
-							@media (min-width: 1440px) and (min-height: 821px) {
-								padding: 150px 2rem 0;
+							@media (min-width: 1920px) {
+								padding-top: 150px;
 							}
 						`}
 						className="timed-slider-header"
