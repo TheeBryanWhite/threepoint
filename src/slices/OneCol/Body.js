@@ -109,12 +109,12 @@ const Body = props => {
 						color: ${blackOrWhite(props.compoData.one_col_background_color)};
 						font-family: 'Axis', Helvetica, Arial, sans-seriff;
 						font-size: 9vw;
-						line-height: 5vh;
+						// line-height: 5vh;
 						margin: 0;
 						position: relative;
 						@media (min-width: 1024px) {
-							font-size: 11vw;
-							line-height: 3vh;
+							font-size: 8.6rem;
+							line-height: 7rem;
 						}
 						@media (min-width: 1440px) {
 							font-size: 9.323rem;
@@ -134,8 +134,8 @@ const Body = props => {
 								transform: translateY(-17px);
 							}
 							@media (min-width: 1024px) {
-								line-height: 2.1rem;
-								transform: translateY(-41px);
+								line-height: 3.8rem;
+								transform: translateY(-10px);
 							}
 							@media (min-width: 1440px) {
 								font-size: 4.688rem;

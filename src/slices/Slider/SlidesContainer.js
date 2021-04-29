@@ -420,6 +420,7 @@ const SlidesContainer = props => {
 														animation: teaserOut 0.3s cubic-bezier(.5,.64,.61,.93) forwards;
 														color: #000000;
 														display: none;
+														height 100%;
 														opacity: 0;
 														padding: 4% 5%;
 														position: absolute;
