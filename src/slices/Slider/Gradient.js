@@ -17,30 +17,28 @@ const Gradient = props => {
 				css`
 					background: radial-gradient(at bottom left, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%),
               		            radial-gradient(at top right, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 60%);
-					height: 100vh;
+					min-height: 150vh;
+					position: relative;
 				`
 			}
 		>
-			<div 
+			<div
 				css={css`
+					display: flex;
 					flex: 1;
+					flex-direction: column;
 					height: 100vh;
-					margin: 0 auto;
-					max-width: 1440px;
-					position: relative;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 100%;
 				`}
-				id="factor-this"
 			>
 				<div 
 					className="slides-header"
 					css={css`
-						padding-top: 100px;
-						position: absolute;
-						top: 0;
+						flex: 0 0 20px;
 						z-index: 1;
-						@media (min-width: 1920px) {
-							padding-top: 150px;
-						}
 					`}
 					id="slide-header"
 				>
@@ -63,7 +61,12 @@ const Gradient = props => {
 						<span css={css`color: #FFDC32;`}>&#x2F;&#x2F;</span>What we do
 					</h2>
 				</div>
-				<div css={css`position: relative`}>
+				<div 
+					css={css`
+						flex: 1 1 auto;
+						position: relative
+					`}
+				>
 					<SlidesContainer 
 						activeWork={props.activeWork}
 						inactiveWork={props.inactiveWork} 

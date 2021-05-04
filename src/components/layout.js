@@ -8,16 +8,8 @@ import Footer from "./Footer"
 import Nav from './Navigation'
 import "./layout.css"
 
-const scrollSnapContainer = css`
+const scrollContainer = css`
   height: 100vh;
-  overflow: scroll;
-  scroll-snap-type: y mandatory;  
-
-  section,
-  #how-we-do-it {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
 `
 
 const Layout = (props) => {
@@ -46,7 +38,7 @@ const Layout = (props) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Nav navData={data.allPrismicMenu.nodes[0].data} />
-      <main css={scrollSnapContainer}>{props.children}</main>
+      <main css={scrollContainer}>{props.children}</main>
       <Footer siteTitle={data.site.siteMetadata?.title || `Title`} />
     </>
   )

@@ -39,7 +39,6 @@ const OneCol = props => {
 	}
 
 	useEffect(() => {
-		const main = document.getElementsByTagName('main')
 		const target = document.querySelectorAll('.mask-this')
 		const clipMask = () => {
 			[...target].forEach(element => {
@@ -66,7 +65,7 @@ const OneCol = props => {
 			}
 			, false)
 			window.addEventListener('resize', clipMask, false)
-			main[0].addEventListener('scroll', clipMask, false)
+			window.addEventListener('scroll', clipMask, false)
 		}
 	}, [])
 

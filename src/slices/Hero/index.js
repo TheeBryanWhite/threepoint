@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Div100vh from 'react-div-100vh'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'

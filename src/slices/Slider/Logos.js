@@ -27,90 +27,29 @@ const Logos = props => {
 		position: absolute;
 		top: 0;
 		width: 100%;
-		z-index: 1;
-		@media (min-width: 768px) {
+		@media (min-width: 1024px) {
 			display: block;
 		}
-		#logo-1 {
-			.gatsby-image-wrapper {
-				height: auto;
-				left: 60%;
-				top: 15%;
-				width: 25%;
-				@media (min-width: 1024px) {
-					left: 70%;
-					top: 25%;
-					width: 20%;
-				}
-				@media (min-width: 1280px) {
-					left: 75%;
-				}
-			}
+		.slide {
+			height: 100vh;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+
 		}
-		#logo-2 {
-			.gatsby-image-wrapper {
-				height: auto;
-				left: 60%;
-				top: 15%;
-				width: 30%;
-				@media (min-width: 1024px) {
-					left: 75%;
-					top: 25%;
-					width: 20%;
-				}
-				@media (min-width: 1920px) {
-					left: 80%;
-				}
-			}
-		}
-		#logo-3 {
-			.gatsby-image-wrapper {
-				height: auto;
-				left: 76%;
-				width: 15%;
-				@media (min-width: 768px) {
-					left: 72%;
-					top: 15%;			
-				}
-				@media (min-width: 1024px) {
-					left: 76%;
-					top: 25%;
-				}
-				@media (min-width: 1440px) {		
-					left: 76%;
-					top: 25%;
-				}
-				@media (min-width: 1920px) {		
-					left: 80%;
-					top: 25%;
-				}
-			}
-		}
-		#logo-4 {
-			.gatsby-image-wrapper {
-				height: auto;
-				left: 70%;
-				top: 25%;
-				width: 15%;
-			}
+		.gatsby-image-wrapper {
+			position: absolute !important;
+			right: 10%;
+			top: 65%;
+			transform: translateY(-50%);
+			width: 15%;
 		}
 	`
 	
 	return(
 		<LogoEl
 			css={css`
-				position: absolute;
-				top: 0;
-				width: 100%;
-				.slide {
-					align-items: center;
-					display: flex;
-					height: 100vh;
-					opacity: 0;
-					position: absolute;
-					top: 0;
-					width: 100%;
-				}
 				.active {
 					animation: logofadein 1s linear forwards;
 					animation-delay: 1s;
@@ -133,7 +72,6 @@ const Logos = props => {
 			<div
 				className="logo-images-container"
 				css={css`
-					height: 100vh;
 					position: relative;
 					width: 100%;
 				`}

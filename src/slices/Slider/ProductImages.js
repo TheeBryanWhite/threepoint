@@ -1,107 +1,10 @@
 import React from 'preact'
 import { connect } from 'react-redux'
 import Img from 'gatsby-image'
-import styled from "@emotion/styled"
 import { css } from '@emotion/react'
 import Helpers from '../../utils/Helpers'
 
 let inOutQuart = new Helpers('in-out-quart')
-
-const ProductImageEl = styled.div`
-	#productimg-1 {
-		.gatsby-image-wrapper {
-			height: auto;
-			left: 10%;
-			position: absolute;
-			top: -20%;
-			width: 100%;
-			@media (min-width: 768px) {
-				top: -10%;
-			}
-			@media (min-width: 1024px) {
-				left: 43%;
-				top: 0;
-				width: 70%;
-			}
-			@media (min-width: 1440px) {
-				left: 40%;
-			}
-		}
-		@media (min-width: 1280px) {
-			width: 100%;
-		}
-	}
-
-	#productimg-2 {
-		.gatsby-image-wrapper {
-			height: auto;
-			margin: 10%;
-			top: -16%;
-			width: 100%;
-			@media (min-width: 768px) {
-				top: -10%;
-			}
-			@media (min-width: 1024px) {
-				left: 43%;
-				margin: 0;
-				top: 0;
-				width: 50%;
-			}
-			@media (min-width: 1440px) {
-				width: 50%;
-			}
-		}
-	}
-
-	#productimg-3 {
-		.gatsby-image-wrapper {
-			height: auto;
-			margin: 0 29%;
-			top: -25%;
-			width: 100%;
-			@media (min-width: 768px) {
-				margin: 0px 19%;
-				top: -12%;
-			}
-			@media (min-width: 1024px) {
-				height: auto;
-				left: 45%;
-				margin: 0;
-				top: 0;
-				width: 35%;
-			}
-			@media (min-width: 1920px) {
-				left: 39%;
-				width: 45%
-			}
-		}
-	}
-
-	#productimg-4 {
-		.gatsby-image-wrapper {
-			left: 50%;
-			top: -20%;
-			transform: translateX(-50%);
-			width: 120%;
-			@media (min-width: 768px) {
-				object-fit: cover;
-				top: -10%;
-				width: 100%;
-			}
-			@media (min-width: 1024px) {
-				left: 70%;
-				top: 0;
-				width: 70%;
-			}
-			@media (min-width: 1920px) {
-				left: 60%;
-			}
-		}
-		@media (min-width: 1440px) {
-			width: 100vw;
-		}
-	}
-`
 
 const ProductImages = props => {
 	const classBuilder = index => {
@@ -121,21 +24,82 @@ const ProductImages = props => {
 	}
 	
 	return(
-		<ProductImageEl
+		<div
 			className={props.slideDirection}
 			css={css`
 				position: absolute;
-				top: 0;
+				top: -45px;
 				width: 100%;
-				.slide {
-					align-items: center;
-					display: flex;
-					height: 100vh;
-					opacity: 0;
+				#productimg-1 {
 					position: absolute;
 					top: 0;
-					transform: translateX(-150%);
+					@media (min-width: 1024px) {
+						height: 100vh;
+					}
+					.gatsby-image-wrapper {
+						left: 13%;
+						@media (min-width: 1024px) {
+							left: 50%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 50%;
+						}
+					}
 				}
+			
+				#productimg-2 {
+					padding: 15%;
+					position: absolute;
+					top: 0;
+					@media (min-width: 1024px) {
+						height: 100vh;
+					}
+					@media (min-width: 1024px) {
+						.gatsby-image-wrapper {
+							left: 50%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 50%;
+						}
+					}
+				}
+			
+				#productimg-3 {
+					padding: 30%;
+					position: absolute;
+					top: 0;
+					@media (min-width: 768px) {
+						padding: 20%;
+					}
+					@media (min-width: 1024px) {
+						height: 100vh;
+					}
+					.gatsby-image-wrapper {
+						top: -130px;
+						@media (min-width: 768px) {
+							top: -210px;
+						}
+						@media (min-width: 1024px) {
+							left: 50%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 50%;
+						}
+					}
+				}
+			
+				@media (min-width: 1024px) {
+					#productimg-4 {
+						height: 100vh;
+						.gatsby-image-wrapper {
+							left: 45%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 50%;
+						}
+					}
+				}
+
 				&.null,
 				&.next {
 					.active {
@@ -235,7 +199,6 @@ const ProductImages = props => {
 			<div
 				className="product-images-container"
 				css={css`
-					height: 100vh;
 					position: relative;
 				`}
 			>
@@ -264,7 +227,7 @@ const ProductImages = props => {
 					})
 				}
 			</div>
-		</ProductImageEl>
+		</div>
 	)
 }
 

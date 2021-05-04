@@ -22,7 +22,6 @@ const Slider = props => {
 			className={workSlides()}
 			css={css`
 				color: rgb(${white.defaultColors()});
-				height: 100vh;
 				overflow: hidden;
 				position: relative;
 				transition: all 0.5s linear;

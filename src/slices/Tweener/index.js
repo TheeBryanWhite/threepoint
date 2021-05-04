@@ -63,7 +63,6 @@ const Tweener = props => {
 	const compoData = props.input
 
 	useEffect(() => {
-		const main = document.getElementsByTagName('main')
 		const tweener = document.getElementById(compoData.id)
 		const targetChild = tweener.querySelector('.container')
 		const docHeight = document.body.clientHeight
@@ -98,7 +97,7 @@ const Tweener = props => {
 		if (typeof window !== 'undefined') {
 			window.addEventListener('load', scrollIn, false)
 			window.addEventListener('resize', scrollIn, false)
-			main[0].addEventListener('scroll', scrollIn, false)
+			window.addEventListener('scroll', scrollIn, false)
 		}
 	}, [compoData.id])
 
