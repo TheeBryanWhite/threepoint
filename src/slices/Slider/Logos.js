@@ -31,7 +31,7 @@ const Logos = props => {
 			display: block;
 		}
 		.slide {
-			height: 100vh;
+			height: 100%;
 			opacity: 0;
 			position: absolute;
 			top: 0;
@@ -41,15 +41,19 @@ const Logos = props => {
 		.gatsby-image-wrapper {
 			position: absolute !important;
 			right: 10%;
-			top: 65%;
+			top: 75%;
 			transform: translateY(-50%);
 			width: 15%;
+			@media (min-width: 1440px) {
+				right: 5%;
+			}
 		}
 	`
 	
 	return(
 		<LogoEl
 			css={css`
+				height: 100%;
 				.active {
 					animation: logofadein 1s linear forwards;
 					animation-delay: 1s;
@@ -72,6 +76,7 @@ const Logos = props => {
 			<div
 				className="logo-images-container"
 				css={css`
+					height: 100%;
 					position: relative;
 					width: 100%;
 				`}

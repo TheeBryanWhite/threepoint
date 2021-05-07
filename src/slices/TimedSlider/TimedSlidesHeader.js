@@ -23,6 +23,9 @@ const TimedSlidesHeader = props => {
 			className="page-slide-headers"
 			css={css`
 				position: relative;
+				#timed-slide-0 .Highlight {
+					color: #F7931E;
+				}
 			`}
 		>
 			{
@@ -65,12 +68,13 @@ const TimedSlidesHeader = props => {
 
 								.Superscript {
 									display: inline-block;
-									margin-left: -10px;
-									transform: translateY(-18px);
+									margin-left: -5px;
+									transform: translateY(-10px);
 									font-size: 10px;
 								}
 							`}
 							dangerouslySetInnerHTML={{ __html: slide.timed_slider_page_header.html }} 
+							id={`timed-slide-${index}`}
 							key={index}
 						/>
 					)

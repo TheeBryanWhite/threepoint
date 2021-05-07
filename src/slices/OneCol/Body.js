@@ -71,6 +71,7 @@ const Body = props => {
 						font-style: italic;
 						font-weight: 300;
 						margin-top: 0 !important;
+						padding: 0 2rem;
 						text-transform: none;
 						@media (min-width: 1024px) {
 							font-size: 1.25rem !important;

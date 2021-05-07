@@ -27,19 +27,29 @@ const ProductImages = props => {
 		<div
 			className={props.slideDirection}
 			css={css`
+				height: 100%;
 				position: absolute;
-				top: -45px;
+				top: 0;
 				width: 100%;
-				#productimg-1 {
+				@media (min-width: 1024px) {
+					top: 0;
+				}
+				.slide {
+					height: 100%;
 					position: absolute;
 					top: 0;
-					@media (min-width: 1024px) {
-						height: 100vh;
-					}
+				}
+				#productimg-1 {
 					.gatsby-image-wrapper {
 						left: 13%;
+						top: 15%;
+						@media (min-width: 768px){
+							top: 10%;
+						}
 						@media (min-width: 1024px) {
-							left: 50%;
+							left: auto;
+							right: 0;
+							position: absolute !important;
 							top: 50%;
 							transform: translateY(-50%);
 							width: 50%;
@@ -49,49 +59,60 @@ const ProductImages = props => {
 			
 				#productimg-2 {
 					padding: 15%;
-					position: absolute;
-					top: 0;
+					top: 10%;
+					@media (min-width: 768px){
+						top: 5%;
+					}
 					@media (min-width: 1024px) {
-						height: 100vh;
+						height: 100%;
+						padding: 0;
+						top: 0;
 					}
 					@media (min-width: 1024px) {
 						.gatsby-image-wrapper {
-							left: 50%;
+							left: auto;
+							right: 3rem;;
+							position: absolute !important;
 							top: 50%;
 							transform: translateY(-50%);
-							width: 50%;
+							width: 40%;
 						}
 					}
 				}
 			
 				#productimg-3 {
-					padding: 30%;
-					position: absolute;
-					top: 0;
+					padding: 25%;
 					@media (min-width: 768px) {
 						padding: 20%;
 					}
 					@media (min-width: 1024px) {
-						height: 100vh;
+						height: 100%;
+						padding: 15%;
 					}
 					.gatsby-image-wrapper {
-						top: -130px;
-						@media (min-width: 768px) {
-							top: -210px;
+						@media (min-width: 768px){
+							top: -10%;
 						}
 						@media (min-width: 1024px) {
-							left: 50%;
+							position: absolute !important;
+							right: 15%;
 							top: 50%;
 							transform: translateY(-50%);
-							width: 50%;
+							width: 30%;
 						}
 					}
 				}
 			
-				@media (min-width: 1024px) {
-					#productimg-4 {
-						height: 100vh;
-						.gatsby-image-wrapper {
+				#productimg-4 {
+					@media (min-width: 1024px) {
+						height: 100%;
+					}
+					.gatsby-image-wrapper {
+						top: 20%;
+						@media (min-width: 768px){
+							top: 10%;
+						}
+						@media (min-width: 1024px) {
 							left: 45%;
 							top: 50%;
 							transform: translateY(-50%);
@@ -199,6 +220,7 @@ const ProductImages = props => {
 			<div
 				className="product-images-container"
 				css={css`
+					height: 100%;
 					position: relative;
 				`}
 			>

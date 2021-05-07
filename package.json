@@ -26,6 +26,7 @@
     "gatsby-source-prismic": "^3.3.2",
     "gatsby-source-prismic-graphql": "^3.6.2",
     "gatsby-transformer-sharp": "^2.6.0",
+    "global": "^4.4.0",
     "lodash.throttle": "^4.1.1",
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",

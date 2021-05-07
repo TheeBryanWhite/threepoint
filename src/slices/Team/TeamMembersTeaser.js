@@ -49,7 +49,7 @@ const TeamMembersTeaser = props => {
 				flex: 0 0 100%;
 				flex-wrap: wrap;
 				margin-top: 5%;
-				transform: translateX(120%);
+				transform: translateX(150%);
 				@media (min-width: 768px) {
 					flex-wrap: nowrap;
 				}
@@ -66,13 +66,13 @@ const TeamMembersTeaser = props => {
 				&.inactive {
 					animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
 					opacity: 0;
-					transform: translateX(120%);
+					transform: translateX(150%);
 				}
 			
 				@keyframes cyclein {
 					0% {
 						opacity: 0;
-						transform: translate(120%);
+						transform: translate(150%);
 					}
 				
 					100% {
@@ -89,12 +89,12 @@ const TeamMembersTeaser = props => {
 				
 					50% {
 						opacity: 0;
-						transform: translate(-120%);
+						transform: translate(-150%);
 					}
 				
 					100% {
 						opacity: 0;
-						transform: translate(120%);
+						transform: translate(150%);
 					}
 				}
 			`}

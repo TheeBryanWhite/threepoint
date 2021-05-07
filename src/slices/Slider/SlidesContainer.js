@@ -153,8 +153,15 @@ const SlidesContainer = props => {
 			<div
 				css={css`
 					height: 100%;
-					position: relative;
-					#slide-0 {		
+					.slide {
+						display: flex;
+						align-items: center;
+						height: 100vh;
+					}
+					#slide-0 {	
+						.slide-inner {
+							width: 100%;
+						}	
 						p {
 							font-family: 'Axis', Helvetica, Arial, sans-seriff;
 							font-size: 3vw;
@@ -179,45 +186,20 @@ const SlidesContainer = props => {
 						}
 					}
 
-					#slide-1 {
-						bottom: 100px;
-						@media (min-width: 1024px) {
-							bottom: auto;
-							top: 20%;
-							.slide-inner {
-								width: 50%;
+					#slide-1,
+					#slide-2,
+					#slide-3,
+					#slide-4, {
+						.slide-inner {
+							bottom: 15%;
+							position: absolute;
+							@media (min-width: 768px){
+								bottom: 10%;
 							}
-						}
-					}
-
-					#slide-2 {
-						bottom: 100px;
-						@media (min-width: 1024px) {
-							bottom: auto;
-							top: 20%;
-							.slide-inner {
-								width: 50%;
-							}
-						}
-					}
-
-					#slide-3 {
-						bottom: 100px;
-						@media (min-width: 1024px) {
-							bottom: auto;
-							top: 20%;
-							.slide-inner {
-								width: 50%;
-							}
-						}
-					}
-
-					#slide-4 {
-						bottom: 100px;
-						@media (min-width: 1024px) {
-							bottom: auto;
-							top: 20%;
-							.slide-inner {
+							@media (min-width: 1024px) {
+								bottom: auto;
+								top: 50%;
+								transform: translateY(-50%);
 								width: 50%;
 							}
 						}
@@ -232,200 +214,229 @@ const SlidesContainer = props => {
 					`}
 					id="slide-0"
 				>
-					<div>
+					<div className="slide-inner">
 						<div 
+							className="slides-header"
 							css={css`
-								padding: 0 3rem;
-								@media (min-width: 768px) {
-									margin-bottom: 5vh;
-								}
-							`} 
-							dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
-						/>
-
-						<div
-							css={css`
-								align-items: stretch;
-								display: grid;
-								grid-template-columns: 1fr 1fr;
-								grid-template-rows: 1fr 1fr;
-								gap: 0px 0px;
-								grid-template-areas:
-									". ."
-									". .";
-								margin: 0 auto;
-								max-height: 70%;
-								max-width: 70%;
-								@media (min-width: 1024px) {
-									grid-template-columns: 20% 20% 20% 20% 20%;
-									grid-template-rows: 50% 50%;
-									max-width: 100%;
-									padding: 0 3rem;
-								}
-								@media (min-width: 1440px) and (min-height: 821px) {
-									max-height: none;
-									max-width: none;
-								}
+								flex: 0 0 20px;
+								z-index: 1;
 							`}
+							id="slide-header"
 						>
-							{
-								props.slidesData.items.map((slide, index) => {
-									return(
-										<div
-											css={css`
-												background-color: #ffffff;
-												overflow: hidden;
-												position: relative;
-												@media (min-width: 1024px) {
-													grid-column: span 2;
-													grid-row: span 2;
-												}
-											
-												&:nth-of-type(1) {
-													background-color: #0A7DF3;
-												}
-											
-												&:nth-of-type(3) {
-													background-color: #009D57;
-												}
-												
-												@media (min-width: 1024px) {
-													&:nth-of-type(3),
-													&:nth-of-type(4) {
-														grid-column: span 1;
-														grid-row: span 1;
-													}
-												}
-											
-												&:hover {
-													.slide-coverer {
-														animation: covererIn 0.4s cubic-bezier(.61,.1,.56,1.49) forwards;
-													}
-													.client-teaser {
-														animation: teaserIn 0.2s cubic-bezier(.5,.64,.61,.93) forwards;
-														animation-delay: 0.3s;
-													}
-												}
-												@keyframes covererIn {
-													0% {
-														opacity: 0;
-														transform: scale(0);
-													}
-													100% {
-														opacity: 1;
-														transform: scale(0.95);
-													}
-												}
-												@keyframes teaserIn {
-													0% {
-														opacity: 0;
-														transform: translateY(-100%);
-													}
-													100% {
-														opacity: 1;
-														transform: translateY(0);
-													}
-												}
-											`}
-											key={index}
-										>
-											<button
+							<h2
+								css={css`
+									font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+									font-size: 3.5vw;
+									font-style: italic;
+									font-weight: 400;
+									line-height: 3vh;
+									padding: 0 2rem;
+									text-transform: capitalize;
+									@media (min-width: 768px) {
+										font-size: 1.25rem;
+										line-height: 1.45rem;
+										padding: 0 2rem;
+									}
+								`}
+							>
+								<span css={css`color: #FFDC32;`}>&#x2F;&#x2F;</span>What we do
+							</h2>
+						</div>
+						<div>
+							<div 
+								css={css`
+									padding: 0 3rem;
+									@media (min-width: 768px) {
+										margin-bottom: 5vh;
+									}
+								`} 
+								dangerouslySetInnerHTML={{ __html: props.slidesData.primary.our_work_body.html }}
+							/>
+
+							<div
+								css={css`
+									align-items: stretch;
+									display: grid;
+									grid-template-columns: 1fr 1fr;
+									grid-template-rows: 1fr 1fr;
+									gap: 0px 0px;
+									grid-template-areas:
+										". ."
+										". .";
+									margin: 0 auto;
+									max-height: 70%;
+									max-width: 70%;
+									@media (min-width: 1024px) {
+										grid-template-columns: 20% 20% 20% 20% 20%;
+										grid-template-rows: 50% 50%;
+										max-width: 100%;
+										padding: 0 3rem;
+									}
+									@media (min-width: 1440px) and (min-height: 821px) {
+										max-height: none;
+										max-width: none;
+									}
+								`}
+							>
+								{
+									props.slidesData.items.map((slide, index) => {
+										return(
+											<div
 												css={css`
-													background: transparent;
-													border: 0;
-													cursor: pointer;
-													display: block;
-													height: 100%;
-													padding: 0;
+													background-color: #ffffff;
+													overflow: hidden;
 													position: relative;
-													width: 100%;
+													@media (min-width: 1024px) {
+														grid-column: span 2;
+														grid-row: span 2;
+													}
+												
+													&:nth-of-type(1) {
+														background-color: #0A7DF3;
+													}
+												
+													&:nth-of-type(3) {
+														background-color: #009D57;
+													}
+													
+													@media (min-width: 1024px) {
+														&:nth-of-type(3),
+														&:nth-of-type(4) {
+															grid-column: span 1;
+															grid-row: span 1;
+														}
+													}
+												
+													&:hover {
+														.slide-coverer {
+															animation: covererIn 0.4s cubic-bezier(.61,.1,.56,1.49) forwards;
+														}
+														.client-teaser {
+															animation: teaserIn 0.2s cubic-bezier(.5,.64,.61,.93) forwards;
+															animation-delay: 0.3s;
+														}
+													}
+													@keyframes covererIn {
+														0% {
+															opacity: 0;
+															transform: scale(0);
+														}
+														100% {
+															opacity: 1;
+															transform: scale(0.95);
+														}
+													}
+													@keyframes teaserIn {
+														0% {
+															opacity: 0;
+															transform: translateY(-100%);
+														}
+														100% {
+															opacity: 1;
+															transform: translateY(0);
+														}
+													}
 												`}
-												onClick={() => {clickHandler(index + 1)}}
+												key={index}
 											>
-												<div
-													className="client-teaser"
+												<button
 													css={css`
-														animation: teaserOut 0.3s cubic-bezier(.5,.64,.61,.93) forwards;
-														color: #000000;
-														display: none;
-														height 100%;
-														opacity: 0;
-														padding: 4% 5%;
-														position: absolute;
-														text-align: left;
+														background: transparent;
+														border: 0;
+														cursor: pointer;
+														display: block;
+														height: 100%;
+														padding: 0;
+														position: relative;
 														width: 100%;
-														z-index: 3;
-														@media (min-width: 768px) {
-															display: block;
-														}
-														@keyframes teaserOut {
-															0% {
-																opacity: 1;
-																transform: translateY(0);
-															}
-															100% {
-																opacity: 0;
-																transform: translateY(-100%);
-															}
-														}
 													`}
+													onClick={() => {clickHandler(index + 1)}}
 												>
-													<div>
-														<p 
-															css={css`
-																font-size: 1rem !important;
-																font-style: italic;
-																line-height: 1.2rem !important;
-																margin-bottom: 0;
-															`}
-														>
-															<b css={css`font-weight: 700;`}>{index + 1}</b>/4
-														</p>
-													</div>
-													<div 
+													<div
+														className="client-teaser"
 														css={css`
-															h3 {
-																font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-																font-size: 1rem !important;	
+															animation: teaserOut 0.3s cubic-bezier(.5,.64,.61,.93) forwards;
+															color: #000000;
+															display: none;
+															height 100%;
+															opacity: 0;
+															padding: 4% 5%;
+															position: absolute;
+															text-align: left;
+															width: 100%;
+															z-index: 3;
+															@media (min-width: 768px) {
+																display: block;
+															}
+															@keyframes teaserOut {
+																0% {
+																	opacity: 1;
+																	transform: translateY(0);
+																}
+																100% {
+																	opacity: 0;
+																	transform: translateY(-100%);
+																}
 															}
 														`}
-														dangerouslySetInnerHTML={{__html: slide.client.html}}
+													>
+														<div>
+															<p 
+																css={css`
+																	font-size: 1rem !important;
+																	font-style: italic;
+																	line-height: 1.2rem !important;
+																	margin-bottom: 0;
+																`}
+															>
+																<b css={css`font-weight: 700;`}>{index + 1}</b>/4
+															</p>
+														</div>
+														<div 
+															css={css`
+																h3 {
+																	font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
+																	font-size: 1rem !important;	
+																}
+															`}
+															dangerouslySetInnerHTML={{__html: slide.client.html}}
+														/>
+													</div>
+													<div
+														className="slide-coverer"
+														css={css`
+															animation: covererOut 0.4s cubic-bezier(.5,.64,.61,.93) forwards;
+															animation-delay: 0.2s;
+															background-color: rgba(255, 255, 255, 0.5);
+															height: 100%;
+															opacity: 1;
+															position: absolute;
+															transform: scale(0.95);
+															width: 100%;
+															z-index: 2;
+															@keyframes covererOut {
+																0% {
+																	opacity: 0;
+																	transform: scale(0.95);
+																}
+																100% {
+																	opacity: 1;
+																	transform: scale(0);
+																}
+															}
+														`}
 													/>
-												</div>
-												<div
-													className="slide-coverer"
-													css={css`
-														animation: covererOut 0.4s cubic-bezier(.5,.64,.61,.93) forwards;
-														animation-delay: 0.2s;
-														background-color: rgba(255, 255, 255, 0.5);
-														height: 100%;
-														opacity: 1;
-														position: absolute;
-														transform: scale(0.95);
-														width: 100%;
-														z-index: 2;
-														@keyframes covererOut {
-															0% {
-																opacity: 0;
-																transform: scale(0.95);
-															}
-															100% {
-																opacity: 1;
-																transform: scale(0);
-															}
-														}
-													`}
-												/>
-												<Img
-													alt=""
-													css={css`z-index: 1;`}
-													fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
-												/>
-											</button>
-										</div>
-									)
-								})
-							}
+													<Img
+														alt=""
+														css={css`z-index: 1;`}
+														fluid={slide.our_work_teaser.localFile.childImageSharp.fluid}
+													/>
+												</button>
+											</div>
+										)
+									})
+								}
+							</div>
 						</div>
 					</div>
 				</div>

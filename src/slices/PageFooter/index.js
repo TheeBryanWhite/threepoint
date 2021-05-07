@@ -13,7 +13,7 @@ const PageFooter = props => {
 				css={css`
 					background-color: rgb(${yellow.defaultColors()});
 					font-size: 5vw;
-					font-weight: 400;
+					font-weight: 600;
 					line-height: 5vh;
 					padding-top: 100px;
 					position: relative;
@@ -32,7 +32,7 @@ const PageFooter = props => {
 						h2 {
 							font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
 							font-size: 4vw;
-							font-weight: 300;
+							font-weight: 400;
 							@media (min-width: 768px) {
 								font-size: 1.25rem;
 							}

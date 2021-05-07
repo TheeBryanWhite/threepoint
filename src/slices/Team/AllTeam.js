@@ -45,14 +45,14 @@ const AllTeam = props => {
 					css={css`
 						background-color: #000000;
 						font-family: 'Core Sans', Helvetica, Arial, sans-seriff;
-						left: 0;
+						overflow: scroll;
+						padding-bottom: 100px;
 						position: fixed;
 						top: 0;
-						transform: translateX(150%);
+						transform: translate(150%);
 						width: 100%;
-						z-index: 89;
+						z-index: 999;
 						@media (min-width: 1024px) {
-							background-color: transparent;
 							display: flex;
 							padding: 0 3rem;
 							position: absolute;
@@ -75,14 +75,14 @@ const AllTeam = props => {
 					
 						&.active {
 							animation: cyclein 0.6s cubic-bezier(${inOutQuart.ease()}) 1;
+							transform: translate(0);
 							opacity: 1;
-							transform: translateX(0);
 						}
 					
 						&.inactive {
 							animation: cycleout 1.2s cubic-bezier(${inOutQuart.ease()}) 1;
+							transform: translate(150%);
 							opacity: 0;
-							transform: translateX(150%);
 						}
 					
 						@keyframes cyclein {
@@ -121,21 +121,6 @@ const AllTeam = props => {
 						<div className="team-member-photo-inner">
 							<Img
 								alt={dude.team_member_photo.alt}
-								css={css`
-									height: 200px;
-									@media (min-width: 414px) {
-										height: 250px;
-									}
-									@media (min-width: 768px) {
-										height: 500px;
-									}
-									@media (min-width: 1024px) {
-										height: 425px;
-									}
-									@media (min-width: 1440px) and (min-height: 821px) {
-										height: auto;
-									}
-								`}
 								fluid={dude.team_member_photo.localFile.childImageSharp.fluid}
 							/>
 						</div>
@@ -191,12 +176,7 @@ const AllTeam = props => {
 							/>
 						</div>
 						<div css={css`
-							height: 27vh;
-							overflow-y: scroll;
 							padding: 0 1rem;
-							@media (min-width: 768px) {
-								overflow-y: visible;
-							}
 							a {
 								color: #fff;
 								font-size: 0.875rem;

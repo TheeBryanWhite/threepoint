@@ -21,7 +21,7 @@ const Footer = props => {
 		position: fixed;
 		bottom: -100%;
 		width: 100%;
-		z-index: 100;
+		z-index: 2;
 		@media (min-width: 1024px) {
 			padding-bottom: 25px;
 		}

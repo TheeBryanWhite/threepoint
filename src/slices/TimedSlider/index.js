@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import Div100vh from 'react-div-100vh'
 import { css } from "@emotion/react"
 import { connect } from 'react-redux'
 import { 
@@ -66,8 +65,11 @@ const TimedSlider = props => {
 	return(
 		<section
 			css={css`
+				align-items: center;
 				background-color: #000000;
 				color: #ffffff;
+				display: flex;
+				height: 120vh;
 				position: relative;
 				z-index: 1;
 
@@ -96,53 +98,54 @@ const TimedSlider = props => {
 			`}
 			id={props.input.primary.section_id}
 		>
-			<Div100vh>
-				<div
+			<div
+				css={css`
+					flex: 0 0 100%;
+					height: 100vh;
+					margin: 0 auto;
+					max-width: 1440px;
+					position: relative;
+				`}
+				>
+				<div 
 					css={css`
-						margin: 0 auto;
-						max-width: 1440px;
-						position: relative;
+						padding: 0 2rem;
+						position: absolute;
+						top: 11%;
+						width: 100%;
 					`}
-					>
-					<div 
-						css={css`
-							padding: 100px 2rem 0;
-							@media (min-width: 1920px) {
-								padding-top: 150px;
-							}
-						`}
-						className="timed-slider-header"
-					>
-						<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
-					</div>
-					<Div100vh
-						className="timed-slides"
-						css={css`
-							font-family: 'Axis', Helvetica, Arial, sans-seriff;
-							position: absolute;
-							top: 0;
-							width: 100%;
-						`}
-					>
-						<TimedSlidesHeader
-							activeSlide={props.activeSlide}
-							inactiveSlide={props.inactiveSlide}
-							slideData={props.input.items}
-						/>
-
-						<ThreePointTriangle
-							activeSlide={props.activeSlide}
-							inactiveSlide={props.inactiveSlide}
-						/>
-
-						<TimedSlidesBody
-							activeSlide={props.activeSlide}
-							inactiveSlide={props.inactiveSlide}
-							slideData={props.input.items}
-						/>
-					</Div100vh>
+					className="timed-slider-header"
+				>
+					<div dangerouslySetInnerHTML={{ __html: props.input.primary.timed_slider_title.html }} />
 				</div>
-			</Div100vh>
+				<div
+					className="timed-slides"
+					css={css`
+						font-family: 'Axis', Helvetica, Arial, sans-seriff;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						width: 100%;
+					`}
+				>
+					<TimedSlidesHeader
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+						slideData={props.input.items}
+					/>
+
+					<ThreePointTriangle
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+					/>
+
+					<TimedSlidesBody
+						activeSlide={props.activeSlide}
+						inactiveSlide={props.inactiveSlide}
+						slideData={props.input.items}
+					/>
+				</div>
+			</div>
 		</section>
 	)
 }

@@ -24,7 +24,7 @@ const Header = props => {
         position: fixed;
         top: -100%;
         width: 100%;
-        z-index: 100;
+        z-index: 2;
     
         svg {
           height: 43px;
